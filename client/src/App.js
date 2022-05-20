@@ -1,23 +1,39 @@
 import logo from './logo.svg';
 import './App.css';
+import Home from './views/Home';
+import React, {useState} from 'react'
+import {
+  BrowserRouter,
+  useHistory,
+  Route,
+  Link
+} from "react-router-dom";
+import Navbar from './components/navbar';
 
 function App() {
+  const [name, setName] = useState("")
+  const [submitted, setSubmitted] = useState(false)
+  const [text, setMessages] = useState(["Initial Story"])
+
+  const changeName = (n) => {
+    setName(n)
+  }
+
+  const changeSubmitted = () => {
+    setSubmitted(true)
+  }
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Navbar name = {name} submitted = {submitted}/>
+      
+      <Route exact path = "/">
+        <Home changeName = {changeName} name = {name} setSubmitted = {changeSubmitted} />
+      </Route>
+
+      <Route exact path = "/door">
+
+      </Route>
     </div>
   );
 }
