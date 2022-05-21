@@ -3,17 +3,17 @@ import { Link } from "react-router-dom";
 import "./Sidebar.css";
 
 function Sidebar(props) {
-const {sidebar, text} = props
+  const { sidebar, text } = props
 
-    return (
-      <nav className={sidebar ? "sidebar active" : "sidebar"}>
-       <ul>
+  return (
+    <nav className={sidebar ? "sidebar active" : "sidebar"}>
+      <ul>
 
-        {text.map((item, i) => <li>{item}</li>)}
-       </ul>
-       
-      </nav>
-    );
-  }
-  
-  export default Sidebar;
+        {text.map((item, i) => <li key={i}>{item}</li>)}
+      </ul>
+
+    </nav>
+  );
+}
+
+export default Sidebar;
