@@ -39,9 +39,10 @@ function App() {
   }
 
   return (
-    <div >
-      <Sidebar sidebar={sidebar} text={text} />
+    <>
       <Navbar name={name} submitted={submitted} />
+    <div className='needBackground'>
+      <Sidebar sidebar={sidebar} text={text} />
 
       <Route exact path="/">
         <Home changeName={changeName} name={name} setSubmitted={changeSubmitted} showSidebar={showSidebar} />
@@ -63,6 +64,7 @@ function App() {
         <LightsView sidebar={sidebar} text={text} name={name} submitted={submitted} solvedPuzzle1={solvedPuzzle1}/>
       </Route>
     </div>
+    </>
   );
 }
 
