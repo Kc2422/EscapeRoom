@@ -12,14 +12,14 @@ const LightsView = (props) => {
     }
 
     const onClickLeftHandler = (e) => {
-        history.push("/painting")
+        history.push("/paintings")
     }
 
     return(
         <div className="gameWindow position-relative">  
             <img className="gameBackground" src={require('../img/Wall.jpg')} alt="Lights Wall"/>
-            <img className="position-absolute top-50 start-0 translate-middle-y" src={require('../img/leftArrow.png')} alt='left arrow' onClick={onClickLeftHandler} />
-            <img className="position-absolute top-50 end-0 translate-middle-y" src={require('../img/rightArrow.png')} alt='right arrow' onClick={onClickRightHandler}/>
+            <img className="position-absolute top-50 start-0 translate-middle-y clickable" src={require('../img/leftArrow.png')} alt='left arrow' onClick={onClickLeftHandler} />
+            <img className="position-absolute top-50 end-0 translate-middle-y clickable" src={require('../img/rightArrow.png')} alt='right arrow' onClick={onClickRightHandler}/>
             <img className="rug position-absolute bottom-0 start-50 translate-middle-x" src={require('../img/rug.png')} alt="rug" />
             
         </div>
