@@ -1,0 +1,6 @@
+.backgroundCabinetClosed {
+    background-image: url('../img/DoorWithClosedCabinet.png');
+    border: 10px solid black;
+    /* width: 100%;
+    height:100%; */
+}
