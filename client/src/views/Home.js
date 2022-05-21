@@ -23,24 +23,23 @@ const Home = (props) => {
 
     useEffect(() => {
         props.showSidebar(false)
-    })
+    }, [])
 
     
 
 
     return(
         <div className={styles.nameForm}>
+            <form onSubmit={onSubmitHandler}>
+                
+                
+                <p>
+                    <label>Enter your name:</label><br/>
+                    <input type="text" name='name' onChange={ onChangeHandler } value = {props.name}/>
+                </p>
 
-        <form onSubmit={onSubmitHandler}>
-            
-            
-            <p>
-                <label>Enter your name:</label><br/>
-                <input type="text" name='name' onChange={ onChangeHandler } value = {props.name}/>
-            </p>
-
-            <input type="submit" className='btn btn-success'/>
-        </form>
+                <input type="submit" className='btn btn-success'/>
+            </form>
         </div>
     )
 }

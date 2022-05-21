@@ -15,10 +15,11 @@ const FrontDoorView = (props) => {
     }
 
     return(
-        <div className="">
-            <div className="backgroundCabinetClosed position-relative">
-                <img className="position-absolute top-0 start-50 translate-middle" src={require('../img/leftArrow.png')} alt='left arrow' onClick={onClickLeftHandler} />
-                <img className="position-absolute top-0 start-100 translate-middle" src={require('../img/rightArrow.png')} alt='right arrow' onClick={onClickRightHandler}></img>
+        <div className="gameWindow position-relative">  
+            <img className="position-absolute top-50 start-0 translate-middle" src={require('../img/leftArrow.png')} alt='left arrow' onClick={onClickLeftHandler} />
+            <img className="position-absolute top-50 start-100 translate-middle" src={require('../img/rightArrow.png')} alt='right arrow' onClick={onClickRightHandler}/>
+            <div className= "">
+                <img className="gameBackground" src={require('../img/DoorWithClosedCabinet.png')} alt="Front Door"/>
             </div>
         </div>
     )
