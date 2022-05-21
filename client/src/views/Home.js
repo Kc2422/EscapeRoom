@@ -1,5 +1,6 @@
-import React, {useState} from 'react'
+import React, {useState, useEffect} from 'react'
 import { useHistory } from 'react-router-dom'
+import styles from "./Home.module.css"
 
 const Home = (props) => {
     
@@ -7,7 +8,8 @@ const Home = (props) => {
 
     const onSubmitHandler = (e) => {
         e.preventDefault()
-        props.setSubmitted()
+        props.setSubmitted(true)
+        props.showSidebar(true)
         history.push("/door")
     }
 
@@ -15,18 +17,31 @@ const Home = (props) => {
         props.changeName(e.target.value)
     }
 
+    useEffect(() => {
+        props.setSubmitted(false)
+    }, [])
+
+    useEffect(() => {
+        props.showSidebar(false)
+    })
+
+    
+
 
     return(
+        <div className={styles.nameForm}>
+
         <form onSubmit={onSubmitHandler}>
             
             
             <p>
-                <label>Name</label><br/>
+                <label>Enter your name:</label><br/>
                 <input type="text" name='name' onChange={ onChangeHandler } value = {props.name}/>
             </p>
 
-            <input type="submit"/>
+            <input type="submit" className='btn btn-success'/>
         </form>
+        </div>
     )
 }
 

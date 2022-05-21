@@ -9,26 +9,30 @@ import {
   Link
 } from "react-router-dom";
 import Navbar from './components/navbar';
+import Sidebar from './components/Sidebar';
 
 function App() {
   const [name, setName] = useState("")
   const [submitted, setSubmitted] = useState(false)
-  const [text, setMessages] = useState(["Initial Story"])
+  const [text, setMessages] = useState(["Initial Story", "you are locked in the cabin try to get out"])
+  const [sidebar, setSidebar] = useState(false);
+  const showSidebar = (tf) => setSidebar(tf);
 
   const changeName = (n) => {
     setName(n)
   }
 
-  const changeSubmitted = () => {
-    setSubmitted(true)
+  const changeSubmitted = (tf) => {
+    setSubmitted(tf)
   }
 
   return (
-    <div className="App">
+    <div className="">
+      <Sidebar sidebar = {sidebar} text = {text}/>
       <Navbar name = {name} submitted = {submitted}/>
-      
+
       <Route exact path = "/">
-        <Home changeName = {changeName} name = {name} setSubmitted = {changeSubmitted} />
+        <Home changeName = {changeName} name = {name} setSubmitted = {changeSubmitted} showSidebar = {showSidebar}/>
       </Route>
 
       <Route exact path = "/door">

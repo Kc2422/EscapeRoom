@@ -1,19 +1,13 @@
 
+import styles from "./navbar.module.css"
 
 const Navbar = (props) => {
 
     return (
-        <nav className="navbar navbar-light bg-light">
-            <ul className="navbar-nav">
-                <li className="nav-item">
-                    Abandoned cabin escape room
-                </li>
-                {props.submitted &&
-                <li className="nav-item">
-                    Welcome {props.name}
-                </li>}
-            </ul>
-        </nav>
+        <div className={styles.NavBar} >
+            <h1>Abandoned cabin escape room</h1>
+            {props.submitted && <p>Welcome {props.name}</p>}
+        </div>
     )
 }
 
