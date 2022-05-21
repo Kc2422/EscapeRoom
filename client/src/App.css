@@ -42,10 +42,12 @@
 .gameWindow {
   border: 5px solid black;
   display: block;
-  margin-left: auto;
+  margin-left: 400px;
+  /* margin-left: auto;
   margin-right:5%;
-  margin-top:5%;
+  margin-top:5%;  */
   width: 50%;
+  
 }
 
 .gameBackground {

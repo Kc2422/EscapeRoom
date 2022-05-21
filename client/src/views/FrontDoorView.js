@@ -6,6 +6,7 @@ const FrontDoorView = (props) => {
     const {addMessage, hasKey, solvedPuzzle1} = props
     const history = useHistory()
     
+    
 
     const onClickRightHandler = (e) => {
         history.push("/bookshelf")
