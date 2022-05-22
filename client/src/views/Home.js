@@ -25,6 +25,10 @@ const Home = (props) => {
         props.showSidebar(false)
     }, [])
 
+    useEffect(() => {
+        props.changeName("")
+    }, [])
+
     
 
 
