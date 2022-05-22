@@ -15,6 +15,7 @@ import BookshelfView from './views/BookshelfView';
 import PaintingView from './views/PaintingView';
 import LightsView from './views/LightsView';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import { motion } from "framer-motion"
 
 function App() {
   const [name, setName] = useState("")
