@@ -131,17 +131,19 @@ height: 900px;
   height: 20%;
   
   position: absolute;
-  top: 7%;
-  right: 1%;
+  top: 4%;
+  right: 7%;
+  
 }
 
 .painting{
-  height: 70%;
-  width: 100px;
+  height: 104%;
+  width: 84%;
   margin: 20px;
+  cursor: pointer;
 }
 
 li{
-  cursor: pointer;
+  
   list-style: none;
 }
