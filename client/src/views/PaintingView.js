@@ -5,17 +5,32 @@ import { Reorder } from "framer-motion";
 import { Item } from "./Item";
 
 const BookshelfView = (props) => {
-    const { pictures} = props
+    const { pictures, solvedPuzzle1, correctOrder, changePics, addMessage} = props
     const [items, setItems] = useState(pictures)
+    const [correctItems, setCorrectItems ] = useState(correctOrder)
     const history = useHistory()
 
     useEffect(() => {
         setItems(pictures)
+        setCorrectItems(correctOrder)
     }, [props])
 
     useEffect(() => {
-        
-    })
+        if(items){
+
+            for(let i =0; i<items.length; i++){
+                
+                if (items[i] !== correctItems[i]){
+                    console.log("incorrect")
+                    return
+                }
+            }
+            console.log("correct")
+            addMessage("The paintings seem to be in the correct order")
+            // make paintings unmovable?
+            return
+        }
+    },[items])
 
 
     const onClickRightHandler = (e) => {
@@ -38,7 +53,7 @@ const BookshelfView = (props) => {
             <img className="rug position-absolute bottom-0 start-50 translate-middle-x" src={require('../img/rug.png')} alt="rug" />
 
             {/* NEED a MAP of ARRAY of Paintings. Change index as we click and drop */}
-            <Reorder.Group axis="x" onReorder={setItems} values={items}>
+            <Reorder.Group axis="x" onReorder={changePics} values={items}>
                 <div className='paintings '>
 
                 {items.map((item) => (

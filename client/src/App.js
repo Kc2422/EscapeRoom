@@ -33,6 +33,7 @@ function App() {
   const [hasKey, setHasKey] = useState(false)
   // const [pictures, setPictures] = useState(["../img/ArrFrameBeach.png", "../img/ArrFrameFlower.png", "../img/ArrFrameMoon.png", "../img/ArrFrameMountain.png" ])
   const [pictures, setPictures] = useState([Beach, Flower, Moon, Mountain])
+  const [correctOrder, setOrder] = useState([Mountain,Flower,Beach,Moon])
 
   const showSidebar = (tf) => setSidebar(tf);
 
@@ -46,6 +47,10 @@ function App() {
 
   const changeSubmitted = (tf) => {
     setSubmitted(tf)
+  }
+
+  const changePics = (values) =>{
+    setPictures(values)
   }
 
  
@@ -70,7 +75,9 @@ function App() {
       </Route>
 
       <Route exact path="/paintings">
-        <PaintingView pictures ={pictures} solvedPuzzle1={solvedPuzzle1}/>
+        <PaintingView pictures ={pictures} solvedPuzzle1={solvedPuzzle1} correctOrder = {correctOrder}
+        changePics = {changePics}
+        addMessage = {addMessage}/>
       </Route>
 
       <Route exact path="/lights">
