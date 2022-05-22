@@ -5,13 +5,17 @@ import { Reorder } from "framer-motion";
 import { Item } from "./Item";
 
 const BookshelfView = (props) => {
-    const { pictures } = props
+    const { pictures} = props
     const [items, setItems] = useState(pictures)
     const history = useHistory()
 
     useEffect(() => {
         setItems(pictures)
     }, [props])
+
+    useEffect(() => {
+        
+    })
 
 
     const onClickRightHandler = (e) => {
@@ -35,7 +39,7 @@ const BookshelfView = (props) => {
 
             {/* NEED a MAP of ARRAY of Paintings. Change index as we click and drop */}
             <Reorder.Group axis="x" onReorder={setItems} values={items}>
-                <div className='paintings'>
+                <div className='paintings '>
 
                 {items.map((item) => (
                     <Item key={item} item={item} ></Item>
