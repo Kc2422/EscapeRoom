@@ -15,10 +15,14 @@ import BookshelfView from './views/BookshelfView';
 import PaintingView from './views/PaintingView';
 import LightsView from './views/LightsView';
 import 'bootstrap/dist/css/bootstrap.min.css';
+
 const Beach = require("./img/ArrFrameBeach.png")
 const Flower = require("./img/ArrFrameFlower.png")
 const Moon = require("./img/ArrFrameMoon.png")
 const Mountain = require("./img/ArrFrameMountain.png")
+
+import { motion } from "framer-motion"
+
 
 function App() {
   const [name, setName] = useState("")
