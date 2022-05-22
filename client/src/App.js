@@ -15,6 +15,10 @@ import BookshelfView from './views/BookshelfView';
 import PaintingView from './views/PaintingView';
 import LightsView from './views/LightsView';
 import 'bootstrap/dist/css/bootstrap.min.css';
+const Beach = require("./img/ArrFrameBeach.png")
+const Flower = require("./img/ArrFrameFlower.png")
+const Moon = require("./img/ArrFrameMoon.png")
+const Mountain = require("./img/ArrFrameMountain.png")
 
 function App() {
   const [name, setName] = useState("")
@@ -23,6 +27,8 @@ function App() {
   const [sidebar, setSidebar] = useState(false);
   const [solvedPuzzle1, setSolvedPuzzle1] = useState(false);
   const [hasKey, setHasKey] = useState(false)
+  // const [pictures, setPictures] = useState(["../img/ArrFrameBeach.png", "../img/ArrFrameFlower.png", "../img/ArrFrameMoon.png", "../img/ArrFrameMountain.png" ])
+  const [pictures, setPictures] = useState([Beach, Flower, Moon, Mountain])
 
   const showSidebar = (tf) => setSidebar(tf);
 
@@ -40,6 +46,7 @@ function App() {
 
   return (
     <>
+      
       <Navbar name={name} submitted={submitted} />
     <div className='needBackground'>
       <Sidebar sidebar={sidebar} text={text} />
@@ -57,7 +64,7 @@ function App() {
       </Route>
 
       <Route exact path="/paintings">
-        <PaintingView sidebar={sidebar} text={text} name={name} submitted={submitted} solvedPuzzle1={solvedPuzzle1}/>
+        <PaintingView pictures ={pictures} solvedPuzzle1={solvedPuzzle1}/>
       </Route>
 
       <Route exact path="/lights">
