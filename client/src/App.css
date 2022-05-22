@@ -123,3 +123,25 @@ height: 900px;
 .clickable{
   cursor: pointer;
 }
+
+.paintings{
+  display: flex;
+  justify-content: space-between;
+  width: 90%;
+  height: 20%;
+  
+  position: absolute;
+  top: 7%;
+  right: 1%;
+}
+
+.painting{
+  height: 70%;
+  width: 100px;
+  margin: 20px;
+}
+
+li{
+  cursor: pointer;
+  list-style: none;
+}
