@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-mongoose.connect("mongodb://127.0.0.1/MERNBeltExam", {
+mongoose.connect("mongodb://127.0.0.1/EscapeRoom", {
     useNewUrlParser:true, 
     useUnifiedTopology: true,
 })
