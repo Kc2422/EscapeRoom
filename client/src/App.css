@@ -126,8 +126,22 @@ height: 900px;
   z-index: 10000;
 }
 
+/* .openBook{
+  background-image: url('./img/OpenBook.png');
+  background-size:100%;
+  width: "90%";
+  position: "absolute";
+  margin-left: "5%"; 
+  margin-top: "-80%"; 
+} */
 .letter{
-  background-image: url('./img/linedpaper.png');
+  background-image: url('./img/oldPaper.png');
+  background-size:100%;
+  width: 13%;
+  display: block;
+  margin-left: auto;
+  margin-top:11%;
+
 }
 
 .clickable{
