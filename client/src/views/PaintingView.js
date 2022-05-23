@@ -31,6 +31,7 @@ const BookshelfView = (props) => {
             props.setInOrder(true)
 
             // make paintings unmovable?
+            // you can make a ternary to set the items as unclickable??
             return
         }
     },[items])
