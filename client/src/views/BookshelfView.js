@@ -5,9 +5,11 @@ import './Door.css';
 import { motion, AnimatePresence } from "framer-motion";
 
 
+
+
 const BookshelfView = (props) => {
 
-    const history = useHistory()
+    const history = useHistory();
 
     const [isLettersVisible, setisLettersVisible] = useState(false);
     const [isBook, setisBook] = useState(true);
@@ -45,21 +47,6 @@ const BookshelfView = (props) => {
             {isLettersVisible && (
                 <Book />
             )}
-            {/* <motion.div className='book position-absolute top-50 start-0 translate-middle-y clickable' onClick={() => setLettersVisible(true)}>
-                <AnimatePresence>
-
-                    {isLettersVisible && (
-                        <motion.div
-                            initial={{ opacity: 0, scale: 0.75 }}
-                            animate={{ opacity: 1, scale: 1 }}
-                            exit={{ opacity: 0, scale: 0 }}
-                        >
-                            <Book addMessage={props.addMessage} SolvedPuzzleLights={props.SolvedPuzzleLights} text={props.text} isVisible={isLettersVisible} />
-                        </motion.div>
-                    )}
-
-                </AnimatePresence>
-            </motion.div> */}
 
         </div>
     )
