@@ -3,7 +3,7 @@ import { useHistory } from 'react-router-dom';
 import './Door.css';
 
 const FrontDoorView = (props) => {
-    const {addMessage, hasKey, solvedPuzzle1} = props
+    const {addMessage, hasKey, solvedLights} = props
     const history = useHistory()
     
     
@@ -27,7 +27,7 @@ const FrontDoorView = (props) => {
 
     return(
         <div className="gameWindow position-relative">  
-            <img className="gameBackground" src={require(props.solvedPuzzle1 ? '../img/DoorWithOpenCabinet.png' : '../img/DoorWithClosedCabinet.png')} alt="Front Door"/>
+            <img className="gameBackground" src={require(solvedLights ? '../img/DoorWithOpenCabinet.png' : '../img/DoorWithClosedCabinet.png')} alt="Front Door"/>
             <img className="arrow position-absolute top-50 start-0 translate-middle-y clickable" src={require('../img/leftArrow.png')} alt='left arrow' onClick={onClickLeftHandler} />
             <img className="arrow position-absolute top-50 end-0 translate-middle-y clickable" src={require('../img/rightArrow.png')} alt='right arrow' onClick={onClickRightHandler}/>
             <img className="rug position-absolute bottom-0 start-50 translate-middle-x" src={require('../img/rug.png')} alt="rug" />
