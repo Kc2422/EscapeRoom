@@ -28,6 +28,8 @@ function App() {
   const [name, setName] = useState(localStorage.getItem('name'))
   const [submitted, setSubmitted] = useState(localStorage.getItem('submitted'))
   const [text, setMessages] = useState(["Initial Story", "you are locked in the cabin try to get out"])
+  const [seconds, setSeconds] = useState(0)
+  
 
   const [sidebar, setSidebar] = useState(localStorage.getItem('sidebar'));
 
@@ -90,6 +92,22 @@ function App() {
     localStorage.setItem('submitted', submitted)
   }, [submitted])
 
+  useEffect(() => {
+    localStorage.setItem('seconds', seconds)
+  }, [seconds])
+
+  // useEffect(() => {
+  //   if(submitted){
+  //     setInterval(() => {
+
+  //       if(seconds === null){
+  //         setSeconds(1)
+  //       }else{
+  //         setSeconds(seconds+1)
+  //       }
+  //     }, 1000)
+  //   }
+  // }, [submitted, seconds])
 
   return (
     <>
