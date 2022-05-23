@@ -30,71 +30,78 @@ function App() {
   const [text, setMessages] = useState(["Initial Story", "you are locked in the cabin try to get out"])
   const [sidebar, setSidebar] = useState(localStorage.getItem('sidebar'));
   const [solvedPuzzle1, setSolvedPuzzle1] = useState(false);
-  const [hasKey, setHasKey] = useState(false)
-  
-  const [pictures, setPictures] = useState([Beach, Flower, Moon, Mountain])
-  const [correctOrder, setOrder] = useState([Mountain,Flower,Beach,Moon])
+  const [hasDoorKey, setHasDoorKey] = useState(false)
 
-  const showSidebar = (tf) => {setSidebar(tf);
-    localStorage.setItem('sidebar', tf)}
+  const [pictures, setPictures] = useState([Beach, Flower, Moon, Mountain])
+  const [correctOrder, setOrder] = useState([Mountain, Flower, Beach, Moon])
+  const [inOrder, setInOrder] = useState(false)
+
+  const showSidebar = (tf) => {
+    setSidebar(tf);
+    localStorage.setItem('sidebar', tf)
+  }
 
   const changeName = (n) => {
     setName(n)
   }
 
   const addMessage = (m) => {
-    setMessages([...text,m])
+    setMessages([...text, m])
   }
 
   const changeSubmitted = (tf) => {
     setSubmitted(tf)
   }
 
-  const changePics = (values) =>{
+  const changePics = (values) => {
     setPictures(values)
   }
 
- useEffect(() => {
-   localStorage.setItem('sidebar', sidebar)
- },[sidebar])
+  const isInOrder = (tf) => {
+    setInOrder(tf)
+  }
 
- useEffect(() => {
-  localStorage.setItem('name', name)
-},[name])
+  useEffect(() => {
+    localStorage.setItem('sidebar', sidebar)
+  }, [sidebar])
 
-useEffect(() => {
-  localStorage.setItem('submitted', submitted)
-},[submitted])
+  useEffect(() => {
+    localStorage.setItem('name', name)
+  }, [name])
+
+  useEffect(() => {
+    localStorage.setItem('submitted', submitted)
+  }, [submitted])
 
   return (
     <>
-      
+
       <Navbar name={name} submitted={submitted} />
-    <div className='needBackground'>
-      <Sidebar sidebar={sidebar} text={text} />
+      <div className='needBackground'>
+        <Sidebar sidebar={sidebar} text={text} />
 
-      <Route exact path="/">
-        <Home changeName={changeName} name={name} setSubmitted={changeSubmitted} showSidebar={showSidebar} />
-      </Route>
+        <Route exact path="/">
+          <Home changeName={changeName} name={name} setSubmitted={changeSubmitted} showSidebar={showSidebar} />
+        </Route>
 
-      <Route exact path="/door">
-        <FrontDoorView  addMessage = {addMessage}hasKey = {hasKey} solvedPuzzle1={solvedPuzzle1}/>
-      </Route>
+        <Route exact path="/door">
+          <FrontDoorView addMessage={addMessage} hasKey={hasDoorKey} solvedPuzzle1={solvedPuzzle1} />
+        </Route>
 
-      <Route exact path="/bookshelf">
-        <BookshelfView  solvedPuzzle1={solvedPuzzle1}/>
-      </Route>
+        <Route exact path="/bookshelf">
+          <BookshelfView solvedPuzzle1={solvedPuzzle1} />
+        </Route>
 
-      <Route exact path="/paintings">
-        <PaintingView pictures ={pictures} solvedPuzzle1={solvedPuzzle1} correctOrder = {correctOrder}
-        changePics = {changePics}
-        addMessage = {addMessage}/>
-      </Route>
+        <Route exact path="/paintings">
+          <PaintingView pictures={pictures} solvedPuzzle1={solvedPuzzle1} correctOrder={correctOrder}
+            changePics={changePics} setInOrder={isInOrder} 
+            addMessage={addMessage} />
+        </Route>
 
-      <Route exact path="/lights">
-        <LightsView sidebar={sidebar} text={text} name={name} submitted={submitted} solvedPuzzle1={solvedPuzzle1}/>
-      </Route>
-    </div>
+        <Route exact path="/lights">
+          <LightsView sidebar={sidebar} text={text} name={name} submitted={submitted} solvedPuzzle1={solvedPuzzle1} />
+        </Route>
+      </div>
     </>
   );
 }
