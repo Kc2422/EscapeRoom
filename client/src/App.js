@@ -15,7 +15,7 @@ import BookshelfView from './views/BookshelfView';
 import PaintingView from './views/PaintingView';
 import LightsView from './views/LightsView';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { motion } from "framer-motion"
+import { motion } from "framer-motion";
 
 const Beach = require("./img/ArrFrameBeach.png")
 const Flower = require("./img/ArrFrameFlower.png")
@@ -29,11 +29,11 @@ function App() {
   const [submitted, setSubmitted] = useState(false)
   const [text, setMessages] = useState(["Initial Story", "you are locked in the cabin try to get out"])
   const [sidebar, setSidebar] = useState(false);
-  const [solvedPuzzle1, setSolvedPuzzle1] = useState(false);
   const [hasKey, setHasKey] = useState(false)
   // const [pictures, setPictures] = useState(["../img/ArrFrameBeach.png", "../img/ArrFrameFlower.png", "../img/ArrFrameMoon.png", "../img/ArrFrameMountain.png" ])
   const [pictures, setPictures] = useState([Beach, Flower, Moon, Mountain])
   const [correctOrder, setOrder] = useState([Mountain,Flower,Beach,Moon])
+  const [solvedLights, setSolvedLights] = useState(false)
 
   const showSidebar = (tf) => setSidebar(tf);
 
@@ -53,6 +53,10 @@ function App() {
     setPictures(values)
   }
 
+  const SolvedPuzzleLights = (s) => {
+    setSolvedLights(s);
+  }
+
  
 
   return (
@@ -67,21 +71,21 @@ function App() {
       </Route>
 
       <Route exact path="/door">
-        <FrontDoorView  addMessage = {addMessage}hasKey = {hasKey} solvedPuzzle1={solvedPuzzle1}/>
+        <FrontDoorView  addMessage = {addMessage}hasKey = {hasKey} solvedLights={solvedLights}/>
       </Route>
 
       <Route exact path="/bookshelf">
-        <BookshelfView  solvedPuzzle1={solvedPuzzle1}/>
+        <BookshelfView  addMessage={addMessage} SolvedPuzzleLights={SolvedPuzzleLights} text={text} solvedLights={solvedLights} sidebar={sidebar} name={name} submitted={submitted}/>
       </Route>
 
       <Route exact path="/paintings">
-        <PaintingView pictures ={pictures} solvedPuzzle1={solvedPuzzle1} correctOrder = {correctOrder}
+        <PaintingView pictures ={pictures} solvedLights={solvedLights} correctOrder = {correctOrder}
         changePics = {changePics}
         addMessage = {addMessage}/>
       </Route>
 
       <Route exact path="/lights">
-        <LightsView sidebar={sidebar} text={text} name={name} submitted={submitted} solvedPuzzle1={solvedPuzzle1}/>
+        <LightsView addMessage={addMessage} SolvedPuzzleLights={SolvedPuzzleLights} text={text} solvedLights={solvedLights} sidebar={sidebar} name={name} submitted={submitted} />
       </Route>
     </div>
     </>
