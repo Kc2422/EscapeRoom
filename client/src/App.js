@@ -16,6 +16,7 @@ import PaintingView from './views/PaintingView';
 import LightsView from './views/LightsView';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { motion } from "framer-motion";
+import HTMLFlipBook from "react-pageflip";
 
 
 const Beach = require("./img/ArrFrameBeach.png")

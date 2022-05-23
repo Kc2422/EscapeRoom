@@ -126,14 +126,37 @@ height: 900px;
   z-index: 10000;
 }
 
-/* .openBook{
-  background-image: url('./img/OpenBook.png');
+.BookClues {
+  width:100%;
+  height:90%;
+  position: absolute;
+  display: block;
+  margin-left: auto;
+  margin-top:-80%;
+  z-index: 10000;
+  /* margin-top: ; */
+}
+
+.rightPage{
+  background-image: url('./img/RightPage.png');
   background-size:100%;
-  width: "90%";
+  width: 100%;
+  height: 100%;
   position: "absolute";
   margin-left: "5%"; 
   margin-top: "-80%"; 
-} */
+}
+
+
+.leftPage{
+  background-image: url('./img/LeftPage.png');
+  background-size:100%;
+  width: 100%;
+  position: absolute;
+  margin-left: "5%"; 
+  margin-top: "-80%"; 
+}
+
 .letter{
   background-image: url('./img/oldPaper.png');
   background-size:100%;
