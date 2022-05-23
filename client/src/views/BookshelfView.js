@@ -14,11 +14,6 @@ const BookshelfView = (props) => {
     const [isLettersVisible, setisLettersVisible] = useState(false);
     const [isBook, setisBook] = useState(true);
     
-    // const reset = ()=> {
-    //     setisLettersVisible(false);
-    //     setisBook(true);
-    // }
-
     const onClickRightHandler = (e) => {
         history.push("/paintings")
     }
@@ -33,9 +28,14 @@ const BookshelfView = (props) => {
         console.log("you clicked me" + isLettersVisible)
     }
 
+    const reset= () => {
+        setisLettersVisible(false);
+        setisBook(true); 
+    }
+
     return (
-        <div className="gameWindow position-relative">
-            <img className="gameBackground" src={require('../img/BookShelf.png')} alt="BookShelf" />
+        <div className="gameWindow position-relative" >
+            <img className="gameBackground" src={require('../img/BookShelf.png')} alt="BookShelf" onClick={reset}/>
             <img className="arrow position-absolute top-50 start-0 translate-middle-y clickable" src={require('../img/leftArrow.png')} alt='left arrow' onClick={onClickLeftHandler} />
             <img className="arrow position-absolute top-50 end-0 translate-middle-y clickable" src={require('../img/rightArrow.png')} alt='right arrow' onClick={onClickRightHandler} />
             <img className="rug position-absolute bottom-0 start-50 translate-middle-x" src={require('../img/rug.png')} alt="rug" onClick={() => props.addMessage("You lift up the rug but find nothing. This rug has definitely seen better days and it smells disgusting!")} />

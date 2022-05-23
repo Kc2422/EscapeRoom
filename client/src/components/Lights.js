@@ -8,10 +8,12 @@ const Lights = (props) => {
     const [light2, setLight2] = useState(false);
     const [light3, setLight3] = useState(false);
     const [light4, setLight4] = useState(false);
+    const [inOrderLights, setinOrderLights] = useState(false);
 
     const correctCode = [true, true, true, false];
 
     useEffect(() => {
+        console.log("paintings in order" + props.inOrder);
         const lights = [light1, light2, light3, light4];
         for(let i = 0; i < lights.length; i++){
             if (lights[i] !== correctCode[i]){
@@ -20,13 +22,16 @@ const Lights = (props) => {
                 return
             }
         }
-        if(props.inOrder && correctCode){
+        setinOrderLights(true);
+        console.log("lights order" + inOrderLights)
+        if(props.inOrder && inOrderLights){
             props.SolvedPuzzleLights(true);
             props.addMessage("You heard something open! Take a look around to see what it was.");
+            return
         }
         props.addMessage("Hmmm something seems off.")
         return
-    },[light1, light2, light3, light4])
+    },[light1, light2, light3, light4, inOrderLights])
     
 
     return(

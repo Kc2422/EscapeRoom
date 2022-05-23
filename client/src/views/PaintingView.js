@@ -28,7 +28,7 @@ const BookshelfView = (props) => {
             }
             console.log("correct")
             // addMessage("The paintings seem to be in the correct order")
-            props.setInOrder(true)
+            props.setInOrder(true);
 
             // make paintings unmovable?
             // you can make a ternary to set the items as unclickable??
