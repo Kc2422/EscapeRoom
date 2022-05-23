@@ -16,6 +16,7 @@ import PaintingView from './views/PaintingView';
 import LightsView from './views/LightsView';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { motion } from "framer-motion";
+import Success from './views/Success';
 
 
 const Beach = require("./img/ArrFrameBeach.png")
@@ -31,7 +32,9 @@ function App() {
   const [submitted, setSubmitted] = useState(localStorage.getItem('submitted'))
   const [text, setMessages] = useState(["Initial Story", "you are locked in the cabin try to get out"])
 
-  const [seconds, setSeconds] = useState(0)
+  const [second, setSecond] = useState('00');
+  const [minute, setMinute] = useState('00');
+  const [counter, setCounter] = useState(0);
   
   const [sidebar, setSidebar] = useState(localStorage.getItem('sidebar'));
   const [pictures, setPictures] = useState([Beach, Flower, Moon, Mountain])
@@ -92,17 +95,28 @@ function App() {
  
 
   useEffect(() => {
-    if(submitted){
-      setInterval(() => {
+    let intervalId;
 
-        if(seconds === null){
-          setSeconds(1)
-        }else{
-          setSeconds(seconds+1)
-        }
+    if(submitted){
+      intervalId = setInterval(() => {
+
+        
+        const secondCounter = counter % 60;
+        const minuteCounter = Math.floor(counter / 60);
+
+        const computedSecond = String(secondCounter).length === 1 ? `0${secondCounter}`: secondCounter;
+        const computedMinute = String(minuteCounter).length === 1 ? `0${minuteCounter}`: minuteCounter;
+
+        setSecond(computedSecond);
+        setMinute(computedMinute);
+
+        setCounter(counter => counter + 1);
+        
       }, 1000)
     }
-  }, [submitted, seconds])
+    return () => clearInterval(intervalId);
+
+  }, [submitted, counter])
 
   return (
     <>
@@ -110,7 +124,8 @@ function App() {
       <Navbar name={name} submitted={submitted} />
 
 
-    <div className='needBackground'>
+    
+      
       <Sidebar sidebar={sidebar} text={text} />
 
       <Route exact path="/">
@@ -134,7 +149,14 @@ function App() {
       <Route exact path="/lights">
         <LightsView inOrder={inOrder} addMessage={addMessage} SolvedPuzzleLights={SolvedPuzzleLights} text={text} solvedLights={solvedLights} sidebar={sidebar} name={name} submitted={submitted} />
       </Route>
-    </div>
+   
+
+    <Route exact path="/success">
+        <Success haskey = {hasKey} name = {name} second = {second} minute = {minute} changeSubmitted = {changeSubmitted} showSidebar = {showSidebar}/>
+    </Route>
+    <Route exact path = "/cheater">
+
+    </Route>
 
     </>
   );
