@@ -1,7 +1,7 @@
 import logo from './logo.svg';
 import './App.css';
 import Home from './views/Home';
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import {
   BrowserRouter,
   useHistory,
@@ -25,17 +25,20 @@ const Mountain = require("./img/ArrFrameMountain.png")
 
 
 function App() {
-  const [name, setName] = useState("")
-  const [submitted, setSubmitted] = useState(false)
+  const [name, setName] = useState(localStorage.getItem('name'))
+  const [submitted, setSubmitted] = useState(localStorage.getItem('submitted'))
   const [text, setMessages] = useState(["Initial Story", "you are locked in the cabin try to get out"])
-  const [sidebar, setSidebar] = useState(false);
+
+  const [sidebar, setSidebar] = useState(localStorage.getItem('sidebar'));
+
   const [hasKey, setHasKey] = useState(false)
-  // const [pictures, setPictures] = useState(["../img/ArrFrameBeach.png", "../img/ArrFrameFlower.png", "../img/ArrFrameMoon.png", "../img/ArrFrameMountain.png" ])
+  
   const [pictures, setPictures] = useState([Beach, Flower, Moon, Mountain])
   const [correctOrder, setOrder] = useState([Mountain,Flower,Beach,Moon])
   const [solvedLights, setSolvedLights] = useState(false)
 
-  const showSidebar = (tf) => setSidebar(tf);
+  const showSidebar = (tf) => {setSidebar(tf);
+    localStorage.setItem('sidebar', tf)}
 
   const changeName = (n) => {
     setName(n)
@@ -53,11 +56,23 @@ function App() {
     setPictures(values)
   }
 
+
   const SolvedPuzzleLights = (s) => {
     setSolvedLights(s);
   }
 
- 
+ useEffect(() => {
+   localStorage.setItem('sidebar', sidebar)
+ },[sidebar])
+
+ useEffect(() => {
+  localStorage.setItem('name', name)
+},[name])
+
+useEffect(() => {
+  localStorage.setItem('submitted', submitted)
+},[submitted])
+
 
   return (
     <>
