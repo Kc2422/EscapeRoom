@@ -44,7 +44,7 @@ const LightsView = (props) => {
                             animate={{ opacity: 1, scale: 1 }}
                             exit={{ opacity: 0, scale: 0 }}
                         >
-                            <Lights addMessage={props.addMessage} SolvedPuzzleLights={props.SolvedPuzzleLights} text={props.text}/>
+                            <Lights inOrder={props.inOrder} addMessage={props.addMessage} SolvedPuzzleLights={props.SolvedPuzzleLights} text={props.text}/>
                         </motion.div>
                     )}
 
