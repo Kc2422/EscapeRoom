@@ -21,7 +21,7 @@ const BookshelfView = (props) => {
             for(let i =0; i<items.length; i++){
                 
                 if (items[i] !== correctItems[i]){
-                    console.log("incorrect")
+                    // console.log("incorrect")
                     props.setInOrder(false)
                     return
                 }

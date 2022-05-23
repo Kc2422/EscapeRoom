@@ -92,22 +92,20 @@ function App() {
     localStorage.setItem('submitted', submitted)
   }, [submitted])
 
+ 
+
   useEffect(() => {
-    localStorage.setItem('seconds', seconds)
-  }, [seconds])
+    if(submitted){
+      setInterval(() => {
 
-  // useEffect(() => {
-  //   if(submitted){
-  //     setInterval(() => {
-
-  //       if(seconds === null){
-  //         setSeconds(1)
-  //       }else{
-  //         setSeconds(seconds+1)
-  //       }
-  //     }, 1000)
-  //   }
-  // }, [submitted, seconds])
+        if(seconds === null){
+          setSeconds(1)
+        }else{
+          setSeconds(seconds+1)
+        }
+      }, 1000)
+    }
+  }, [submitted, seconds])
 
   return (
     <>
