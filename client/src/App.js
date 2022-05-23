@@ -17,6 +17,7 @@ import LightsView from './views/LightsView';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { motion } from "framer-motion";
 
+
 const Beach = require("./img/ArrFrameBeach.png")
 const Flower = require("./img/ArrFrameFlower.png")
 const Moon = require("./img/ArrFrameMoon.png")
@@ -24,18 +25,15 @@ const Mountain = require("./img/ArrFrameMountain.png")
 
 
 
+
 function App() {
   const [name, setName] = useState(localStorage.getItem('name'))
   const [submitted, setSubmitted] = useState(localStorage.getItem('submitted'))
   const [text, setMessages] = useState(["Initial Story", "you are locked in the cabin try to get out"])
+
   const [seconds, setSeconds] = useState(0)
   
-
   const [sidebar, setSidebar] = useState(localStorage.getItem('sidebar'));
-
-//   const [solvedPuzzle1, setSolvedPuzzle1] = useState(false);
-//   const [hasDoorKey, setHasDoorKey] = useState(false)
-
   const [pictures, setPictures] = useState([Beach, Flower, Moon, Mountain])
   const [correctOrder, setOrder] = useState([Mountain, Flower, Beach, Moon])
   const [inOrder, setInOrder] = useState(false)
@@ -43,7 +41,6 @@ function App() {
 
   const [hasKey, setHasKey] = useState(false)
   
- 
   const [solvedLights, setSolvedLights] = useState(false)
 
 
@@ -123,7 +120,7 @@ function App() {
       </Route>
 
       <Route exact path="/door">
-        <FrontDoorView  addMessage = {addMessage}hasKey = {hasKey} solvedLights={solvedLights}/>
+        <FrontDoorView  addMessage = {addMessage} hasKey = {hasKey} solvedLights={solvedLights}/>
       </Route>
 
       <Route exact path="/bookshelf">
@@ -137,7 +134,7 @@ function App() {
         </Route>
 
       <Route exact path="/lights">
-        <LightsView addMessage={addMessage} SolvedPuzzleLights={SolvedPuzzleLights} text={text} solvedLights={solvedLights} sidebar={sidebar} name={name} submitted={submitted} />
+        <LightsView inOrder={inOrder} addMessage={addMessage} SolvedPuzzleLights={SolvedPuzzleLights} text={text} solvedLights={solvedLights} sidebar={sidebar} name={name} submitted={submitted} />
       </Route>
     </div>
 

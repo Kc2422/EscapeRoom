@@ -20,8 +20,11 @@ const Lights = (props) => {
                 return
             }
         }
-        props.SolvedPuzzleLights(true);
-        props.addMessage("You heard something open! Take a look around to see what it was.");
+        if(props.inOrder && correctCode){
+            props.SolvedPuzzleLights(true);
+            props.addMessage("You heard something open! Take a look around to see what it was.");
+        }
+        props.addMessage("Hmmm something seems off.")
         return
     },[light1, light2, light3, light4])
     

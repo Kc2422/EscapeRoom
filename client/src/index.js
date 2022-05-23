@@ -1,5 +1,5 @@
 import React from 'react';
-// import { Example } from "./components/Letter";
+import { Example } from "./components/Letter";
 import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
@@ -7,12 +7,11 @@ import reportWebVitals from './reportWebVitals';
 import { BrowserRouter } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
-// let Animation = () => <Example />;
+
 
 ReactDOM.render(
   <React.StrictMode> 
     <BrowserRouter>
-      {/* <Animation />  */}
       <App /> 
     </BrowserRouter>
   </React.StrictMode>, 

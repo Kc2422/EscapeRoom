@@ -6,17 +6,19 @@ import {
     AnimatePresence
 } from "framer-motion";
 import Card from './Letter';
+import { Example } from "./Letter";
 
 
 const Book = (props) => {
-
+    const Animation = () => <Example />;
 
     return (
-        <div>
-            <img style={{ width: "90%", position: "absolute", marginLeft: "5%", marginTop: "-80%", borderRadius: "5px" }} src={require('../img/OpenBook.png')} alt="background" />
-            <Card />
-
+        <div style={{position:'relative'}}>
+            <div style={{ width: "100%", position: "absolute", marginLeft: "25%", marginTop: "-85%"}}>
+                <Animation />
+            </div>
         </div>
+
     )
 }
 
