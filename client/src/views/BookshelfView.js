@@ -34,7 +34,7 @@ const BookshelfView = (props) => {
     }
 
     return (
-        <div className="gameWindow position-relative" onClick={""}>
+        <div className="gameWindow position-relative">
             <img className="gameBackground" src={require('../img/BookShelf.png')} alt="BookShelf" />
             <img className="arrow position-absolute top-50 start-0 translate-middle-y clickable" src={require('../img/leftArrow.png')} alt='left arrow' onClick={onClickLeftHandler} />
             <img className="arrow position-absolute top-50 end-0 translate-middle-y clickable" src={require('../img/rightArrow.png')} alt='right arrow' onClick={onClickRightHandler} />
