@@ -5,7 +5,7 @@ import {
     useTransform,
     AnimatePresence
 } from "framer-motion";
-import Letters from '../components/Letters';
+import Card from './Letter';
 
 
 const Book = (props) => {
@@ -13,22 +13,9 @@ const Book = (props) => {
 
     return (
         <div>
-            <motion.div>
-                <img style={{ width: "250%", position: "absolute", marginLeft: "-180%", marginTop: "50%", borderRadius: "5px" }} src={require('../img/OpenBook.png')} alt="background" />
-                {/* <Letters /> */}
+            <img style={{ width: "90%", position: "absolute", marginLeft: "5%", marginTop: "-80%", borderRadius: "5px" }} src={require('../img/OpenBook.png')} alt="background" />
+            <Card />
 
-                <AnimatePresence>
-                    {props.isVisible && (
-                        <motion.div
-                            initial={{ opacity: 0, scale: 0.75 }}
-                            animate={{ opacity: 1, scale: 30 }}
-                            exit={{ opcaity: 0, scale: 0 }}
-                        >
-                        </motion.div>
-                    )}
-                </AnimatePresence>
-
-            </motion.div>
         </div>
     )
 }

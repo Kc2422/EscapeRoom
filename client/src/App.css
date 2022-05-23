@@ -126,6 +126,10 @@ height: 900px;
   z-index: 10000;
 }
 
+.letter{
+  background-image: url('./img/linedpaper.png');
+}
+
 .clickable{
   cursor: pointer;
 }
