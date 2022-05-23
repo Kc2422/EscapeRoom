@@ -1,9 +1,17 @@
 const User = require("../models/user.model")
 
-module.exports.register = (req, res) =>{
-    User.create(req.body)
-    .then(user => {
-        res.json({ msg: "success!", user: user });
-    })
-    .catch(err => res.json(err));
+module.exports.makeUser = (req, res) =>{
+   
+
+        User.create(req.body)
+        .then(newUser => res.json(newUser))
+        .catch(err => res.json(err));
+ 
 }
+
+module.exports.findAllUsers = (req, res) => {
+    User.find()
+    .then(users => res.json(users))
+    .catch(err => response.json(err))
+}
+
