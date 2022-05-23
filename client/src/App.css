@@ -68,6 +68,12 @@ height: 900px;
   width:75%;
 }
 
+.rug2{
+  position: relative;
+  bottom: 5%;
+  left: 20%;
+}
+
 .lock {
   width:10%;
   display: block;
@@ -151,12 +157,7 @@ height: 900px;
 .paintings{
   display: flex;
   justify-content: space-between;
-  width: 90%;
-  height: 20%;
-  
-  position: absolute;
-  top: 4%;
-  right: 7%;
+
   
 }
 
@@ -170,4 +171,11 @@ height: 900px;
 li{
   
   list-style: none;
+}
+
+.pushList{
+  position: absolute;
+  width: 90%;
+  height: 100%;
+  top: 8%;
 }

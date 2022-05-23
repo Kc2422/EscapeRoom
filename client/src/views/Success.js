@@ -13,9 +13,7 @@ const history = useHistory()
         // }else{
 
         // }
-        axios.post('http://localhost:8000/api/user', {name: `${name}`, timeTaken: `${minute} minutes ${second} seconds `})
-        .then(res => console.log(res))
-        .catch(err => console.log(err))
+       
     }, [])
 
     return(
