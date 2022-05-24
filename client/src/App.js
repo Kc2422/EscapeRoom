@@ -53,8 +53,12 @@ function App() {
   const [solvedLights, setSolvedLights] = useState(false);
 
   const [cabinetKeyVisible, setCabinetKeyVisible] = useState(true);
+  const [finalKeyVisible, setFinalKeyVisible] = useState(true);
 
 
+  const grabFinalKey = () => {
+    setFinalKeyVisible(false);
+  }
 
   const showSidebar = (tf) => {
     setSidebar(tf);
@@ -159,7 +163,7 @@ function App() {
       </Route>
 
       <Route exact path="/lights">
-        <LightsView cabinetKeyVisible={cabinetKeyVisible} inOrder={inOrder} addMessage={addMessage} SolvedPuzzleLights={SolvedPuzzleLights} text={text} solvedLights={solvedLights} sidebar={sidebar} name={name} submitted={submitted} />
+        <LightsView finalKeyVisible={finalKeyVisible} grabFinalKey={grabFinalKey} cabinetKeyVisible={cabinetKeyVisible} inOrder={inOrder} addMessage={addMessage} SolvedPuzzleLights={SolvedPuzzleLights} text={text} solvedLights={solvedLights} sidebar={sidebar} name={name} submitted={submitted} />
       </Route>
 
 
