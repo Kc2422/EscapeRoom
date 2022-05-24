@@ -2,3 +2,10 @@
     width: 1000px;
     height:1000px;
 }
+
+.key {
+    width: 13%;
+    display: block;
+    margin-left: auto;
+    margin-right: 10%;
+}

@@ -51,6 +51,8 @@ function App() {
 
   const [solvedLights, setSolvedLights] = useState(false)
 
+  const [cabinetKey, setCabinetKey] = useState(true);
+
 
   const showSidebar = (tf) => {
     setSidebar(tf);
@@ -82,6 +84,11 @@ function App() {
   const SolvedPuzzleLights = (s) => {
     setSolvedLights(s);
   }
+
+  const onClickKeyHandler = (e) => {
+    addMessage("You found a key! You added it to your inventory.");
+    setCabinetKey(false);
+}
 
 
 
@@ -128,9 +135,6 @@ function App() {
 
       <Navbar name={name} submitted={submitted} />
 
-
-
-
       <Sidebar sidebar={sidebar} text={text} />
     <div className='needBackground'>
 
@@ -139,7 +143,7 @@ function App() {
       </Route>
 
       <Route exact path="/door">
-        <FrontDoorView addMessage={addMessage} hasKey={hasKey} solvedLights={solvedLights} name={name} minute={minute} second={second} />
+        <FrontDoorView onClickKeyHandler={onClickKeyHandler} cabinetKey={cabinetKey} addMessage={addMessage} hasKey={hasKey} solvedLights={solvedLights} name={name} minute={minute} second={second} />
       </Route>
 
       <Route exact path="/bookshelf">
@@ -163,6 +167,7 @@ function App() {
       <Route exact path="/cheater">
 
       </Route>
+
       <Route exact path = "/times">
         <BestTimes/>
       </Route>
