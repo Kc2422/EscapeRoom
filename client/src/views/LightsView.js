@@ -13,7 +13,7 @@ const LightsView = (props) => {
     const [isKeyPadVisible, setIsKeyPadVisible] = useState(false);
     const history = useHistory();
     const [code, setCode] = useState("")
-    const [safeOpen, setSafeOpen] = useState(false)
+    const [safeOpen, setSafeOpen] = useState(true)
 
 
     const onClickRightHandler = (e) => {
@@ -59,8 +59,9 @@ const LightsView = (props) => {
         <div className="gameWindow position-relative">
             <img className="gameBackground" src={require('../img/Wall.jpg')} alt="Lights Wall" onClick={reset} />
 
-            <img useMap='#safe' className="safe position-absolute top-50 end-0 translate-middle-y clickable" src={require('../img/safe1.png')} alt='Safe' onClick={onClickSafe} />
+            <img className="safe position-absolute top-50 end-0 translate-middle-y clickable" src={require(safeOpen ? '../img/safeOpen.png' : '../img/safe1.png')} alt='Safe Open' />
 
+        
             <img className="rug position-absolute bottom-0 start-50 translate-middle-x" src={require('../img/rug.png')} alt="rug" />
 
             <img className="drawer position-absolute top-50 start-50 translate-middle clickable" src={require('../img/drawer.png')} alt="drawer" onClick={onClickCabinet}/>
@@ -86,6 +87,9 @@ const LightsView = (props) => {
             {isRiddleVisible ? <Riddle /> : null}
 
             {isKeyPadVisible ? <Keypad /> : null}
+
+            {safeOpen && props.finalKeyVisible ? 
+                <img className="key position-absolute top-50 end-0 translate-middle-y clickable" src={require("../img/FinalKey.png")} alt="key" onClick={props.grabFinalKey}/> : null}
 
             <form onSubmit = {onSubmitCode}>
                 <input type="text" maxLength="4"onChange={(e) => {setCode(e.target.value)}}/>
