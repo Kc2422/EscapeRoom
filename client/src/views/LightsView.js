@@ -59,7 +59,7 @@ const LightsView = (props) => {
         <div className="gameWindow position-relative">
             <img className="gameBackground" src={require('../img/Wall.jpg')} alt="Lights Wall" onClick={reset} />
 
-            <img useMap='#safe' className="safe position-absolute top-50 end-0 translate-middle-y clickable" src={require('../img/safe1.png')} alt='Safe' onClick={onClickLightSafe} />
+            <img useMap='#safe' className="safe position-absolute top-50 end-0 translate-middle-y clickable" src={require('../img/safe1.png')} alt='Safe' onClick={onClickLight} />
 
             <img className="rug position-absolute bottom-0 start-50 translate-middle-x" src={require('../img/rug.png')} alt="rug" />
 
