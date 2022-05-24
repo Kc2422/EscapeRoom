@@ -12,7 +12,7 @@ console.log(req)
 }
 
 module.exports.findAllUsers = (req, res) => {
-    User.find().sort('timeTaken').limit(50)
+    User.find().sort('seconds').limit(50)
     .then(users => res.json(users))
     .catch(err => response.json(err))
 }

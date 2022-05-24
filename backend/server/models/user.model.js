@@ -9,6 +9,11 @@ const UserSchema = new mongoose.Schema({
     timeTaken: {
         type: String,
         required: [true]
+    },
+
+    seconds: {
+        type: Number,
+        required: [true]
     }
 
 
