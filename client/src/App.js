@@ -21,6 +21,7 @@ import HTMLFlipBook from "react-pageflip";
 
 import Success from './views/Success';
 import BestTimes from './views/BestTimes';
+import TestMap from './views/TestMap';
 
 
 
@@ -174,6 +175,10 @@ function App() {
 
       <Route exact path = "/times">
         <BestTimes/>
+      </Route>
+
+      <Route exact path = "/test">
+        <TestMap/>
       </Route>
     </div>
 
