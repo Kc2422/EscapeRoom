@@ -61,6 +61,7 @@ const LightsView = (props) => {
 
             <img className="safe position-absolute top-50 end-0 translate-middle-y clickable" src={require('../img/safe1.png')} alt='Safe' onClick={onClickSafe} />
 
+
             <img className="rug position-absolute bottom-0 start-50 translate-middle-x" src={require('../img/rug.png')} alt="rug" />
 
             <img className="drawer position-absolute top-50 start-50 translate-middle clickable" src={require('../img/drawer.png')} alt="drawer" onClick={onClickCabinet}/>
