@@ -38,7 +38,7 @@ const FrontDoorView = (props) => {
             <img className="rug position-absolute bottom-0 start-50 translate-middle-x" src={require('../img/rug.png')} alt="rug" />
             <img className="lock position-absolute top-0 start-0 translate-middle-y clickable" src={require("../img/lock.png")} alt="lock" onClick={clickLock}/>
 
-            {props.solvedLights && props.cabinetKey ?
+            {props.solvedLights && props.cabinetKeyVisible ?
                 <img className="key position-absolute top-50 end-0 translate-middle-y clickable" src={require("../img/key.png")} alt="key" onClick={props.onClickKeyHandler}/> 
                 : null
             }
