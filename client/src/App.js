@@ -50,9 +50,10 @@ function App() {
 
   const [hasKey, setHasKey] = useState(false)
 
-  const [solvedLights, setSolvedLights] = useState(false)
+  const [solvedLights, setSolvedLights] = useState(false);
 
-  const [cabinetKey, setCabinetKey] = useState(true);
+  const [cabinetKeyVisible, setCabinetKeyVisible] = useState(true);
+
 
 
   const showSidebar = (tf) => {
@@ -88,7 +89,7 @@ function App() {
 
   const onClickKeyHandler = (e) => {
     addMessage("You found a key! You added it to your inventory.");
-    setCabinetKey(false);
+    setCabinetKeyVisible(false);
 }
 
 
@@ -144,11 +145,7 @@ function App() {
       </Route>
 
       <Route exact path="/door">
-
-       
-
-        <FrontDoorView onClickKeyHandler={onClickKeyHandler} cabinetKey={cabinetKey} addMessage={addMessage} hasKey={hasKey} solvedLights={solvedLights} name={name} minute={minute} second={second} />
-
+        <FrontDoorView onClickKeyHandler={onClickKeyHandler} cabinetKeyVisible={cabinetKeyVisible} addMessage={addMessage} hasKey={hasKey} solvedLights={solvedLights} name={name} minute={minute} second={second} />
       </Route>
 
       <Route exact path="/bookshelf">
@@ -162,7 +159,7 @@ function App() {
       </Route>
 
       <Route exact path="/lights">
-        <LightsView inOrder={inOrder} addMessage={addMessage} SolvedPuzzleLights={SolvedPuzzleLights} text={text} solvedLights={solvedLights} sidebar={sidebar} name={name} submitted={submitted} />
+        <LightsView cabinetKeyVisible={cabinetKeyVisible} inOrder={inOrder} addMessage={addMessage} SolvedPuzzleLights={SolvedPuzzleLights} text={text} solvedLights={solvedLights} sidebar={sidebar} name={name} submitted={submitted} />
       </Route>
 
 
