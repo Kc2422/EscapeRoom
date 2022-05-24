@@ -13,6 +13,7 @@
   }
 }
 
+
 .App-header {
   background-color: #282c34;
   min-height: 100vh;
@@ -124,6 +125,10 @@ height: 900px;
   margin-left: auto;
   margin-top:11%;
   z-index: 10000;
+}
+
+.font {
+  font-family: 'Grape Nuts', cursive;
 }
 
 .BookClues {

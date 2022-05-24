@@ -39,7 +39,7 @@ function App() {
   const [second, setSecond] = useState('00');
   const [minute, setMinute] = useState('00');
   const [counter, setCounter] = useState(0);
-  
+
   const [sidebar, setSidebar] = useState(localStorage.getItem('sidebar'));
   const [pictures, setPictures] = useState([Beach, Flower, Moon, Mountain])
   const [correctOrder, setOrder] = useState([Mountain, Flower, Beach, Moon])
@@ -47,8 +47,10 @@ function App() {
 
 
   const [hasKey, setHasKey] = useState(false)
-  
+
   const [solvedLights, setSolvedLights] = useState(false)
+
+  const [cabinetKey, setCabinetKey] = useState(true);
 
 
   const showSidebar = (tf) => {
@@ -82,6 +84,11 @@ function App() {
     setSolvedLights(s);
   }
 
+  const onClickKeyHandler = (e) => {
+    addMessage("You found a key! You added it to your inventory.");
+    setCabinetKey(false);
+}
+
 
 
   useEffect(() => {
@@ -96,26 +103,26 @@ function App() {
     localStorage.setItem('submitted', submitted)
   }, [submitted])
 
- 
+
 
   useEffect(() => {
     let intervalId;
 
-    if(submitted){
+    if (submitted) {
       intervalId = setInterval(() => {
 
-        
+
         const secondCounter = counter % 60;
         const minuteCounter = Math.floor(counter / 60);
 
-        const computedSecond = String(secondCounter).length === 1 ? `0${secondCounter}`: secondCounter;
-        const computedMinute = String(minuteCounter).length === 1 ? `0${minuteCounter}`: minuteCounter;
+        const computedSecond = String(secondCounter).length === 1 ? `0${secondCounter}` : secondCounter;
+        const computedMinute = String(minuteCounter).length === 1 ? `0${minuteCounter}` : minuteCounter;
 
         setSecond(computedSecond);
         setMinute(computedMinute);
 
         setCounter(counter => counter + 1);
-        
+
       }, 1000)
     }
     return () => clearInterval(intervalId);
@@ -128,8 +135,6 @@ function App() {
       <Navbar name={name} submitted={submitted} />
 
 
-    
-      
       <Sidebar sidebar={sidebar} text={text} />
 
       <Route exact path="/">
@@ -137,30 +142,30 @@ function App() {
       </Route>
 
       <Route exact path="/door">
-        <FrontDoorView  addMessage = {addMessage} hasKey = {hasKey} solvedLights={solvedLights}/>
+        <FrontDoorView  onClickKeyHandler={onClickKeyHandler} cabinetKey={cabinetKey} addMessage={addMessage} hasKey={hasKey} solvedLights={solvedLights} />
       </Route>
 
       <Route exact path="/bookshelf">
-        <BookshelfView  addMessage={addMessage} SolvedPuzzleLights={SolvedPuzzleLights} text={text} solvedLights={solvedLights} sidebar={sidebar} name={name} submitted={submitted}/>
+        <BookshelfView addMessage={addMessage} SolvedPuzzleLights={SolvedPuzzleLights} text={text} solvedLights={solvedLights} sidebar={sidebar} name={name} submitted={submitted} />
       </Route>
 
-            <Route exact path="/paintings">
-          <PaintingView pictures={pictures} solvedLights={solvedLights} correctOrder={correctOrder}
-            changePics={changePics} setInOrder={isInOrder} 
-            addMessage={addMessage} />
-        </Route>
+      <Route exact path="/paintings">
+        <PaintingView pictures={pictures} solvedLights={solvedLights} correctOrder={correctOrder}
+          changePics={changePics} setInOrder={isInOrder}
+          addMessage={addMessage} />
+      </Route>
 
       <Route exact path="/lights">
         <LightsView inOrder={inOrder} addMessage={addMessage} SolvedPuzzleLights={SolvedPuzzleLights} text={text} solvedLights={solvedLights} sidebar={sidebar} name={name} submitted={submitted} />
       </Route>
-   
 
-    <Route exact path="/success">
-        <Success haskey = {hasKey} name = {name} second = {second} minute = {minute} changeSubmitted = {changeSubmitted} showSidebar = {showSidebar}/>
-    </Route>
-    <Route exact path = "/cheater">
 
-    </Route>
+      <Route exact path="/success">
+        <Success haskey={hasKey} name={name} second={second} minute={minute} changeSubmitted={changeSubmitted} showSidebar={showSidebar} />
+      </Route>
+      <Route exact path="/cheater">
+
+      </Route>
 
     </>
   );
