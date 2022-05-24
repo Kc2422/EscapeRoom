@@ -4,13 +4,15 @@ module.exports.makeUser = (req, res) =>{
    
 console.log(req)
         User.create(req.body)
-        .then(newUser => res.json(newUser))
+        .exec(function(err,docs){
+            res.json(docs)})
+        // .then(newUser => res.json(newUser))
         .catch(err => res.json(err));
  
 }
 
 module.exports.findAllUsers = (req, res) => {
-    User.find()
+    User.find().sort('timeTaken').limit(50)
     .then(users => res.json(users))
     .catch(err => response.json(err))
 }
