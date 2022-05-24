@@ -57,7 +57,7 @@ const BookshelfView = (props) => {
             <img className="rug position-absolute bottom-0 start-50 translate-middle-x" src={require('../img/rug.png')} alt="rug" />
 
             {/* NEED a MAP of ARRAY of Paintings. Change index as we click and drop */}
-            <div className='pushList'>
+            <div className='pushList position-absolute top-0'>
 
             <Reorder.Group axis="x" onReorder={changePics} values={items}>
                 <div className='paintings '>
