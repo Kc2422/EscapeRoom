@@ -4,7 +4,7 @@ import axios from 'axios';
 import './Door.css';
 
 const FrontDoorView = (props) => {
-    const {addMessage, hasKey, solvedLights, name, minute, second} = props
+    const {addMessage, hasKey, solvedLights, name, minute, second, counter} = props
     const history = useHistory()
     
     
@@ -19,7 +19,7 @@ const FrontDoorView = (props) => {
 
     const clickLock = (e) => {
         if(hasKey){
-            axios.post('http://localhost:8000/api/user', {name: `${name}`, timeTaken: `${minute} minutes ${second} seconds `})
+            axios.post('http://localhost:8000/api/user', {name: `${name}`, timeTaken: `${minute} minutes ${second} seconds `, seconds: counter})
             .then(res => console.log(res))
             .catch(err => console.log(err))
             history.push('/success')

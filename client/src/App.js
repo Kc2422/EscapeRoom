@@ -143,7 +143,11 @@ function App() {
       </Route>
 
       <Route exact path="/door">
+
+       
+
         <FrontDoorView onClickKeyHandler={onClickKeyHandler} cabinetKey={cabinetKey} addMessage={addMessage} hasKey={hasKey} solvedLights={solvedLights} name={name} minute={minute} second={second} />
+
       </Route>
 
       <Route exact path="/bookshelf">
