@@ -1,10 +1,10 @@
-import React, {useState, useEffect} from 'react';
+import React, { useState, useEffect } from 'react';
 import axios from "axios";
-import { useHistory } from 'react-router-dom';
+import { useHistory, Link } from 'react-router-dom';
 
 const Success = (props) => {
-const {haskey, name, second, minute, changeSubmitted, showSidebar} = props
-const history = useHistory()
+    const { haskey, name, second, minute, changeSubmitted, showSidebar } = props
+    const history = useHistory()
     useEffect(() => {
         changeSubmitted(false)
         showSidebar(false)
@@ -13,15 +13,27 @@ const history = useHistory()
         // }else{
 
         // }
-        axios.post('http://localhost:8000/api/user', {name: `${name}`, timeTaken: `${minute} minutes ${second} seconds `})
-        .then(res => console.log(res))
-        .catch(err => console.log(err))
+
     }, [])
 
-    return(
-        <div>
-            Congrats {name} you escaped the cabin!
-            Your time was {minute} minutes and {second} seconds
+    return (
+        <div className='success'>
+            <div className='greenbox'>
+
+            <h1>
+                Congratulations {name} you escaped the cabin!
+            </h1>
+            <p>
+                Your time was {minute} minutes and {second} seconds
+            </p>
+            <p >
+                <Link to="/times" className='btn btn-success' >See best times</Link>
+            </p>
+
+            <Link to="/" className='btn btn-primary'>Play again</Link>
+            </div>
+
+
         </div>
     )
 }

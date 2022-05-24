@@ -20,6 +20,7 @@ import { motion } from "framer-motion";
 import HTMLFlipBook from "react-pageflip";
 
 import Success from './views/Success';
+import BestTimes from './views/BestTimes';
 
 
 
@@ -134,15 +135,15 @@ function App() {
 
       <Navbar name={name} submitted={submitted} />
 
-
       <Sidebar sidebar={sidebar} text={text} />
+    <div className='needBackground'>
 
       <Route exact path="/">
         <Home changeName={changeName} name={name} setSubmitted={changeSubmitted} showSidebar={showSidebar} />
       </Route>
 
       <Route exact path="/door">
-        <FrontDoorView  onClickKeyHandler={onClickKeyHandler} cabinetKey={cabinetKey} addMessage={addMessage} hasKey={hasKey} solvedLights={solvedLights} />
+        <FrontDoorView onClickKeyHandler={onClickKeyHandler} cabinetKey={cabinetKey} addMessage={addMessage} hasKey={hasKey} solvedLights={solvedLights} name={name} minute={minute} second={second} />
       </Route>
 
       <Route exact path="/bookshelf">
@@ -166,6 +167,11 @@ function App() {
       <Route exact path="/cheater">
 
       </Route>
+
+      <Route exact path = "/times">
+        <BestTimes/>
+      </Route>
+    </div>
 
     </>
   );

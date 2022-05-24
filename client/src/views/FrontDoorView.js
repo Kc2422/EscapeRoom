@@ -1,9 +1,10 @@
 import React, {useState, useEffect} from 'react';
 import { useHistory } from 'react-router-dom';
+import axios from 'axios';
 import './Door.css';
 
 const FrontDoorView = (props) => {
-    const {addMessage, hasKey, solvedLights} = props
+    const {addMessage, hasKey, solvedLights, name, minute, second} = props
     const history = useHistory()
     
     
@@ -18,6 +19,9 @@ const FrontDoorView = (props) => {
 
     const clickLock = (e) => {
         if(hasKey){
+            axios.post('http://localhost:8000/api/user', {name: `${name}`, timeTaken: `${minute} minutes ${second} seconds `})
+            .then(res => console.log(res))
+            .catch(err => console.log(err))
             history.push('/success')
         }else{
             addMessage("The door is locked, you need a key")
