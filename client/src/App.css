@@ -222,9 +222,9 @@ li{
 }
 
 .greenbox{
-  width: 30%;
+  width: 50%;
   height: fit-content;
-  background-color: rgb(27, 56, 36);
+  background-color: rgb(27, 56, 36, .8);
   margin: 0px auto;
   padding: 3%;
   border: 2px solid black;
