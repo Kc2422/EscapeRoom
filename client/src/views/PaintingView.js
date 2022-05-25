@@ -45,18 +45,38 @@ const BookshelfView = (props) => {
         history.push("/bookshelf")
     }
 
+    const onClickTable = (e) => {
+        addMessage("Hmm. Seems like an ordinary table. You lift up the table cloth, but find nothing.");
+    }
+
+    const onClickBoxes = (e) => {
+
+        addMessage("These boxes have an oddly sweet smelling aroma. You look through the boxes, but you find nothing but dried flower petals.");
+
+    }
+
+    // const onClickChest = (e) => {
+    //     props.addMessage("This chest is locked. You try to open it, but doesn't seem to budge.")
+    // }
 
     
 
     return(
         <div className="gameWindow position-relative">  
-            <img className="gameBackground" src={require('../img/PaintingsWall.png')} alt="Paintings Wall"/>
+            <img className="gameBackground" src={require('../img/Wall.jpg')} alt="Wall"/>
+            
+            {/* <img className="chest position-absolute top-50 start-0 translate-middle-y clickable" src={require('../img/chest.png')} alt='chest' onClick={onClickChest} /> */}
+            
+            <img className="coffeeTable position-absolute top-50 start-50 translate-middle clickable" src={require('../img/coffeeTable.png')} alt='chest' onClick={onClickTable} />
+            
+            
+            <img className="boxes position-absolute top-50 end-0 translate-middle-y clickable" src={require('../img/boxes.png')} alt='boxes' onClick={onClickBoxes} />
+            
             <img className="arrow position-absolute top-50 start-0 translate-middle-y clickable" src={require('../img/leftArrow.png')} alt='left arrow' onClick={onClickLeftHandler} />
             <img className="arrow position-absolute top-50 end-0 translate-middle-y clickable" src={require('../img/rightArrow.png')} alt='right arrow' onClick={onClickRightHandler}/>
 
             <img className="rug position-absolute bottom-0 start-50 translate-middle-x" src={require('../img/rug.png')} alt="rug" />
 
-            {/* NEED a MAP of ARRAY of Paintings. Change index as we click and drop */}
             <div className='pushList position-absolute top-0'>
 
             <Reorder.Group axis="x" onReorder={changePics} values={items}>
