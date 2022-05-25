@@ -7,7 +7,8 @@ import {
   BrowserRouter,
   useHistory,
   Route,
-  Link
+  Link,
+  Switch
 } from "react-router-dom";
 import Navbar from './components/navbar';
 import Sidebar from './components/Sidebar';
@@ -27,6 +28,7 @@ import Keypad from './components/Keypad';
 
 import Triller from './files/Triller.m4a';
 import { Howl, Howler } from 'howler';
+import AudioButton from './components/AudioButton';
 
 
 const Beach = require("./img/ArrFrameBeach.png")
@@ -60,9 +62,6 @@ function App() {
 
   const [cabinetKeyVisible, setCabinetKeyVisible] = useState(true);
   const [finalKeyVisible, setFinalKeyVisible] = useState(true);
-
-  const [audio, setAudio] = useState(true);
-
 
   const grabFinalKey = () => {
     setFinalKeyVisible(false);
@@ -105,11 +104,6 @@ function App() {
     setCabinetKeyVisible(false);
   }
 
-  const music = new Howl({
-    src: [Triller],
-    autoplay: true,
-  });
-
   useEffect(() => {
     localStorage.setItem('sidebar', sidebar)
   }, [sidebar])
@@ -121,7 +115,6 @@ function App() {
   useEffect(() => {
     localStorage.setItem('submitted', submitted)
   }, [submitted])
-
 
 
   useEffect(() => {
@@ -148,13 +141,21 @@ function App() {
 
   }, [submitted, counter])
 
-  const audioIcon = './img/sound.png';
+
+  let sound = null;
+  let audioIcon = "'./img/sound.png'";
   const onClickAudio = (e) => {
-    setAudio(!audio);
-    if (audio === true) {
-      audioIcon = './img/sound/png';
+    if (sound != null) {
+      sound.stop();
+      sound.unload();
+      sound = null;
+      audioIcon = "'./img/mute.png'";
     } else {
-      audioIcon = './img/mute.png';
+      sound = new Howl({
+        src: [Triller],
+        loop: true,
+      });
+      sound.play();
     }
   }
 
@@ -163,8 +164,9 @@ function App() {
 
       <Navbar name={name} submitted={submitted} />
 
-      <Sidebar sidebar={sidebar} text={text} audioIcon={audioIcon} onClickAudio={onClickAudio}/>
+      <Sidebar sidebar={sidebar} text={text} audioIcon={audioIcon} onClickAudio={onClickAudio} />
       <div className='needBackground'>
+
 
         <Route exact path="/">
           <Home changeName={changeName} name={name} setSubmitted={changeSubmitted} showSidebar={showSidebar} />
@@ -206,6 +208,23 @@ function App() {
         <TestMap/>
       </Route>
     </div>
+
+
+         
+
+
+         
+          <Route exact path="/cheater">
+
+          </Route>
+
+          <Route exact path="/times">
+            <BestTimes />
+          </Route>
+
+      
+        <AudioButton audioIcon={audioIcon} onClickAudio={onClickAudio} />
+
 
 
     </>
