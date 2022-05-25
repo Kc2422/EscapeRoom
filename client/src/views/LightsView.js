@@ -53,14 +53,14 @@ const LightsView = (props) => {
     }
 
     const onClickCabinet = (e) => {
-        if(props.cabinetKeyVisible === false) {
+        if (props.cabinetKeyVisible === false) {
             setIsRiddleVisible(true);
-            
-        let effect = new Howl({
-            src: [drawerSound],
-            volume: 5,
-        });
-        effect.play();
+
+            let effect = new Howl({
+                src: [drawerSound],
+                volume: 5,
+            });
+            effect.play();
             props.addMessage("The key opened the drawer! You found a note inside.")
         } else {
             props.addMessage("All the drawers are locked. It looks like you need a key to open it.")
@@ -85,21 +85,19 @@ const LightsView = (props) => {
         <div className="gameWindow position-relative">
             <img className="gameBackground" src={require('../img/Wall.jpg')} alt="Lights Wall" onClick={reset} />
 
-            <img className="safe position-absolute top-50 end-0 translate-middle-y clickable" onClick = {onClickSafe} src={require(safeOpen ? '../img/safeOpen.png' : '../img/safe1.png')} alt='Safe Open' />
-            
-            {/* <img className="window position-absolute top-0 start-0 translate-middle clickable" src={require('../img/window.png')} alt='window' /> */}
+            <img className="safe position-absolute top-50 end-0 translate-middle-y clickable" onClick={onClickSafe} src={require(safeOpen ? '../img/safeOpen.png' : '../img/safe1.png')} alt='Safe Open' />
 
-            <img className="mirror position-absolute top-0 start-0 translate-middle clickable" onClick = {onClickMirror} src={require('../img/mirror.png')} alt='Mirror' />
+            <img className="mirror position-absolute top-0 start-0 translate-middle clickable" onClick={onClickMirror} src={require('../img/mirror.png')} alt='Mirror' />
 
 
-        
+
             <img className="rug position-absolute bottom-0 start-50 translate-middle-x" src={require('../img/rug.png')} alt="rug" />
 
-            <img className="drawer1 position-absolute top-50 start-50 translate-middle clickable" src={require('../img/drawer1.png')} alt="drawer" onClick={onClickCabinet}/>
+            <img className="drawer1 position-absolute top-50 start-50 translate-middle clickable" src={require('../img/drawer1.png')} alt="drawer" onClick={onClickCabinet} />
             <img className="arrow position-absolute top-50 start-0 translate-middle-y clickable" src={require('../img/leftArrow.png')} alt='left arrow' onClick={onClickLeftHandler} />
             <img className="arrow position-absolute top-50 end-0 translate-middle-y clickable" src={require('../img/rightArrow.png')} alt='right arrow' onClick={onClickRightHandler} />
-            
-            
+
+
             <motion.div className='lights position-absolute top-0 end-0 translate-middle-y clickable' onClick={() => setLightsVisible(true)}>
                 <AnimatePresence>
                     {isLightsVisible && (
@@ -108,7 +106,7 @@ const LightsView = (props) => {
                             animate={{ opacity: 1, scale: 1 }}
                             exit={{ opacity: 0, scale: 0 }}
                         >
-                            <Lights inOrder={props.inOrder} addMessage={props.addMessage} SolvedPuzzleLights={props.SolvedPuzzleLights} text={props.text}/>
+                            <Lights inOrder={props.inOrder} addMessage={props.addMessage} SolvedPuzzleLights={props.SolvedPuzzleLights} text={props.text} />
                         </motion.div>
                     )}
 
@@ -117,14 +115,14 @@ const LightsView = (props) => {
 
             {isRiddleVisible ? <Riddle /> : null}
 
-            {isKeyPadVisible ? <Keypad addMessage = {props.addMessage} openSafe = {safeIsOpen}/> : null}
+            {isKeyPadVisible ? <Keypad addMessage={props.addMessage} openSafe={safeIsOpen} /> : null}
 
-          
-    
-            {safeOpen && props.finalKeyVisible ? 
-                <img className="finalKey position-absolute top-50 end-0 translate-middle-y clickable" src={require("../img/FinalKey.png")} alt="key" onClick={() => {props.grabFinalKey(); keySound()}}/> : null}
 
-          
+
+            {safeOpen && props.finalKeyVisible ?
+                <img className="finalKey position-absolute top-50 end-0 translate-middle-y clickable" src={require("../img/FinalKey.png")} alt="key" onClick={() => { props.grabFinalKey(); keySound() }} /> : null}
+
+
         </div>
     )
 }
