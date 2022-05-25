@@ -2,10 +2,15 @@ import React, {useState, useEffect} from 'react';
 import { useHistory } from 'react-router-dom';
 import axios from 'axios';
 import './Door.css';
+import { Howl, Howler } from 'howler';
+import KeyLock from "../files/keyLock.wav";
+import Tada from "../files/tada.wav";
+import KeySound from "../files/keySound.aiff";
 
 const FrontDoorView = (props) => {
     const {addMessage, hasKey, solvedLights, name, minute, second, counter} = props
     const history = useHistory()
+    const { Howl, Howler } = require('howler');
     
     
 
@@ -23,13 +28,31 @@ const FrontDoorView = (props) => {
             axios.post('http://localhost:8000/api/user', {name: `${name}`, timeTaken: `${minute} minutes ${second} seconds`, seconds: counter})
             .then(res => console.log(res))
             .catch(err => console.log(err))
-            history.push('/success')
+            history.push('/success');
+            let effect = new Howl({
+                src: [KeyLock],
+                volume: 2
+            });
+            effect.play();
+            effect = new Howl({
+                src: [Tada],
+                volume: 5
+            });
+            effect.play();
+
         }else{
             addMessage("The door is locked, you need a key")
         }
         
     }
 
+    const keySound = () => {
+        let effect = new Howl({
+            src: [KeySound],
+            volume: 5
+        });
+        effect.play();
+    }
 
     return(
         <div className="gameWindow position-relative">  
@@ -40,7 +63,7 @@ const FrontDoorView = (props) => {
             <img className="lock position-absolute top-0 start-0 translate-middle-y clickable" src={require("../img/lock.png")} alt="lock" onClick={clickLock}/>
 
             {props.solvedLights && props.cabinetKeyVisible ?
-                <img className="key position-absolute top-50 end-0 translate-middle-y clickable" src={require("../img/key.png")} alt="key" onClick={props.onClickKeyHandler}/> 
+                <img className="key position-absolute top-50 end-0 translate-middle-y clickable" src={require("../img/key.png")} alt="key" onClick={() => {props.onClickKeyHandler(); keySound();}}/> 
                 : null
             }
 
