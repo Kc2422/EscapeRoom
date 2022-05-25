@@ -40,6 +40,7 @@ const Mountain = require("./img/ArrFrameMountain.png")
 
 
 function App() {
+  const [hint, setHint] = useState("The bookshelf has many items, see if there is anything useful there.")
   const { Howl, Howler } = require('howler');
   Howler.volume(0.05);
   const [name, setName] = useState(localStorage.getItem('name'))
@@ -141,6 +142,15 @@ function App() {
 
   }, [submitted, counter])
 
+  useEffect(() => {
+    if(inOrder){
+      setHint("What do the arrows on the painting mean?")
+    }
+    if(solvedLights){
+      setHint("To code to the safe is contained in a riddle")
+    }
+  },[solvedLights, inOrder])
+
 
   const [sound, setSound] = useState(false)
   
@@ -170,8 +180,8 @@ function App() {
     <>
 
       <Navbar name={name} submitted={submitted} />
-
-      <Sidebar sidebar={sidebar} text={text} audioIcon={audioIcon} onClickAudio={onClickAudio} />
+      {submitted &&
+      <Sidebar sidebar={sidebar} text={text} audioIcon={audioIcon} onClickAudio={onClickAudio} />}
       <div className='needBackground'>
 
 
@@ -217,7 +227,11 @@ function App() {
 
 
       <AudioButton audioIcon={audioIcon} onClickAudio={onClickAudio} />
-
+      {submitted && 
+      <div className='hint'>
+      <div >Time spent in cabin: {minute}:{second}</div>
+      <button className='' onClick ={() => {addMessage(hint)}}>Get Hint</button>
+      </div>}
     </>
   );
 }

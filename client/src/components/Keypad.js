@@ -144,8 +144,8 @@ const Keypad = (props) => {
 
 
 
-             <form onSubmit={handleOnClickEnter} className="form ">
-                <input readOnly="readonly"className= "codeInput"type="text" maxLength="4" value={code} onChange={(e) => {setCode(e.target.value)}}/>
+             <div onSubmit={handleOnClickEnter} className="form ">
+                <div className='codeInput'>{code}</div>
              <div className='abc clickable' onClick={handleOnClick1}></div>
              <div className='def clickable' onClick={handleOnClick2}></div>
              <div className='ghi clickable' onClick={handleOnClick3}></div>
@@ -158,7 +158,7 @@ const Keypad = (props) => {
              <div className='delete clickable' onClick={handleOnClickDelete}></div>
              <div className='zero clickable' onClick={handleOnClick0}></div>
              <div className='enter clickable' onClick={handleOnClickEnter}></div>
-            </form>
+            </div>
         </div>
         </>
     );
