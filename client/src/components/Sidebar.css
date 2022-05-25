@@ -3,18 +3,11 @@
     top: 15%;
     left: 3%;
     width: 20%;
-    height: 60%;
-    background-color: #b52c2c;
-
+    height: 70%;
+    background-color: hsla(196, 51%, 20%, );
     overflow: auto;
-    border-radius: 10px;
-    
-    /* transition: left 300ms ease-out; */
+    /* border-radius: 10px; */
   }
-  /* .sidebar.active {
-    left: 3%;
-    
-  } */
 
   .sidebar ul {
     margin: 0;

@@ -51,7 +51,7 @@ const LightsView = (props) => {
 
 
     const onClickMirror = (e) => {
-        props.addMessage("This looks like it has been here for decades. The hindges look ready to break off. Better not touch this before I break it.")
+        props.addMessage("This looks like it has been here for decades. The hindges look ready to break off. Better not touch this before you break it.")
     }
 
 
