@@ -50,6 +50,10 @@ const LightsView = (props) => {
     }
 
 
+    const onClickMirror = (e) => {
+        props.addMessage("This tree definitely has to be fake. You use all your strength to lift the tree but find nothing.")
+    }
+
 
 
     return (
@@ -57,6 +61,11 @@ const LightsView = (props) => {
             <img className="gameBackground" src={require('../img/Wall.jpg')} alt="Lights Wall" onClick={reset} />
 
             <img className="safe position-absolute top-50 end-0 translate-middle-y clickable" onClick = {onClickSafe} src={require(safeOpen ? '../img/safeOpen.png' : '../img/safe1.png')} alt='Safe Open' />
+            
+            {/* <img className="window position-absolute top-0 start-0 translate-middle clickable" src={require('../img/window.png')} alt='window' /> */}
+
+            <img className="mirror position-absolute top-0 start-0 translate-middle clickable" onClick = {onClickMirror} src={require('../img/mirror.png')} alt='Mirror' />
+
 
         
             <img className="rug position-absolute bottom-0 start-50 translate-middle-x" src={require('../img/rug.png')} alt="rug" />
