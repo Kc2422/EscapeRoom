@@ -34,7 +34,7 @@ const Success = (props) => {
                 <Link to="/times" className='btn btn-success' >See best times</Link>
             </p>
 
-            <Link to="/" className='btn btn-primary'>Play again</Link>
+            <a href="/" className='btn btn-primary'>Play again</a>
             </div>
 
 
