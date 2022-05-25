@@ -51,7 +51,7 @@ const LightsView = (props) => {
 
 
     const onClickMirror = (e) => {
-        props.addMessage("This tree definitely has to be fake. You use all your strength to lift the tree but find nothing.")
+        props.addMessage("This looks like it has been here for decades. The hindges look ready to break off. Better not touch this before I break it.")
     }
 
 
@@ -70,7 +70,7 @@ const LightsView = (props) => {
         
             <img className="rug position-absolute bottom-0 start-50 translate-middle-x" src={require('../img/rug.png')} alt="rug" />
 
-            <img className="drawer position-absolute top-50 start-50 translate-middle clickable" src={require('../img/drawer.png')} alt="drawer" onClick={onClickCabinet}/>
+            <img className="drawer1 position-absolute top-50 start-50 translate-middle clickable" src={require('../img/drawer1.png')} alt="drawer" onClick={onClickCabinet}/>
             <img className="arrow position-absolute top-50 start-0 translate-middle-y clickable" src={require('../img/leftArrow.png')} alt='left arrow' onClick={onClickLeftHandler} />
             <img className="arrow position-absolute top-50 end-0 translate-middle-y clickable" src={require('../img/rightArrow.png')} alt='right arrow' onClick={onClickRightHandler} />
             
@@ -97,7 +97,7 @@ const LightsView = (props) => {
           
     
             {safeOpen && props.finalKeyVisible ? 
-                <img className="key position-absolute top-50 end-0 translate-middle-y clickable" src={require("../img/FinalKey.png")} alt="key" onClick={props.grabFinalKey}/> : null}
+                <img className="finalKey position-absolute top-50 end-0 translate-middle-y clickable" src={require("../img/FinalKey.png")} alt="key" onClick={props.grabFinalKey}/> : null}
 
           
         </div>
