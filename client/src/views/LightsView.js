@@ -13,7 +13,7 @@ const LightsView = (props) => {
     const [isKeyPadVisible, setIsKeyPadVisible] = useState(false);
     const history = useHistory();
     const [code, setCode] = useState("")
-    const [safeOpen, setSafeOpen] = useState(true)
+    const [safeOpen, setSafeOpen] = useState(false)
 
 
     const onClickRightHandler = (e) => {
@@ -26,6 +26,7 @@ const LightsView = (props) => {
 
     const onClickSafe = (e) => {
         console.log("you clicked safe!");
+        // history.push("/keypad")
         setIsKeyPadVisible(true);
     }
 
@@ -33,6 +34,10 @@ const LightsView = (props) => {
         setLightsVisible(false);
         setIsRiddleVisible(false);
         setIsKeyPadVisible(false);
+    }
+
+    const safeIsOpen = (tf) => {
+        setSafeOpen(tf)
     }
 
     const onClickCabinet = (e) => {
@@ -44,14 +49,6 @@ const LightsView = (props) => {
         }
     }
 
-    const onSubmitCode = (e) => {
-        e.preventDefault()
-        if(code === "1234"){
-            setSafeOpen(true)
-        }else{
-            props.addMessage("The safe won't open")
-        }
-    }
 
 
 
@@ -59,7 +56,7 @@ const LightsView = (props) => {
         <div className="gameWindow position-relative">
             <img className="gameBackground" src={require('../img/Wall.jpg')} alt="Lights Wall" onClick={reset} />
 
-            <img className="safe position-absolute top-50 end-0 translate-middle-y clickable" src={require(safeOpen ? '../img/safeOpen.png' : '../img/safe1.png')} alt='Safe Open' />
+            <img className="safe position-absolute top-50 end-0 translate-middle-y clickable" onClick = {onClickSafe} src={require(safeOpen ? '../img/safeOpen.png' : '../img/safe1.png')} alt='Safe Open' />
 
         
             <img className="rug position-absolute bottom-0 start-50 translate-middle-x" src={require('../img/rug.png')} alt="rug" />
@@ -86,17 +83,14 @@ const LightsView = (props) => {
 
             {isRiddleVisible ? <Riddle /> : null}
 
-            {isKeyPadVisible ? <Keypad /> : null}
+            {isKeyPadVisible ? <Keypad addMessage = {props.addMessage} openSafe = {safeIsOpen}/> : null}
 
+          
+    
             {safeOpen && props.finalKeyVisible ? 
                 <img className="key position-absolute top-50 end-0 translate-middle-y clickable" src={require("../img/FinalKey.png")} alt="key" onClick={props.grabFinalKey}/> : null}
 
-            <form onSubmit = {onSubmitCode}>
-                <input type="text" maxLength="4"onChange={(e) => {setCode(e.target.value)}}/>
-            </form>
-            <map name='safe'>
-
-            </map>
+          
         </div>
     )
 }

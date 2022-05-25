@@ -18,8 +18,9 @@ const FrontDoorView = (props) => {
     }
 
     const clickLock = (e) => {
+        console.log(counter)
         if(hasKey){
-            axios.post('http://localhost:8000/api/user', {name: `${name}`, timeTaken: `${minute} minutes ${second} seconds `, seconds: counter})
+            axios.post('http://localhost:8000/api/user', {name: `${name}`, timeTaken: `${minute} minutes ${second} seconds`, seconds: counter})
             .then(res => console.log(res))
             .catch(err => console.log(err))
             history.push('/success')

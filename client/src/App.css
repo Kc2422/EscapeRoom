@@ -272,12 +272,146 @@ li{
   text-align: center;
 }
 
+.form{
+  position: absolute;
+  top: 6%;
+  left: 11%;
+  height: 20%;
+  width: 95%;
+  
+}
+ .codeInput{
+ 
+  background-color: #61dafb;
+  height: 90%;
+  width: 80%;
+  border-radius: 5%;
+  font-size: 4.5em;
+  padding-left: 8%;
+ }
+
+.keypad{
+  position: absolute;
+  top: 5%;
+  left: 18%;
+  
+}
 .muteButton {
   width:3%;
   margin: 1%;
 }
 
+.keypadimg{
+  width: 100%;
+  height: 100%;
+}
 
+.abc{
+  position: absolute;
+  top: 110%;
+  left: -1%;
+  width: 25%;
+  height: 81%;
+  
+}
+
+.def{
+  position: absolute;
+  top: 110%;
+  left: 27%;
+  width: 25%;
+  height: 81%;
+  
+}
+
+.ghi{
+  position: absolute;
+  top: 110%;
+  left: 55%;
+  width: 25%;
+  height: 81%;
+  
+}
+
+.jkl{
+  position: absolute;
+  top: 200%;
+  left: -1%;
+  width: 25%;
+  height: 81%;
+  
+}
+
+.mno{
+  position: absolute;
+  top: 200%;
+  left: 27%;
+  width: 25%;
+  height: 81%;
+  
+}
+
+.pqr{
+  position: absolute;
+  top: 200%;
+  left: 55%;
+  width: 25%;
+  height: 81%;
+  
+}
+
+.stu{
+  position: absolute;
+  top: 285%;
+  left: -1%;
+  width: 25%;
+  height: 81%;
+  
+}
+
+.vwx{
+  position: absolute;
+  top: 285%;
+  left: 28%;
+  width: 25%;
+  height: 81%;
+  
+}
+
+.yz{
+  position: absolute;
+  top: 285%;
+  left: 56%;
+  width: 25%;
+  height: 81%;
+  
+}
+
+.delete{
+  position: absolute;
+  top: 374%;
+  left: -1%;
+  width: 25%;
+  height: 81%;
+
+}
+
+.zero{
+  position: absolute;
+  top: 374%;
+  left: 28%;
+  width: 25%;
+  height: 81%;
+  
+}
+.enter{
+  position: absolute;
+  top: 374%;
+  left: 56%;
+  width: 25%;
+  height: 81%;
+  
+}
 
 .head{
   text-align: center;
