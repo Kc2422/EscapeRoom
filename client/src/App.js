@@ -42,7 +42,7 @@ const Mountain = require("./img/ArrFrameMountain.png")
 function App() {
   const [hint, setHint] = useState("The bookshelf has many items, see if there is anything useful there.")
   const { Howl, Howler } = require('howler');
-  Howler.volume(0.5);
+  Howler.volume(0.25);
   const [name, setName] = useState(localStorage.getItem('name'))
   const [submitted, setSubmitted] = useState(localStorage.getItem('submitted'))
   const [text, setMessages] = useState([ "As you enter the cabin, the door locks behind you with a load thud. You are trapped... This place gives you the creeps. Let's try to find a way out."])

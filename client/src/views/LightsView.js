@@ -5,6 +5,12 @@ import Lights from '../components/Lights';
 import Riddle from '../components/Riddle';
 import Keypad from '../components/Keypad';
 import { motion, AnimatePresence } from "framer-motion";
+import { Howl, Howler } from 'howler';
+import safeSound from "../files/safeOpening.wav";
+import drawerSound from "../files/drawerOpening.wav";
+import KeySound from "../files/keySound.aiff";
+
+
 
 const LightsView = (props) => {
 
@@ -14,6 +20,8 @@ const LightsView = (props) => {
     const history = useHistory();
     const [code, setCode] = useState("")
     const [safeOpen, setSafeOpen] = useState(false)
+    const { Howl, Howler } = require('howler');
+
 
 
     const onClickRightHandler = (e) => {
@@ -38,11 +46,21 @@ const LightsView = (props) => {
 
     const safeIsOpen = (tf) => {
         setSafeOpen(tf)
+        let effect = new Howl({
+            src: [safeSound],
+        });
+        effect.play();
     }
 
     const onClickCabinet = (e) => {
         if(props.cabinetKeyVisible === false) {
             setIsRiddleVisible(true);
+            
+        let effect = new Howl({
+            src: [drawerSound],
+            volume: 5,
+        });
+        effect.play();
             props.addMessage("The key opened the drawer! You found a note inside.")
         } else {
             props.addMessage("All the drawers are locked. It looks like you need a key to open it.")
@@ -55,6 +73,13 @@ const LightsView = (props) => {
     }
 
 
+    const keySound = () => {
+        let effect = new Howl({
+            src: [KeySound],
+            volume: 10
+        });
+        effect.play();
+    }
 
     return (
         <div className="gameWindow position-relative">
@@ -97,7 +122,7 @@ const LightsView = (props) => {
           
     
             {safeOpen && props.finalKeyVisible ? 
-                <img className="finalKey position-absolute top-50 end-0 translate-middle-y clickable" src={require("../img/FinalKey.png")} alt="key" onClick={props.grabFinalKey}/> : null}
+                <img className="finalKey position-absolute top-50 end-0 translate-middle-y clickable" src={require("../img/FinalKey.png")} alt="key" onClick={() => {props.grabFinalKey(); keySound()}}/> : null}
 
           
         </div>
