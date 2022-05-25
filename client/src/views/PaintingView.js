@@ -55,18 +55,11 @@ const BookshelfView = (props) => {
 
     }
 
-    // const onClickChest = (e) => {
-    //     props.addMessage("This chest is locked. You try to open it, but doesn't seem to budge.")
-    // }
-
-    
 
     return(
         <div className="gameWindow position-relative">  
             <img className="gameBackground" src={require('../img/Wall.jpg')} alt="Wall"/>
-            
-            {/* <img className="chest position-absolute top-50 start-0 translate-middle-y clickable" src={require('../img/chest.png')} alt='chest' onClick={onClickChest} /> */}
-            
+                    
             <img className="clothTable position-absolute top-50 start-50 translate-middle clickable" src={require('../img/table.png')} alt='chest' onClick={onClickTable} />
             
             
