@@ -186,8 +186,6 @@ function App() {
           <Route exact path="/lights">
             <LightsView finalKeyVisible={finalKeyVisible} grabFinalKey={grabFinalKey} cabinetKeyVisible={cabinetKeyVisible} inOrder={inOrder} addMessage={addMessage} SolvedPuzzleLights={SolvedPuzzleLights} text={text} solvedLights={solvedLights} sidebar={sidebar} name={name} submitted={submitted} />
           </Route>
-
-
           <Route exact path="/success">
             <Success haskey={hasKey} name={name} second={second} minute={minute} changeSubmitted={changeSubmitted} showSidebar={showSidebar} />
           </Route>
@@ -205,7 +203,7 @@ function App() {
         </Switch>
         <AudioButton audioIcon={audioIcon} onClickAudio={onClickAudio} />
 
-      </div>
+      </div >
 
     </>
   );
