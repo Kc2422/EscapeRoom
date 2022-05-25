@@ -43,7 +43,7 @@
 .gameWindow {
   border: 5px solid black;
   display: block;
-  margin-left: 25%;
+  
   /* margin-left: auto;
   margin-right:5%;
   margin-top:5%;  */
@@ -321,6 +321,8 @@ li{
 
 .backgroundColor {
   background-color: hsla(196, 51%, 20%, 0.55);
+  width: 100%;
+  height: 100%;
 }
 .greenbox{
   font-size: 1.2vw;
@@ -496,7 +498,7 @@ li{
 
 
 .hint{
-  position: absolute;
+  
   top: 20%;
   left: 80%;
   width: 10%;

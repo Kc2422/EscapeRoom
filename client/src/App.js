@@ -147,7 +147,7 @@ function App() {
       setHint("What do the arrows on the painting mean?")
     }
     if(solvedLights){
-      setHint("To code to the safe is contained in a riddle")
+      setHint("The code to the safe is contained in a riddle")
     }
   },[solvedLights, inOrder])
 
@@ -179,10 +179,12 @@ function App() {
   return (
     <>
 
+        <div className={submitted ? "backgroundColor" : null} >
       <Navbar name={name} submitted={submitted} />
+      <div style={{display: "flex", justifyContent: 'space-evenly', marginTop: "5%"}}>
+
       {submitted &&
       <Sidebar sidebar={sidebar} text={text} audioIcon={audioIcon} onClickAudio={onClickAudio} />}
-      <div className={submitted ? "backgroundColor" : null} >
         <Route exact path="/">
           <Home changeName={changeName} name={name} setSubmitted={changeSubmitted} showSidebar={showSidebar} />
         </Route>
@@ -221,15 +223,16 @@ function App() {
         <Route exact path="/test">
           <TestMap />
         </Route>
-      </div>
-
-
-      <AudioButton audioIcon={audioIcon} onClickAudio={onClickAudio} />
       {submitted && 
       <div className='hint'>
       <div >Time spent in cabin: {minute}:{second}</div>
       <button className='' onClick ={() => {addMessage(hint)}}>Get Hint</button>
       </div>}
+      </div>
+      <AudioButton audioIcon={audioIcon} onClickAudio={onClickAudio} />
+      </div>
+
+
     </>
   );
 }
