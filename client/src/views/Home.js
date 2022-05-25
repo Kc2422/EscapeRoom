@@ -2,11 +2,11 @@ import React, { useState, useEffect } from 'react'
 import { useHistory } from 'react-router-dom'
 import styles from "./Home.module.css"
 
-const cabinPic = require("../img/cabinPic.jpg")
 
 import { Howl, Howler } from 'howler';
 import DoorSound from "../files/doorClosing.wav";
 
+const cabinPic = require("../img/cabinPic.jpg")
 
 
 const Home = (props) => {
@@ -61,7 +61,7 @@ const Home = (props) => {
                 </div>
             </form>
         </div>
-        </>
+       
     )
 }
 
