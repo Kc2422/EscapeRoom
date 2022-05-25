@@ -7,7 +7,8 @@ import {
   BrowserRouter,
   useHistory,
   Route,
-  Link
+  Link,
+  Switch
 } from "react-router-dom";
 import Navbar from './components/navbar';
 import Sidebar from './components/Sidebar';
@@ -26,6 +27,7 @@ import TestMap from './views/TestMap';
 
 import Triller from './files/Triller.m4a';
 import { Howl, Howler } from 'howler';
+import AudioButton from './components/AudioButton';
 
 
 const Beach = require("./img/ArrFrameBeach.png")
@@ -59,9 +61,6 @@ function App() {
 
   const [cabinetKeyVisible, setCabinetKeyVisible] = useState(true);
   const [finalKeyVisible, setFinalKeyVisible] = useState(true);
-
-  const [audio, setAudio] = useState(true);
-
 
   const grabFinalKey = () => {
     setFinalKeyVisible(false);
@@ -103,11 +102,6 @@ function App() {
     setCabinetKeyVisible(false);
   }
 
-  const music = new Howl({
-    src: [Triller],
-    autoplay: true,
-  });
-
   useEffect(() => {
     localStorage.setItem('sidebar', sidebar)
   }, [sidebar])
@@ -119,7 +113,6 @@ function App() {
   useEffect(() => {
     localStorage.setItem('submitted', submitted)
   }, [submitted])
-
 
 
   useEffect(() => {
@@ -146,13 +139,21 @@ function App() {
 
   }, [submitted, counter])
 
-  const audioIcon = './img/sound.png';
+
+  let sound = null;
+  let audioIcon = "'./img/sound.png'";
   const onClickAudio = (e) => {
-    setAudio(!audio);
-    if (audio === true) {
-      audioIcon = './img/sound/png';
+    if (sound != null) {
+      sound.stop();
+      sound.unload();
+      sound = null;
+      audioIcon = "'./img/mute.png'";
     } else {
-      audioIcon = './img/mute.png';
+      sound = new Howl({
+        src: [Triller],
+        loop: true,
+      });
+      sound.play();
     }
   }
 
@@ -161,46 +162,48 @@ function App() {
 
       <Navbar name={name} submitted={submitted} />
 
-      <Sidebar sidebar={sidebar} text={text} audioIcon={audioIcon} onClickAudio={onClickAudio}/>
+      <Sidebar sidebar={sidebar} text={text} audioIcon={audioIcon} onClickAudio={onClickAudio} />
       <div className='needBackground'>
+        <Switch>
+          <Route exact path="/">
+            <Home changeName={changeName} name={name} setSubmitted={changeSubmitted} showSidebar={showSidebar} />
+          </Route>
 
-        <Route exact path="/">
-          <Home changeName={changeName} name={name} setSubmitted={changeSubmitted} showSidebar={showSidebar} />
-        </Route>
+          <Route exact path="/door">
+            <FrontDoorView onClickKeyHandler={onClickKeyHandler} cabinetKeyVisible={cabinetKeyVisible} addMessage={addMessage} hasKey={hasKey} solvedLights={solvedLights} name={name} minute={minute} second={second} />
+          </Route>
 
-        <Route exact path="/door">
-          <FrontDoorView onClickKeyHandler={onClickKeyHandler} cabinetKeyVisible={cabinetKeyVisible} addMessage={addMessage} hasKey={hasKey} solvedLights={solvedLights} name={name} minute={minute} second={second} />
-        </Route>
+          <Route exact path="/bookshelf">
+            <BookshelfView addMessage={addMessage} SolvedPuzzleLights={SolvedPuzzleLights} text={text} solvedLights={solvedLights} sidebar={sidebar} name={name} submitted={submitted} />
+          </Route>
 
-        <Route exact path="/bookshelf">
-          <BookshelfView addMessage={addMessage} SolvedPuzzleLights={SolvedPuzzleLights} text={text} solvedLights={solvedLights} sidebar={sidebar} name={name} submitted={submitted} />
-        </Route>
+          <Route exact path="/paintings">
+            <PaintingView pictures={pictures} solvedLights={solvedLights} correctOrder={correctOrder}
+              changePics={changePics} setInOrder={isInOrder}
+              addMessage={addMessage} />
+          </Route>
 
-        <Route exact path="/paintings">
-          <PaintingView pictures={pictures} solvedLights={solvedLights} correctOrder={correctOrder}
-            changePics={changePics} setInOrder={isInOrder}
-            addMessage={addMessage} />
-        </Route>
-
-        <Route exact path="/lights">
-          <LightsView finalKeyVisible={finalKeyVisible} grabFinalKey={grabFinalKey} cabinetKeyVisible={cabinetKeyVisible} inOrder={inOrder} addMessage={addMessage} SolvedPuzzleLights={SolvedPuzzleLights} text={text} solvedLights={solvedLights} sidebar={sidebar} name={name} submitted={submitted} />
-        </Route>
+          <Route exact path="/lights">
+            <LightsView finalKeyVisible={finalKeyVisible} grabFinalKey={grabFinalKey} cabinetKeyVisible={cabinetKeyVisible} inOrder={inOrder} addMessage={addMessage} SolvedPuzzleLights={SolvedPuzzleLights} text={text} solvedLights={solvedLights} sidebar={sidebar} name={name} submitted={submitted} />
+          </Route>
 
 
-        <Route exact path="/success">
-          <Success haskey={hasKey} name={name} second={second} minute={minute} changeSubmitted={changeSubmitted} showSidebar={showSidebar} />
-        </Route>
-        <Route exact path="/cheater">
+          <Route exact path="/success">
+            <Success haskey={hasKey} name={name} second={second} minute={minute} changeSubmitted={changeSubmitted} showSidebar={showSidebar} />
+          </Route>
+          <Route exact path="/cheater">
 
-        </Route>
+          </Route>
 
-        <Route exact path="/times">
-          <BestTimes />
-        </Route>
+          <Route exact path="/times">
+            <BestTimes />
+          </Route>
 
-        <Route exact path="/test">
-          <TestMap />
-        </Route>
+          <Route exact path="/test">
+            <TestMap />
+          </Route>
+        </Switch>
+        <AudioButton audioIcon={audioIcon} onClickAudio={onClickAudio} />
 
       </div>
 

@@ -13,7 +13,6 @@ function Sidebar(props) {
 
   return (
     <nav className={sidebar ? "sidebar active" : "sidebar"} id="sideb">
-      {/* <img className="muteButton" src={require(props.audioIcon)} alt="sound" onClick={props.onClickAudio}></img> */}
 
       <ul>
 
