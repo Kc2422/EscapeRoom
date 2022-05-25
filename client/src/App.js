@@ -45,12 +45,12 @@ function App() {
   Howler.volume(0.25);
   const [name, setName] = useState(localStorage.getItem('name'))
   const [submitted, setSubmitted] = useState(localStorage.getItem('submitted'))
-  const [text, setMessages] = useState([ "As you enter the cabin, the door locks behind you with a load thud. You are trapped... This place gives you the creeps. Let's try to find a way out."])
+  const [text, setMessages] = useState(["As you enter the cabin, the door locks behind you with a load thud. You are trapped... This place gives you the creeps. Let's try to find a way out."])
 
   const [second, setSecond] = useState('00');
   const [minute, setMinute] = useState('00');
   const [counter, setCounter] = useState(0);
-  
+
   const [sidebar, setSidebar] = useState(localStorage.getItem('sidebar'));
   const [pictures, setPictures] = useState([Beach, Flower, Moon, Mountain])
   const [correctOrder, setOrder] = useState([Mountain, Flower, Beach, Moon])
@@ -143,30 +143,30 @@ function App() {
   }, [submitted, counter])
 
   useEffect(() => {
-    if(inOrder){
+    if (inOrder) {
       setHint("What do the arrows on the painting mean?")
     }
-    if(solvedLights){
+    if (solvedLights) {
       setHint("The code to the safe is contained in a riddle.")
     }
-  },[solvedLights, inOrder])
+  }, [solvedLights, inOrder])
 
 
   const [sound, setSound] = useState(false)
-  
+
   // let audioIcon = require('./img/sound.png');
   const [audioIcon, setAudioIcon] = useState(require('./img/mute.png'))
   const onClickAudio = (e) => {
     console.log(sound)
     if (sound) {
-      
+
       setAudioIcon(require('./img/mute.png'));
       sound.stop();
       sound.unload();
       setSound(null);
     } else {
       setAudioIcon(require('./img/sound.png'));
-      
+
       let newsound = new Howl({
         src: [Triller],
         loop: true,
@@ -179,59 +179,65 @@ function App() {
   return (
     <>
 
-        <div className={submitted ? "backgroundColor" : null} >
-      <Navbar name={name} submitted={submitted} />
+      <div className={submitted ? "backgroundColor" : null} >
+        <Navbar name={name} submitted={submitted} />
         <Route exact path="/">
           <Home changeName={changeName} name={name} setSubmitted={changeSubmitted} showSidebar={showSidebar} />
         </Route>
-      <div style={{display: "flex", justifyContent: 'space-evenly', marginTop: "5%"}}>
+        <div style={{ display: "flex", justifyContent: 'space-evenly', marginTop: "5%" }}>
 
-      {submitted &&
-      <Sidebar sidebar={sidebar} text={text} audioIcon={audioIcon} onClickAudio={onClickAudio} />}
+          {submitted &&
+            <Sidebar sidebar={sidebar} text={text} audioIcon={audioIcon} onClickAudio={onClickAudio} />}
 
-        <Route exact path="/door">
-          <FrontDoorView onClickKeyHandler={onClickKeyHandler} cabinetKeyVisible={cabinetKeyVisible} addMessage={addMessage} hasKey={hasKey} solvedLights={solvedLights} name={name} minute={minute} second={second} counter={counter} />
-        </Route>
+          <Route exact path="/door">
+            <FrontDoorView onClickKeyHandler={onClickKeyHandler} cabinetKeyVisible={cabinetKeyVisible} addMessage={addMessage} hasKey={hasKey} solvedLights={solvedLights} name={name} minute={minute} second={second} counter={counter} />
+          </Route>
 
-        <Route exact path="/lights">
-          <LightsView finalKeyVisible={finalKeyVisible} grabFinalKey={grabFinalKey} cabinetKeyVisible={cabinetKeyVisible} inOrder={inOrder} addMessage={addMessage} SolvedPuzzleLights={SolvedPuzzleLights} text={text} solvedLights={solvedLights} sidebar={sidebar} name={name} submitted={submitted} />
-        </Route>
-        <Route exact path="/success">
-          <Success haskey={hasKey} name={name} second={second} minute={minute} changeSubmitted={changeSubmitted} showSidebar={showSidebar} />
-        </Route>
+          <Route exact path="/lights">
+            <LightsView finalKeyVisible={finalKeyVisible} grabFinalKey={grabFinalKey} cabinetKeyVisible={cabinetKeyVisible} inOrder={inOrder} addMessage={addMessage} SolvedPuzzleLights={SolvedPuzzleLights} text={text} solvedLights={solvedLights} sidebar={sidebar} name={name} submitted={submitted} />
+          </Route>
+          <Route exact path="/success">
+            <Success haskey={hasKey} name={name} second={second} minute={minute} changeSubmitted={changeSubmitted} showSidebar={showSidebar} />
+          </Route>
 
-        <Route exact path="/bookshelf">
-          <BookshelfView addMessage={addMessage} SolvedPuzzleLights={SolvedPuzzleLights} text={text} solvedLights={solvedLights} sidebar={sidebar} name={name} submitted={submitted} />
-        </Route>
+          <Route exact path="/bookshelf">
+            <BookshelfView addMessage={addMessage} SolvedPuzzleLights={SolvedPuzzleLights} text={text} solvedLights={solvedLights} sidebar={sidebar} name={name} submitted={submitted} />
+          </Route>
 
-        <Route exact path="/paintings">
-          <PaintingView pictures={pictures} solvedLights={solvedLights} correctOrder={correctOrder}
-            changePics={changePics} setInOrder={isInOrder}
-            addMessage={addMessage} />
-        </Route>
+          <Route exact path="/paintings">
+            <PaintingView pictures={pictures} solvedLights={solvedLights} correctOrder={correctOrder}
+              changePics={changePics} setInOrder={isInOrder}
+              addMessage={addMessage} />
+          </Route>
 
-        <Route exact path="/cheater">
+          <Route exact path="/cheater">
 
-        </Route>
+          </Route>
 
-        <Route exact path="/keypad">
-          <Keypad />
-        </Route>
-        <Route exact path="/test">
-          <TestMap />
-        </Route>
-      {submitted && 
-      <div className='hint'>
-      <div >Time spent in cabin: {minute}:{second}</div>
-      <button className='' onClick ={() => {addMessage(hint)}}>Get Hint</button>
-      </div>}
+          <Route exact path="/keypad">
+            <Keypad />
+          </Route>
+          <Route exact path="/test">
+            <TestMap />
+          </Route>
+
+          {submitted &&
+            <div className='card' style={{ width: "18rem", height: "10rem" }}>
+              <div className='card-body' style={{ textAlign: "center" }}>
+                <h5 className="card-title">Time Spent in Cabin</h5>
+                <p className="card-text">{minute}:{second}</p>
+                <button className='btn btn-secondary' onClick={() => { addMessage(hint) }}>Get Hint</button>
+              </div>
+            </div>
+          }
+
+        </div>
+        <AudioButton audioIcon={audioIcon} onClickAudio={onClickAudio} />
       </div>
-      <AudioButton audioIcon={audioIcon} onClickAudio={onClickAudio} />
-      </div>
 
-        <Route exact path="/times" >
-          <BestTimes showSidebar={showSidebar} changeSubmitted={changeSubmitted} />
-        </Route>
+      <Route exact path="/times" >
+        <BestTimes showSidebar={showSidebar} changeSubmitted={changeSubmitted} />
+      </Route>
 
     </>
   );
