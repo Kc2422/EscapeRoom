@@ -49,7 +49,7 @@ function App() {
   const [second, setSecond] = useState('00');
   const [minute, setMinute] = useState('00');
   const [counter, setCounter] = useState(0);
-
+  
   const [sidebar, setSidebar] = useState(localStorage.getItem('sidebar'));
   const [pictures, setPictures] = useState([Beach, Flower, Moon, Mountain])
   const [correctOrder, setOrder] = useState([Mountain, Flower, Beach, Moon])
@@ -142,21 +142,27 @@ function App() {
   }, [submitted, counter])
 
 
-  let sound = null;
-  let audioIcon = require('./img/sound.png');
+  const [sound, setSound] = useState(false)
+  
+  // let audioIcon = require('./img/sound.png');
+  const [audioIcon, setAudioIcon] = useState(require('./img/mute.png'))
   const onClickAudio = (e) => {
-    if (sound != null) {
+    console.log(sound)
+    if (sound) {
+      
+      setAudioIcon(require('./img/mute.png'));
       sound.stop();
       sound.unload();
-      sound = null;
-      audioIcon = require('./img/mute.png');
+      setSound(null);
     } else {
-      sound = new Howl({
+      setAudioIcon(require('./img/sound.png'));
+      
+      let newsound = new Howl({
         src: [Triller],
         loop: true,
       });
-      sound.play();
-      audioIcon = require('./img/sound.png');
+      setSound(newsound)
+      newsound.play();
     }
   }
 
