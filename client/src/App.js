@@ -42,10 +42,10 @@ const Mountain = require("./img/ArrFrameMountain.png")
 function App() {
   const [hint, setHint] = useState("The bookshelf has many items, see if there is anything useful there.")
   const { Howl, Howler } = require('howler');
-  Howler.volume(0.05);
+  Howler.volume(0.5);
   const [name, setName] = useState(localStorage.getItem('name'))
   const [submitted, setSubmitted] = useState(localStorage.getItem('submitted'))
-  const [text, setMessages] = useState(["Initial Story", "you are locked in the cabin try to get out"])
+  const [text, setMessages] = useState(["Initial Story", "As you enter the cabin, the door locks behind you with a load thud. You are trapped... This place gives you the creeps. Let's try to find a way out."])
 
   const [second, setSecond] = useState('00');
   const [minute, setMinute] = useState('00');
@@ -182,9 +182,7 @@ function App() {
       <Navbar name={name} submitted={submitted} />
       {submitted &&
       <Sidebar sidebar={sidebar} text={text} audioIcon={audioIcon} onClickAudio={onClickAudio} />}
-      <div className='needBackground'>
-
-
+      <div className={submitted ? "backgroundColor" : null} >
         <Route exact path="/">
           <Home changeName={changeName} name={name} setSubmitted={changeSubmitted} showSidebar={showSidebar} />
         </Route>

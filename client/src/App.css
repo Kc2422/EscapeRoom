@@ -57,6 +57,12 @@
 height: 900px;
 }
 
+.finalKey{
+  width: 10%;
+  display: block;
+  margin-top: 2%;
+  margin-right: 11%;
+}
 .gameBackground {
   width:100%;
 }
@@ -91,16 +97,77 @@ height: 900px;
   margin-top:50px;
 }
 
-.table {
-  /* width: 10%; */
+.clothTable {
+  width: 40%; 
   display: block;
   margin-left: auto;
   margin-right:5%;
   margin-top:50px;
+} 
+
+
+.coffeeTable{
+  width: 70%;
+  display: block;
+  margin-top: 5%;
+  margin-left: -15%;
+}
+
+.window{
+  width: 30%;
+  /* display: block; */
+  margin-top: 15%;
+  margin-left: 10%;
+}
+
+.mirror {
+  width: 45%;
+  /* display: block; */
+  margin-top: 32%;
+  margin-left: 20%;
+}
+
+.boxes{
+  width: 30%;
+  display: block;
+  margin-left: 7%;
+  margin-top:50px;
+}
+
+.chest{
+  width: 30%;
+  display: block;
+  margin-left: 6%;
+  margin-top:20%;
+  z-index: 1; 
+}
+
+.lamp {
+  width:60%;
+  display: block;
+  margin-left: auto;
+  margin-left:20%;
+  margin-top:38%;
+}
+
+.tree {
+  width:28%;
+  display: block;
+  margin-left: auto;
+  margin-left:30%;
+  margin-top:30%;
 }
 
 .drawer {
-  width: 30%;
+  width: 20%;
+  margin-left: 2%;
+}
+
+.drawer1 {
+  width: 20%;
+  display: block;
+  margin-top:-8%;
+  margin-left: auto;
 }
 
 .riddle {
@@ -120,7 +187,7 @@ height: 900px;
 }
 
 .safe {
-  width: 22%;
+  width: 15%;
   display: block;
   margin-left: auto;
   margin-right: 9%;
@@ -145,13 +212,14 @@ height: 900px;
   background-size:100%;
   width: 13%;
   display: block;
-  margin-left: auto;
-  margin-top:11%;
-  z-index: 10000;
+  margin-left: 23%;
+  margin-top: -5%;
+  z-index: 1;
 }
 
 .font {
   font-family: 'Grape Nuts', cursive;
+  font-size: 1vw;
 }
 
 .BookClues {
@@ -161,8 +229,12 @@ height: 900px;
   display: block;
   margin-left: auto;
   margin-top:-80%;
-  z-index: 10000;
+  z-index: 1;
   /* margin-top: ; */
+}
+
+.bookPage{
+  width: 100%;
 }
 
 .rightPage{
@@ -230,18 +302,13 @@ li{
 }
 
 .success{
-  
-  /* background-image: url("https://delawarehighlands.org/wp-content/uploads/Sunlight-through-trees.jpg"); */
-  /* background-image: url('./files/movingwoods.mp4'); */
   height: 100%;
   width: 100%;
-  
   color:rgb(252, 252, 252);
   text-align: center;
   font-size: large;
   padding-top: 10%;
   background-size: cover;
-  
 }
 
 .bgVideo{
@@ -252,7 +319,11 @@ li{
   width: 100%;
 }
 
+.backgroundColor {
+  background-color: hsla(196, 51%, 20%, 0.55);
+}
 .greenbox{
+  font-size: 1.2vw;
   width: 50%;
   height: fit-content;
   background-color: rgb(27, 56, 36, .8);
