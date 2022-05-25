@@ -12,7 +12,7 @@ function Sidebar(props) {
   },[text])
 
   return (
-    <nav className={sidebar ? "sidebar active" : "sidebar"} id="sideb">
+    <nav className= "sidebar" id="sideb">
 
       <ul>
 
