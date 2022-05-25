@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from "axios";
 import { useHistory, Link } from 'react-router-dom';
+import bgImage from '../files/movingwoods.mp4';
 
 const BestTimes = (props) => {
     const [fastestTimes, setFastestTimes] = useState([])
@@ -10,14 +11,33 @@ const BestTimes = (props) => {
         .catch(err => {console.log(err)})
     },[])
 
+    useEffect(() => {
+        props.changeSubmitted(false)
+        props.showSidebar(false)
+        // if(!haskey){
+        //     history.push("/cheater")
+        // }else{
+
+        // }
+
+    }, [])
+
     return(
-        <div className='padding'>
+        <>
+            <video className="bgVideo" autoPlay loop muted>
+                <source src={bgImage} type="video/mp4"/>
+            </video>
+        <div className='timesPage'>
         <h1 className='best'>Best times</h1>
+            <span className='padding'>
+
+            <a href="/" className='btn btn-success btnwidth'>Play again</a>
+            </span>
         
-        <table className='table table-bordered table-hover table-success'>
+        <table className='table table-bordered w-auto backgroundTable'>
         <thead>
             <tr>
-                <th>#</th>
+                <th>Rank</th>
                 <th>Name</th>
                 <th>Time</th>
                 
@@ -33,8 +53,8 @@ const BestTimes = (props) => {
             </tr>)}
         </tbody>
         </table>
-        <a href="/" className='btn btn-success'>Play again</a>
         </div>
+        </>
         
     )
 }

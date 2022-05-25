@@ -45,7 +45,7 @@ function App() {
   Howler.volume(0.5);
   const [name, setName] = useState(localStorage.getItem('name'))
   const [submitted, setSubmitted] = useState(localStorage.getItem('submitted'))
-  const [text, setMessages] = useState(["Initial Story", "As you enter the cabin, the door locks behind you with a load thud. You are trapped... This place gives you the creeps. Let's try to find a way out."])
+  const [text, setMessages] = useState([ "As you enter the cabin, the door locks behind you with a load thud. You are trapped... This place gives you the creeps. Let's try to find a way out."])
 
   const [second, setSecond] = useState('00');
   const [minute, setMinute] = useState('00');
@@ -147,7 +147,7 @@ function App() {
       setHint("What do the arrows on the painting mean?")
     }
     if(solvedLights){
-      setHint("The code to the safe is contained in a riddle")
+      setHint("The code to the safe is contained in a riddle.")
     }
   },[solvedLights, inOrder])
 
@@ -181,13 +181,13 @@ function App() {
 
         <div className={submitted ? "backgroundColor" : null} >
       <Navbar name={name} submitted={submitted} />
+        <Route exact path="/">
+          <Home changeName={changeName} name={name} setSubmitted={changeSubmitted} showSidebar={showSidebar} />
+        </Route>
       <div style={{display: "flex", justifyContent: 'space-evenly', marginTop: "5%"}}>
 
       {submitted &&
       <Sidebar sidebar={sidebar} text={text} audioIcon={audioIcon} onClickAudio={onClickAudio} />}
-        <Route exact path="/">
-          <Home changeName={changeName} name={name} setSubmitted={changeSubmitted} showSidebar={showSidebar} />
-        </Route>
 
         <Route exact path="/door">
           <FrontDoorView onClickKeyHandler={onClickKeyHandler} cabinetKeyVisible={cabinetKeyVisible} addMessage={addMessage} hasKey={hasKey} solvedLights={solvedLights} name={name} minute={minute} second={second} counter={counter} />
@@ -214,9 +214,6 @@ function App() {
 
         </Route>
 
-        <Route exact path="/times">
-          <BestTimes />
-        </Route>
         <Route exact path="/keypad">
           <Keypad />
         </Route>
@@ -232,6 +229,9 @@ function App() {
       <AudioButton audioIcon={audioIcon} onClickAudio={onClickAudio} />
       </div>
 
+        <Route exact path="/times" >
+          <BestTimes showSidebar={showSidebar} changeSubmitted={changeSubmitted} />
+        </Route>
 
     </>
   );
