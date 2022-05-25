@@ -143,19 +143,20 @@ function App() {
 
 
   let sound = null;
-  let audioIcon = "'./img/sound.png'";
+  let audioIcon = require('./img/sound.png');
   const onClickAudio = (e) => {
     if (sound != null) {
       sound.stop();
       sound.unload();
       sound = null;
-      audioIcon = "'./img/mute.png'";
+      audioIcon = require('./img/mute.png');
     } else {
       sound = new Howl({
         src: [Triller],
         loop: true,
       });
       sound.play();
+      audioIcon = require('./img/sound.png');
     }
   }
 
@@ -176,12 +177,12 @@ function App() {
           <FrontDoorView onClickKeyHandler={onClickKeyHandler} cabinetKeyVisible={cabinetKeyVisible} addMessage={addMessage} hasKey={hasKey} solvedLights={solvedLights} name={name} minute={minute} second={second} counter={counter} />
         </Route>
 
-          <Route exact path="/lights">
-            <LightsView finalKeyVisible={finalKeyVisible} grabFinalKey={grabFinalKey} cabinetKeyVisible={cabinetKeyVisible} inOrder={inOrder} addMessage={addMessage} SolvedPuzzleLights={SolvedPuzzleLights} text={text} solvedLights={solvedLights} sidebar={sidebar} name={name} submitted={submitted} />
-          </Route>
-          <Route exact path="/success">
-            <Success haskey={hasKey} name={name} second={second} minute={minute} changeSubmitted={changeSubmitted} showSidebar={showSidebar} />
-          </Route>
+        <Route exact path="/lights">
+          <LightsView finalKeyVisible={finalKeyVisible} grabFinalKey={grabFinalKey} cabinetKeyVisible={cabinetKeyVisible} inOrder={inOrder} addMessage={addMessage} SolvedPuzzleLights={SolvedPuzzleLights} text={text} solvedLights={solvedLights} sidebar={sidebar} name={name} submitted={submitted} />
+        </Route>
+        <Route exact path="/success">
+          <Success haskey={hasKey} name={name} second={second} minute={minute} changeSubmitted={changeSubmitted} showSidebar={showSidebar} />
+        </Route>
 
         <Route exact path="/bookshelf">
           <BookshelfView addMessage={addMessage} SolvedPuzzleLights={SolvedPuzzleLights} text={text} solvedLights={solvedLights} sidebar={sidebar} name={name} submitted={submitted} />
@@ -197,23 +198,19 @@ function App() {
 
         </Route>
 
-      <Route exact path = "/times">
-        <BestTimes/>
-      </Route>
-      <Route exact path ="/keypad">
-        <Keypad/>
-      </Route>
-      <Route exact path = "/test">
-        <TestMap/>
-      </Route>
-    </div>
-
-      
-        <AudioButton audioIcon={audioIcon} onClickAudio={onClickAudio} />
+        <Route exact path="/times">
+          <BestTimes />
+        </Route>
+        <Route exact path="/keypad">
+          <Keypad />
+        </Route>
+        <Route exact path="/test">
+          <TestMap />
+        </Route>
+      </div>
 
 
-      </div >
-
+      <AudioButton audioIcon={audioIcon} onClickAudio={onClickAudio} />
 
     </>
   );
