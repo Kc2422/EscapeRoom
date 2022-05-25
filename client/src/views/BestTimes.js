@@ -11,9 +11,9 @@ const BestTimes = (props) => {
     },[])
 
     return(
-        <div className='success'>
+        <div className='padding'>
         <h1 className='best'>Best times</h1>
-        <div className='tables'>
+        
         <table className='table table-bordered table-hover table-success'>
         <thead>
             <tr>
@@ -33,8 +33,9 @@ const BestTimes = (props) => {
             </tr>)}
         </tbody>
         </table>
+        <a href="/" className='btn btn-success'>Play again</a>
         </div>
-        </div>
+        
     )
 }
 
