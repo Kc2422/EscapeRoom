@@ -182,9 +182,7 @@ function App() {
       <Navbar name={name} submitted={submitted} />
       {submitted &&
       <Sidebar sidebar={sidebar} text={text} audioIcon={audioIcon} onClickAudio={onClickAudio} />}
-      <div className='needBackground'>
-
-
+      <div className={submitted ? "backgroundColor" : null} >
         <Route exact path="/">
           <Home changeName={changeName} name={name} setSubmitted={changeSubmitted} showSidebar={showSidebar} />
         </Route>
