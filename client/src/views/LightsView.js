@@ -26,6 +26,7 @@ const LightsView = (props) => {
 
     const onClickSafe = (e) => {
         console.log("you clicked safe!");
+        // history.push("/keypad")
         setIsKeyPadVisible(true);
     }
 
@@ -59,11 +60,11 @@ const LightsView = (props) => {
         <div className="gameWindow position-relative">
             <img className="gameBackground" src={require('../img/Wall.jpg')} alt="Lights Wall" onClick={reset} />
 
-<<<<<<< HEAD
+
             <img className="safe position-absolute top-50 end-0 translate-middle-y clickable" src={require('../img/safe1.png')} alt='Safe' onClick={onClickSafe} />
-=======
-            <img useMap='#safe' className="safe position-absolute top-50 end-0 translate-middle-y clickable" src={require('../img/safe1.png')} alt='Safe' onClick={onClickSafe} />
->>>>>>> main
+
+            
+
 
             <img className="rug position-absolute bottom-0 start-50 translate-middle-x" src={require('../img/rug.png')} alt="rug" />
 
@@ -89,7 +90,7 @@ const LightsView = (props) => {
 
             {isRiddleVisible ? <Riddle /> : null}
 
-            {isKeyPadVisible ? <Keypad /> : null}
+            {isKeyPadVisible ? <Keypad addMessage = {props.addMessage}/> : null}
 
           
     
