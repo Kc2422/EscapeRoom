@@ -176,6 +176,13 @@ function App() {
           <FrontDoorView onClickKeyHandler={onClickKeyHandler} cabinetKeyVisible={cabinetKeyVisible} addMessage={addMessage} hasKey={hasKey} solvedLights={solvedLights} name={name} minute={minute} second={second} counter={counter} />
         </Route>
 
+          <Route exact path="/lights">
+            <LightsView finalKeyVisible={finalKeyVisible} grabFinalKey={grabFinalKey} cabinetKeyVisible={cabinetKeyVisible} inOrder={inOrder} addMessage={addMessage} SolvedPuzzleLights={SolvedPuzzleLights} text={text} solvedLights={solvedLights} sidebar={sidebar} name={name} submitted={submitted} />
+          </Route>
+          <Route exact path="/success">
+            <Success haskey={hasKey} name={name} second={second} minute={minute} changeSubmitted={changeSubmitted} showSidebar={showSidebar} />
+          </Route>
+
         <Route exact path="/bookshelf">
           <BookshelfView addMessage={addMessage} SolvedPuzzleLights={SolvedPuzzleLights} text={text} solvedLights={solvedLights} sidebar={sidebar} name={name} submitted={submitted} />
         </Route>
@@ -186,14 +193,6 @@ function App() {
             addMessage={addMessage} />
         </Route>
 
-        <Route exact path="/lights">
-          <LightsView finalKeyVisible={finalKeyVisible} grabFinalKey={grabFinalKey} cabinetKeyVisible={cabinetKeyVisible} inOrder={inOrder} addMessage={addMessage} SolvedPuzzleLights={SolvedPuzzleLights} text={text} solvedLights={solvedLights} sidebar={sidebar} name={name} submitted={submitted} />
-        </Route>
-
-
-        <Route exact path="/success">
-          <Success haskey={hasKey} name={name} second={second} minute={minute} changeSubmitted={changeSubmitted} showSidebar={showSidebar} />
-        </Route>
         <Route exact path="/cheater">
 
         </Route>
@@ -209,22 +208,11 @@ function App() {
       </Route>
     </div>
 
-
-         
-
-
-         
-          <Route exact path="/cheater">
-
-          </Route>
-
-          <Route exact path="/times">
-            <BestTimes />
-          </Route>
-
       
         <AudioButton audioIcon={audioIcon} onClickAudio={onClickAudio} />
 
+
+      </div >
 
 
     </>

@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from "axios";
 import { useHistory, Link } from 'react-router-dom';
+import bgImage from '../files/movingwoods.mp4';
 
 const Success = (props) => {
     const { haskey, name, second, minute, changeSubmitted, showSidebar } = props
@@ -18,6 +19,9 @@ const Success = (props) => {
 
     return (
         <div className='success'>
+            <video className="bgVideo" autoPlay loop muted>
+                <source src={bgImage} type="video/mp4"/>
+            </video>
             <div className='greenbox'>
 
             <h1>
