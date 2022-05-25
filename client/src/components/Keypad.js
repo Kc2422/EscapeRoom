@@ -4,16 +4,8 @@ const Keypad = (props) => {
    
     const [width, setWidth] = useState(window.screen.width)
     const [code, setCode] = useState("")
-    const [safeOpen, setSafeOpen] = useState(false)
+    
 
-    const onSubmitCode = (e) => {
-        e.preventDefault()
-        if(code === "2362"){
-            setSafeOpen(true)
-        }else{
-            props.addMessage("The safe won't open")
-        }
-    }
 
     const handleOnClick1 = (e) => {
         e.preventDefault()
@@ -118,7 +110,7 @@ const Keypad = (props) => {
         e.preventDefault()
         console.log(code)
         if(code === "2362"){
-            setSafeOpen(true)
+            props.openSafe(true)
             props.addMessage("You opened the safe!")
         }else{
             props.addMessage("The safe won't open...")
@@ -152,7 +144,7 @@ const Keypad = (props) => {
 
 
 
-             <form onSubmit = {onSubmitCode} className="form ">
+             <form onSubmit={handleOnClickEnter} className="form ">
                 <input readOnly="readonly"className= "codeInput"type="text" maxLength="4" value={code} onChange={(e) => {setCode(e.target.value)}}/>
              <div className='abc clickable' onClick={handleOnClick1}></div>
              <div className='def clickable' onClick={handleOnClick2}></div>
@@ -163,7 +155,7 @@ const Keypad = (props) => {
              <div className='stu clickable' onClick={handleOnClick7}></div>
              <div className='vwx clickable' onClick={handleOnClick8}></div>
              <div className='yz clickable' onClick={handleOnClick9}></div>
-             <div className='delete clickable' onClick={handleOnClickDelete}>←</div>
+             <div className='delete clickable' onClick={handleOnClickDelete}></div>
              <div className='zero clickable' onClick={handleOnClick0}></div>
              <div className='enter clickable' onClick={handleOnClickEnter}></div>
             </form>

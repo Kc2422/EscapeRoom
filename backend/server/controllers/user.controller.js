@@ -4,9 +4,9 @@ module.exports.makeUser = (req, res) =>{
    
 console.log(req)
         User.create(req.body)
-        .exec(function(err,docs){
-            res.json(docs)})
-        // .then(newUser => res.json(newUser))
+        // .exec(function(err,docs){
+        //     res.json(docs)})
+         .then(newUser => res.json(newUser))
         .catch(err => res.json(err));
  
 }
