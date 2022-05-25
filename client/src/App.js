@@ -147,7 +147,7 @@ function App() {
       setHint("What do the arrows on the painting mean?")
     }
     if(solvedLights){
-      setHint("To code to the safe is contained in a riddle")
+      setHint("The code to the safe is contained in a riddle")
     }
   },[solvedLights, inOrder])
 
