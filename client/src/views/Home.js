@@ -1,8 +1,12 @@
 import React, { useState, useEffect } from 'react'
 import { useHistory } from 'react-router-dom'
 import styles from "./Home.module.css"
+
+const cabinPic = require("../img/cabinPic.jpg")
+
 import { Howl, Howler } from 'howler';
 import DoorSound from "../files/doorClosing.wav";
+
 
 
 const Home = (props) => {
@@ -43,7 +47,9 @@ const Home = (props) => {
 
 
 
+
     return (
+
         <div className={styles.nameForm}>
             <form className="greenbox" onSubmit={onSubmitHandler}>
                 <p>You are on your way to the annual family trip to the mountain in the woods. Nightfalls and a thunderstorm prevents you from continuing the long drive to your destination. You take a wrong turn due low visiblity and the hazardous weather conditions. As you continue slowly driving on the unpaved roads, you become more and more lost and lose hope until...  you stumble across a cabin that looks very much abandoned from the outside. You contemplate on whether or not to take shelter there for the night as you await the ending of the storm.</p>
@@ -55,6 +61,7 @@ const Home = (props) => {
                 </div>
             </form>
         </div>
+        </>
     )
 }
 
