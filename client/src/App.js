@@ -24,6 +24,7 @@ import HTMLFlipBook from "react-pageflip";
 import Success from './views/Success';
 import BestTimes from './views/BestTimes';
 import TestMap from './views/TestMap';
+import Keypad from './components/Keypad';
 
 import Triller from './files/Triller.m4a';
 import { Howl, Howler } from 'howler';
@@ -64,6 +65,7 @@ function App() {
 
   const grabFinalKey = () => {
     setFinalKeyVisible(false);
+    setHasKey(true)
   }
 
   const showSidebar = (tf) => {
@@ -164,33 +166,54 @@ function App() {
 
       <Sidebar sidebar={sidebar} text={text} audioIcon={audioIcon} onClickAudio={onClickAudio} />
       <div className='needBackground'>
-        <Switch>
-          <Route exact path="/">
-            <Home changeName={changeName} name={name} setSubmitted={changeSubmitted} showSidebar={showSidebar} />
-          </Route>
-
-          <Route exact path="/door">
-            <FrontDoorView onClickKeyHandler={onClickKeyHandler} cabinetKeyVisible={cabinetKeyVisible} addMessage={addMessage} hasKey={hasKey} solvedLights={solvedLights} name={name} minute={minute} second={second} />
-          </Route>
-
-          <Route exact path="/bookshelf">
-            <BookshelfView addMessage={addMessage} SolvedPuzzleLights={SolvedPuzzleLights} text={text} solvedLights={solvedLights} sidebar={sidebar} name={name} submitted={submitted} />
-          </Route>
-
-          <Route exact path="/paintings">
-            <PaintingView pictures={pictures} solvedLights={solvedLights} correctOrder={correctOrder}
-              changePics={changePics} setInOrder={isInOrder}
-              addMessage={addMessage} />
-          </Route>
-
-          <Route exact path="/lights">
-            <LightsView finalKeyVisible={finalKeyVisible} grabFinalKey={grabFinalKey} cabinetKeyVisible={cabinetKeyVisible} inOrder={inOrder} addMessage={addMessage} SolvedPuzzleLights={SolvedPuzzleLights} text={text} solvedLights={solvedLights} sidebar={sidebar} name={name} submitted={submitted} />
-          </Route>
 
 
-          <Route exact path="/success">
-            <Success haskey={hasKey} name={name} second={second} minute={minute} changeSubmitted={changeSubmitted} showSidebar={showSidebar} />
-          </Route>
+        <Route exact path="/">
+          <Home changeName={changeName} name={name} setSubmitted={changeSubmitted} showSidebar={showSidebar} />
+        </Route>
+
+        <Route exact path="/door">
+          <FrontDoorView onClickKeyHandler={onClickKeyHandler} cabinetKeyVisible={cabinetKeyVisible} addMessage={addMessage} hasKey={hasKey} solvedLights={solvedLights} name={name} minute={minute} second={second} counter={counter} />
+        </Route>
+
+        <Route exact path="/bookshelf">
+          <BookshelfView addMessage={addMessage} SolvedPuzzleLights={SolvedPuzzleLights} text={text} solvedLights={solvedLights} sidebar={sidebar} name={name} submitted={submitted} />
+        </Route>
+
+        <Route exact path="/paintings">
+          <PaintingView pictures={pictures} solvedLights={solvedLights} correctOrder={correctOrder}
+            changePics={changePics} setInOrder={isInOrder}
+            addMessage={addMessage} />
+        </Route>
+
+        <Route exact path="/lights">
+          <LightsView finalKeyVisible={finalKeyVisible} grabFinalKey={grabFinalKey} cabinetKeyVisible={cabinetKeyVisible} inOrder={inOrder} addMessage={addMessage} SolvedPuzzleLights={SolvedPuzzleLights} text={text} solvedLights={solvedLights} sidebar={sidebar} name={name} submitted={submitted} />
+        </Route>
+
+
+        <Route exact path="/success">
+          <Success haskey={hasKey} name={name} second={second} minute={minute} changeSubmitted={changeSubmitted} showSidebar={showSidebar} />
+        </Route>
+        <Route exact path="/cheater">
+
+        </Route>
+
+      <Route exact path = "/times">
+        <BestTimes/>
+      </Route>
+      <Route exact path ="/keypad">
+        <Keypad/>
+      </Route>
+      <Route exact path = "/test">
+        <TestMap/>
+      </Route>
+    </div>
+
+
+         
+
+
+         
           <Route exact path="/cheater">
 
           </Route>
@@ -199,13 +222,10 @@ function App() {
             <BestTimes />
           </Route>
 
-          <Route exact path="/test">
-            <TestMap />
-          </Route>
-        </Switch>
+      
         <AudioButton audioIcon={audioIcon} onClickAudio={onClickAudio} />
 
-      </div>
+
 
     </>
   );
