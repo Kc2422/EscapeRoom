@@ -67,7 +67,7 @@ const BookshelfView = (props) => {
             
             {/* <img className="chest position-absolute top-50 start-0 translate-middle-y clickable" src={require('../img/chest.png')} alt='chest' onClick={onClickChest} /> */}
             
-            <img className="coffeeTable position-absolute top-50 start-50 translate-middle clickable" src={require('../img/coffeeTable.png')} alt='chest' onClick={onClickTable} />
+            <img className="clothTable position-absolute top-50 start-50 translate-middle clickable" src={require('../img/table.png')} alt='chest' onClick={onClickTable} />
             
             
             <img className="boxes position-absolute top-50 end-0 translate-middle-y clickable" src={require('../img/boxes.png')} alt='boxes' onClick={onClickBoxes} />

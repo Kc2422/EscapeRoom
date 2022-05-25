@@ -57,6 +57,12 @@
 height: 900px;
 }
 
+.finalKey{
+  width: 10%;
+  display: block;
+  margin-top: 2%;
+  margin-right: 11%;
+}
 .gameBackground {
   width:100%;
 }
@@ -91,13 +97,14 @@ height: 900px;
   margin-top:50px;
 }
 
-/* .table {
-  width: 5%; 
+.clothTable {
+  width: 40%; 
   display: block;
   margin-left: auto;
   margin-right:5%;
   margin-top:50px;
-}  */
+} 
+
 
 .coffeeTable{
   width: 70%;
@@ -152,15 +159,15 @@ height: 900px;
 }
 
 .drawer {
-  width: 30%;
-  margin-left: 4%;
+  width: 20%;
+  margin-left: 2%;
 }
 
 .drawer1 {
-  width: 80%;
+  width: 20%;
   display: block;
-  margin-top:-5%;
-  margin-left: 4%;
+  margin-top:-8%;
+  margin-left: auto;
 }
 
 .riddle {
@@ -180,7 +187,7 @@ height: 900px;
 }
 
 .safe {
-  width: 22%;
+  width: 15%;
   display: block;
   margin-left: auto;
   margin-right: 9%;
@@ -223,6 +230,10 @@ height: 900px;
   margin-top:-80%;
   z-index: 10000;
   /* margin-top: ; */
+}
+
+.bookPage{
+  width: 100%;
 }
 
 .rightPage{
