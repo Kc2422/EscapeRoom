@@ -5,6 +5,8 @@ import OffSwitch from "../img/OffSwitch.png";
 import { Howl, Howler } from 'howler';
 import SwitchSound from '../files/lightSwitch.wav';
 import OpenDresser from '../files/openingDresser.wav';
+import '../CSS/LightsView.css';
+
 
 const Lights = (props) => {
     const [light1, setLight1] = useState(false);
@@ -55,11 +57,14 @@ const Lights = (props) => {
     return(
         <div>
             <motion.div>
-                <img style={{ width:"250%", position:"absolute", marginLeft:"-180%", marginTop:"50%", borderRadius:"5px"}} src={require('../img/LightsCloseUp.png')} alt="background"/>
-                <img style={{ width:"50%", position:"absolute", marginLeft:"-170%", marginTop:"90%", borderRadius:"5px"}} src={light1 ? OnSwitch : OffSwitch} alt='light switch' onClick={()=> {setLight1(!light1); lightSound(); }}/>
-                <img style={{ width:"50%", position:"absolute", marginLeft:"-110%", marginTop:"90%", borderRadius:"5px"}} src={light2 ? OnSwitch : OffSwitch} alt='light switch' onClick={()=> {setLight2(!light2); lightSound();}}/>
-                <img style={{ width:"50%", position:"absolute", marginLeft:"-50%", marginTop:"90%", borderRadius:"5px"}} src={light3 ? OnSwitch : OffSwitch} alt='light switch' onClick={()=> {setLight3(!light3); lightSound();}}/>
-                <img style={{ width:"50%", position:"absolute", marginLeft:"10%", marginTop:"90%", borderRadius:"5px"}} src={light4 ? OnSwitch : OffSwitch} alt='light switch' onClick={()=> {setLight4(!light4); lightSound();}}/>
+                <img className="lightsCloseUp" src={require('../img/LightsCloseUp.png')} alt="background"/>
+                <img className="light1" src={light1 ? OnSwitch : OffSwitch} alt='light switch' onClick={()=> {setLight1(!light1); lightSound(); }}/>
+                
+                <img className="light2" src={light2 ? OnSwitch : OffSwitch} alt='light switch' onClick={()=> {setLight2(!light2); lightSound();}}/>
+                
+                <img className='light3' src={light3 ? OnSwitch : OffSwitch} alt='light switch' onClick={()=> {setLight3(!light3); lightSound();}}/>
+                
+                <img className="light4" src={light4 ? OnSwitch : OffSwitch} alt='light switch' onClick={()=> {setLight4(!light4); lightSound();}}/>
 
                 <AnimatePresence>
                     {props.isVisible && (

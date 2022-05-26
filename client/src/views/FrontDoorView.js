@@ -1,7 +1,7 @@
 import React, {useState, useEffect} from 'react';
 import { useHistory } from 'react-router-dom';
 import axios from 'axios';
-import './Door.css';
+import '../CSS/FrontDoorView.css';
 import { Howl, Howler } from 'howler';
 import KeyLock from "../files/keyLock.wav";
 import Tada from "../files/tada.wav";

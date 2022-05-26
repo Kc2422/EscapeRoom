@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import styles from "./Keypad.module.css"
+
+import '../CSS/LightsView.css';
+
 const keypadImage = require('../img/KeyPadCloseUp.png');
 const Keypad = (props) => {
 

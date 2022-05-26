@@ -2,16 +2,6 @@
   text-align: center;
 }
 
-/* .App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}  */
 
 .App-header {
   background-color: #282c34;
@@ -26,15 +16,6 @@
 .App-link {
   color: #61dafb;
 } 
-
-/* @keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-} */
 
 /* Global Classes */
 .homeBackground{
@@ -56,11 +37,6 @@
   z-index: -1;
 }
 
-.backgroundTable{
-  background-color: rgb(27, 56, 36, .8); 
-  color: aliceblue;
-}
-
 .form{
   position: absolute;
   top: 0%;
@@ -73,11 +49,6 @@ th, td{
   color: aliceblue;
 }
 
-.backgroundColor {
-  background-color: hsla(196, 51%, 20%, 0.55);
-  width: 100%;
-  height: 120vh
-}
 .greenbox{
   font-size: 1.2vw;
   width: 50%;
@@ -133,154 +104,43 @@ th, td{
   justify-content: space-evenly;
 }
 
-/* Front Door View */
-
-.finalKey {
-  width: 10%;
-  display: block;
-  margin-top: 2%;
-  margin-right: 11%;
-}
-
-.lock {
-  width:10%;
-  display: block;
-  margin-left: 8%;
-  margin-right:auto;
-  margin-top:35%;
-}
-
-/* Bookshelf View */
-.armChair {
-  width:50%;
-  display: block;
-  margin-left: auto;
-  margin-right:5%;
-  margin-top:50px;
-}
-
-.lamp {
-  width:60%;
-  margin-left: auto;
-  margin-left:20%;
-  margin-top:38%;
-}
-
-.word {
-  margin-left: auto;
-  margin-right:9%;
-  margin-top:20%;
-}
-
-.book{
-  background-image: url('./img/book.png');
-  background-size:100%;
-  width: 13%;
-  margin-right: -2%;
-  margin-top: 20%;
-  z-index: 1;
-}
-
-.font {
-  font-family: 'Grape Nuts', cursive;
-  font-size: 1vw;
-}
-
-.BookClues {
-  width:100%;
-  height:90%;
-  position: absolute;
-  margin-left: auto;
-  margin-top:-80%;
-  z-index: 1;
-}
-
-.bookPage{
-  width: 100%;
-}
-
-.rightPage{
-  background-image: url('./img/RightPage.png');
-  background-size:100%;
-  width: 100%;
+/* Success Page */
+.success{
   height: 100%;
-  position: "absolute";
-  margin-left: "5%"; 
-  margin-top: "-80%";
-
-}
-
-.leftPage{
-  background-image: url('./img/LeftPage.png');
-  background-size:100%;
   width: 100%;
-  height: 100%;
-  position: absolute;
-  margin-left: "5%"; 
-  margin-top: "-80%"; 
-
-}
-
-/* Paintings View */
-.clothTable {
-  width: 40%; 
-  display: block;
-  margin-left: auto;
-  margin-right:5%;
-  margin-top:50px;
+  color:rgb(252, 252, 252);
+  text-align: center;
+  font-size: large;
+  padding-top: 10%;
+  background-size: cover;
+  z-index: 2;
 } 
 
-.boxes{
-  width: 30%;
-  margin-left: 7%;
-  margin-top:50px;
-}
 
-.paintings{
+/* Best Times Page */
+
+.best{
+  color: rgb(30, 207, 110);
+  text-align: center;
+} 
+
+.timesPage{
   display: flex;
-  justify-content: space-between;
+  flex-direction: column;
+  width: 100%;
+  height: 100vh;
 }
 
-.painting{
-  height: 104%;
-  width: 84%;
-  margin: 10%;
-  cursor: pointer;
+.padding{
+  margin: 0px auto;
 }
 
-/* Lights View */
-.mirror {
-  width: 45%;
-  margin-top: 32%;
-  margin-left: 20%;
+.btnwidth{
+  width:100%;
+} 
+
+
+.backgroundTable{
+  background-color: rgb(27, 56, 36, .8); 
+  color: aliceblue;
 }
-
-.drawer1 {
-  width: 20%;
-  margin-top:-8%;
-  margin-left: auto;
-}
-
-.riddle {
-  background-size:100%;
-  width: 80%;
-}
-
-.lights {
-  background-image: url('./img/lightSwitches.png');
-  background-size:100%;
-  height: 10%;
-  width: 29%;
-  margin-left: auto;
-  margin-right:5%;
-  margin-top:15%;
-}
-
-.safe {
-  width: 15%;
-  margin-left: auto;
-  margin-right: 9%;
-  margin-top:2%;
-}
-
-

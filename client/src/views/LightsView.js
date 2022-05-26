@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useHistory } from 'react-router-dom';
-import './Door.css';
+import '../CSS/LightsView.css';
 import Lights from '../components/Lights';
 import Riddle from '../components/Riddle';
 import Keypad from '../components/Keypad';

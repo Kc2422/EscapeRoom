@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { useHistory } from 'react-router-dom';
-import './Door.css';
+import '../CSS/PaintingView.css';
 import { Reorder } from "framer-motion";
 import { Item } from "../components/Item";
 import { Howl, Howler } from 'howler';

@@ -19,7 +19,7 @@ export const Item = (props) => {
 //   const boxShadow = useRaisedShadow(y);
 
   return (
-    <Reorder.Item value={item} id={item} style={{   }}>
+    <Reorder.Item value={item} id={item}>
       <img draggable="false" src = {item} className="painting"/>
     </Reorder.Item>
   );

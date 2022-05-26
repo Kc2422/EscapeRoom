@@ -18,10 +18,9 @@ import PaintingView from './views/PaintingView';
 import LightsView from './views/LightsView';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { motion } from "framer-motion";
-
 import HTMLFlipBook from "react-pageflip";
-
 import Success from './views/Success';
+import Cheater from './views/Cheater';
 import BestTimes from './views/BestTimes';
 import Keypad from './components/Keypad';
 
@@ -40,21 +39,14 @@ const Mountain = require("./img/ArrFrameMountain.png")
 
 function App() {
   // Dependancies
-  
-  
-  const [hasKey, setHasKey] = useState(false);
-  
 
-  const [name, setName] = useState(localStorage.getItem('name'))
-  const [submitted, setSubmitted] = useState(localStorage.getItem('submitted'))
-  
+  const [name, setName] = useState(localStorage.getItem('name'));
+  const [submitted, setSubmitted] = useState(localStorage.getItem('submitted'));
+  const [pictures, setPictures] = useState([Beach, Flower, Moon, Mountain]);
+  const [correctOrder, setOrder] = useState([Mountain, Flower, Beach, Moon]);
+  const [inOrder, setInOrder] = useState(false);
+  // const [hasKey, setHasKey] = useState(false);
 
-
-
-  
-  const [pictures, setPictures] = useState([Beach, Flower, Moon, Mountain])
-  const [correctOrder, setOrder] = useState([Mountain, Flower, Beach, Moon])
-  const [inOrder, setInOrder] = useState(false)
 
 
   const [solvedLights, setSolvedLights] = useState(false);
@@ -65,8 +57,6 @@ function App() {
   // Sidebar
   const [sidebar, setSidebar] = useState(localStorage.getItem('sidebar'));
   const [text, setMessages] = useState(["As you enter the cabin, the door locks behind you with a load thud. You are trapped... This place gives you the creeps. Let's try to find a way out."]);
-
-
 
   const showSidebar = (tf) => {
     setSidebar(tf);
@@ -133,7 +123,7 @@ function App() {
   // Misc Methods
   const grabFinalKey = () => {
     setFinalKeyVisible(false);
-    setHasKey(true)
+    // setHasKey(true);
   };
 
   const changeSubmitted = (tf) => {
@@ -179,19 +169,19 @@ function App() {
   }, [solvedLights, inOrder]);
 
   return (
-      <div className={submitted ? "backgroundColor" : null} >
-        <Navbar name={name} submitted={submitted} />
+    <div>
+      <Navbar name={name} submitted={submitted} />
 
-        <Route exact path="/">
-          <Home changeName={changeName} name={name} setSubmitted={changeSubmitted} showSidebar={showSidebar} />
-        </Route>
+      <Route exact path="/">
+        <Home changeName={changeName} name={name} setSubmitted={changeSubmitted} showSidebar={showSidebar} />
+      </Route>
 
-        <AudioButton audioIcon={audioIcon} onClickAudio={onClickAudio} />
+      <AudioButton audioIcon={audioIcon} onClickAudio={onClickAudio} />
 
-        <div style={{ display: "flex", justifyContent: 'space-evenly', marginTop: "5%" }}>
+      <div style={{ display: "flex", justifyContent: 'space-evenly', marginTop: "5%" }}>
 
-          {submitted &&
-            <Sidebar sidebar={sidebar} text={text} audioIcon={audioIcon} onClickAudio={onClickAudio} />}
+        {submitted &&
+          <Sidebar sidebar={sidebar} text={text} audioIcon={audioIcon} onClickAudio={onClickAudio} />}
 
           <Route exact path="/door">
             <FrontDoorView onClickKeyHandler={onClickKeyHandler} cabinetKeyVisible={cabinetKeyVisible} finalKeyVisible={finalKeyVisible} addMessage={addMessage} solvedLights={solvedLights} name={name} minute={minute} second={second} counter={counter} />
@@ -207,39 +197,43 @@ function App() {
 
           <Route exact path="/success">
             <Success finalKeyVisible={finalKeyVisible} name={name} second={second} minute={minute} changeSubmitted={changeSubmitted} showSidebar={showSidebar} />
+        </Route>
 
-          </Route>
+        <Route exact path="/bookshelf">
+          <BookshelfView addMessage={addMessage} SolvedPuzzleLights={SolvedPuzzleLights} text={text} solvedLights={solvedLights} sidebar={sidebar} name={name} submitted={submitted} />
+        </Route>
 
-          <Route exact path="/bookshelf">
-            <BookshelfView addMessage={addMessage} SolvedPuzzleLights={SolvedPuzzleLights} text={text} solvedLights={solvedLights} sidebar={sidebar} name={name} submitted={submitted} />
-          </Route>
-            
-          <Route exact path="/paintings">
-            <PaintingView pictures={pictures} solvedLights={solvedLights} correctOrder={correctOrder}
-              changePics={changePics} setInOrder={isInOrder}
-              addMessage={addMessage} />
-          </Route>
+        <Route exact path="/paintings">
+          <PaintingView pictures={pictures} solvedLights={solvedLights} correctOrder={correctOrder}
+            changePics={changePics} setInOrder={isInOrder}
+            addMessage={addMessage} />
+        </Route>
 
-          
-
-          {submitted &&
-            <div className='card' style={{ width: "18rem", height: "10rem" }}>
-              <div className='card-body' style={{ textAlign: "center" }}>
-                <h5 className="card-title">Time Spent in Cabin</h5>
-                <p className="card-text">{minute}:{second}</p>
-                <button className='btn btn-secondary' onClick={() => { addMessage(hint) }}>Get Hint</button>
-              </div>
+        {submitted &&
+          <div className='card' style={{ width: "18rem", height: "10rem" }}>
+            <div className='card-body' style={{ textAlign: "center" }}>
+              <h5 className="card-title">Time Spent in Cabin</h5>
+              <p className="card-text">{minute}:{second}</p>
+              <button className='btn btn-secondary' onClick={() => { addMessage(hint) }}>Get Hint</button>
             </div>
-          }
+          </div>
+        }
 
-        </div>
-          <Route exact path="/times" >
-            <BestTimes showSidebar={showSidebar} changeSubmitted={changeSubmitted} />
-          </Route>
-          <Route exact path="/success">
-            <Success haskey={hasKey} name={name} second={second} minute={minute} changeSubmitted={changeSubmitted} showSidebar={showSidebar} />
-          </Route>
       </div>
+
+      <Route exact path="/times" >
+        <BestTimes showSidebar={showSidebar} changeSubmitted={changeSubmitted} />
+      </Route>
+
+      <Route exact path="/success">
+        <Success haskey={finalKeyVisible} name={name} second={second} minute={minute} changeSubmitted={changeSubmitted} showSidebar={showSidebar} />
+      </Route>
+
+      <Route exact path="/cheater">
+        <Cheater haskey={finalKeyVisible} changeSubmitted={changeSubmitted} />
+      </Route>
+    </div>
+
   );
 }
 
