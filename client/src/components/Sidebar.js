@@ -8,24 +8,19 @@ function Sidebar(props) {
   useEffect(() => {
 
     var objDiv = document.getElementById("sideb");
-  objDiv.scrollTop = objDiv.scrollHeight;
-  },[text])
-  
+    objDiv.scrollTop = objDiv.scrollHeight;
+  }, [text])
+
   return (
-
-   
-
-      <ul>
-
-    <nav className="card" style={{width:"18em", height:"90vh", fontSize:"1.5em", overflow:"scroll"}} id="sideb">
+      <nav className="card" style={{ width: "18em", height: "90vh", fontSize: "1.5em", overflow: "scroll" }} id="sideb">
 
 
-      <ul className="m-3">
-        {text.map((item, i) => <li className="m-3" key={i}>{item}</li>)}
-      </ul>
+        <ul className="m-3">
+          {text.map((item, i) => <li className="m-3" key={i}>{item}</li>)}
+        </ul>
 
-    </nav>
-  );
+      </nav>
+      );
 }
 
-export default Sidebar;
+      export default Sidebar;
