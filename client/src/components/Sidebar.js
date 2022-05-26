@@ -11,8 +11,10 @@ function Sidebar(props) {
     objDiv.scrollTop = objDiv.scrollHeight;
   }, [text])
 
+
   return (
       <nav className="card" style={{ width: "18em", height: "90vh", fontSize: "1.5em", overflow: "scroll" }} id="sideb">
+
 
 
         <ul className="m-3">

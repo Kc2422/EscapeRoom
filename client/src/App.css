@@ -405,7 +405,7 @@ th, td{
 
 .abc{
   position: absolute;
-  top: 110%;
+  top: 138%;
   left: -1%;
   width: 25%;
   height: 81%;
@@ -414,7 +414,7 @@ th, td{
 
 .def{
   position: absolute;
-  top: 110%;
+  top: 138%;
   left: 27%;
   width: 25%;
   height: 81%;
@@ -423,7 +423,7 @@ th, td{
 
 .ghi{
   position: absolute;
-  top: 110%;
+  top: 138%;
   left: 55%;
   width: 25%;
   height: 81%;
@@ -432,7 +432,7 @@ th, td{
 
 .jkl{
   position: absolute;
-  top: 200%;
+  top: 228%;
   left: -1%;
   width: 25%;
   height: 81%;
@@ -441,7 +441,7 @@ th, td{
 
 .mno{
   position: absolute;
-  top: 200%;
+  top: 228%;
   left: 27%;
   width: 25%;
   height: 81%;
@@ -450,7 +450,7 @@ th, td{
 
 .pqr{
   position: absolute;
-  top: 200%;
+  top: 228%;
   left: 55%;
   width: 25%;
   height: 81%;
@@ -459,7 +459,7 @@ th, td{
 
 .stu{
   position: absolute;
-  top: 285%;
+  top: 315%;
   left: -1%;
   width: 25%;
   height: 81%;
@@ -468,7 +468,7 @@ th, td{
 
 .vwx{
   position: absolute;
-  top: 285%;
+  top: 315%;
   left: 28%;
   width: 25%;
   height: 81%;
@@ -477,7 +477,7 @@ th, td{
 
 .yz{
   position: absolute;
-  top: 285%;
+  top: 315%;
   left: 56%;
   width: 25%;
   height: 81%;
@@ -486,7 +486,7 @@ th, td{
 
 .delete{
   position: absolute;
-  top: 374%;
+  top: 402%;
   left: -1%;
   width: 25%;
   height: 81%;
@@ -495,7 +495,7 @@ th, td{
 
 .zero{
   position: absolute;
-  top: 374%;
+  top: 402%;
   left: 28%;
   width: 25%;
   height: 81%;
@@ -503,7 +503,7 @@ th, td{
 }
 .enter{
   position: absolute;
-  top: 374%;
+  top: 402%;
   left: 56%;
   width: 25%;
   height: 81%;
