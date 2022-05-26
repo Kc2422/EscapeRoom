@@ -13,7 +13,6 @@ const FrontDoorView = (props) => {
     const { Howl, Howler } = require('howler');
     
     
-
     const onClickRightHandler = (e) => {
         history.push("/bookshelf")
     }
@@ -43,8 +42,7 @@ const FrontDoorView = (props) => {
         }else{
             addMessage("The door is locked, you need a key")
         }
-        
-    }
+    };
 
     const keySound = () => {
         let effect = new Howl({
@@ -52,7 +50,7 @@ const FrontDoorView = (props) => {
             volume: 5
         });
         effect.play();
-    }
+    };
 
     return(
         <div className="gameWindow position-relative">  
