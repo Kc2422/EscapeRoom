@@ -306,6 +306,7 @@ li{
   font-size: large;
   padding-top: 10%;
   background-size: cover;
+  z-index: 2;
 }
 
 .bgVideo{
@@ -371,25 +372,20 @@ th, td{
 
 .padding{
   margin: 0px auto;
-  
 }
 
 .btnwidth{
   width:100%;
-  
 }
 
 .codeInput{
-  
-  
   height: 90%;
   width: 80%;
   border-radius: 5%;
   font-size: 6vw;
   padding-left: 15%;
-  
   margin-top: 4%;
- }
+}
 
 .keypad{
   position: absolute;
