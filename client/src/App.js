@@ -40,24 +40,18 @@ const Mountain = require("./img/ArrFrameMountain.png")
 
 function App() {
   // Dependancies
-  const [name, setName] = useState(localStorage.getItem('name'));
-  const [submitted, setSubmitted] = useState(localStorage.getItem('submitted'));
-  const [pictures, setPictures] = useState([Beach, Flower, Moon, Mountain]);
-  const [correctOrder, setOrder] = useState([Mountain, Flower, Beach, Moon]);
-  const [inOrder, setInOrder] = useState(false);
+  
+  
   const [hasKey, setHasKey] = useState(false);
-  const [hint, setHint] = useState("The bookshelf has many items, see if there is anything useful there.")
-  const { Howl, Howler } = require('howler');
-  Howler.volume(0.25);
+  
+
   const [name, setName] = useState(localStorage.getItem('name'))
   const [submitted, setSubmitted] = useState(localStorage.getItem('submitted'))
-  const [text, setMessages] = useState(["As you enter the cabin, the door locks behind you with a load thud. You are trapped... This place gives you the creeps. Let's try to find a way out."])
+  
 
-  const [second, setSecond] = useState('00');
-  const [minute, setMinute] = useState('00');
-  const [counter, setCounter] = useState(0);
 
-  const [sidebar, setSidebar] = useState(localStorage.getItem('sidebar'));
+
+  
   const [pictures, setPictures] = useState([Beach, Flower, Moon, Mountain])
   const [correctOrder, setOrder] = useState([Mountain, Flower, Beach, Moon])
   const [inOrder, setInOrder] = useState(false)
@@ -72,10 +66,7 @@ function App() {
   const [sidebar, setSidebar] = useState(localStorage.getItem('sidebar'));
   const [text, setMessages] = useState(["As you enter the cabin, the door locks behind you with a load thud. You are trapped... This place gives you the creeps. Let's try to find a way out."]);
 
-  const grabFinalKey = () => {
-    setFinalKeyVisible(false);
-    
-  }
+
 
   const showSidebar = (tf) => {
     setSidebar(tf);
@@ -212,6 +203,7 @@ function App() {
 
           <Route exact path="/keypad">
             <Keypad />
+            </Route>
 
           <Route exact path="/success">
             <Success finalKeyVisible={finalKeyVisible} name={name} second={second} minute={minute} changeSubmitted={changeSubmitted} showSidebar={showSidebar} />
@@ -221,26 +213,13 @@ function App() {
           <Route exact path="/bookshelf">
             <BookshelfView addMessage={addMessage} SolvedPuzzleLights={SolvedPuzzleLights} text={text} solvedLights={solvedLights} sidebar={sidebar} name={name} submitted={submitted} />
           </Route>
-
+            
           <Route exact path="/paintings">
             <PaintingView pictures={pictures} solvedLights={solvedLights} correctOrder={correctOrder}
               changePics={changePics} setInOrder={isInOrder}
               addMessage={addMessage} />
           </Route>
 
-          <Route exact path="/success">
-            <Success haskey={hasKey} name={name} second={second} minute={minute} changeSubmitted={changeSubmitted} showSidebar={showSidebar} />
-          </Route>
-
-
-          {/* <Route exact path="/cheater">
-
-          </Route> */}
-
-
-          {/* <Route exact path="/test">
-            <TestMap />
-          </Route> */}
           
 
           {submitted &&
@@ -252,11 +231,14 @@ function App() {
               </div>
             </div>
           }
+
+        </div>
           <Route exact path="/times" >
             <BestTimes showSidebar={showSidebar} changeSubmitted={changeSubmitted} />
           </Route>
-
-        </div>
+          <Route exact path="/success">
+            <Success haskey={hasKey} name={name} second={second} minute={minute} changeSubmitted={changeSubmitted} showSidebar={showSidebar} />
+          </Route>
       </div>
   );
 }
