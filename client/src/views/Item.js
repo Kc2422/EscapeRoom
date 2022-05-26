@@ -1,10 +1,10 @@
 import * as React from "react";
 import { useMotionValue, Reorder } from "framer-motion";
 // import { useRaisedShadow } from "./use-raised-shadow";
-
+import Painting from '../files/pictures.wav';
 
 export const Item = (props) => {
-    const {item} = props
+    const {item} = props;
     const { Howl, Howler } = require('howler');
 
   const sound = () => {
