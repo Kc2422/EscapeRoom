@@ -40,121 +40,63 @@ const Mountain = require("./img/ArrFrameMountain.png")
 
 
 function App() {
-  const [hint, setHint] = useState("The bookshelf has many items, see if there is anything useful there.")
-  const { Howl, Howler } = require('howler');
-  Howler.volume(0.25);
-  const [name, setName] = useState(localStorage.getItem('name'))
-  const [submitted, setSubmitted] = useState(localStorage.getItem('submitted'))
-  const [text, setMessages] = useState(["As you enter the cabin, the door locks behind you with a load thud. You are trapped... This place gives you the creeps. Let's try to find a way out."])
-
-  const [second, setSecond] = useState('00');
-  const [minute, setMinute] = useState('00');
-  const [counter, setCounter] = useState(0);
-
-  const [sidebar, setSidebar] = useState(localStorage.getItem('sidebar'));
-  const [pictures, setPictures] = useState([Beach, Flower, Moon, Mountain])
-  const [correctOrder, setOrder] = useState([Mountain, Flower, Beach, Moon])
-  const [inOrder, setInOrder] = useState(false)
-
-
-  const [hasKey, setHasKey] = useState(false)
-
+  // Dependancies
+  const [name, setName] = useState(localStorage.getItem('name'));
+  const [submitted, setSubmitted] = useState(localStorage.getItem('submitted'));
+  const [pictures, setPictures] = useState([Beach, Flower, Moon, Mountain]);
+  const [correctOrder, setOrder] = useState([Mountain, Flower, Beach, Moon]);
+  const [inOrder, setInOrder] = useState(false);
+  const [hasKey, setHasKey] = useState(false);
   const [solvedLights, setSolvedLights] = useState(false);
-
   const [cabinetKeyVisible, setCabinetKeyVisible] = useState(true);
   const [finalKeyVisible, setFinalKeyVisible] = useState(true);
 
-  const grabFinalKey = () => {
-    setFinalKeyVisible(false);
-    setHasKey(true)
-  }
+
+  // Sidebar
+  const [sidebar, setSidebar] = useState(localStorage.getItem('sidebar'));
+  const [text, setMessages] = useState(["As you enter the cabin, the door locks behind you with a load thud. You are trapped... This place gives you the creeps. Let's try to find a way out."]);
 
   const showSidebar = (tf) => {
     setSidebar(tf);
     localStorage.setItem('sidebar', tf)
-  }
+  };
 
   const changeName = (n) => {
     setName(n)
-  }
+  };
 
   const addMessage = (m) => {
     setMessages([...text, m])
-  }
+  };
 
-  const changeSubmitted = (tf) => {
-    setSubmitted(tf)
-  }
-
-  const changePics = (values) => {
-    setPictures(values)
-  }
-
-
-  const isInOrder = (tf) => {
-    setInOrder(tf)
-  }
-
-
-  const SolvedPuzzleLights = (s) => {
-    setSolvedLights(s);
-  }
-
-  const onClickKeyHandler = (e) => {
-    addMessage("You found a key! You added it to your inventory.");
-    setCabinetKeyVisible(false);
-  }
-
-  useEffect(() => {
-    localStorage.setItem('sidebar', sidebar)
-  }, [sidebar])
-
-  useEffect(() => {
-    localStorage.setItem('name', name)
-  }, [name])
-
-  useEffect(() => {
-    localStorage.setItem('submitted', submitted)
-  }, [submitted])
+  // Timer and Hint Column
+  const [second, setSecond] = useState('00');
+  const [minute, setMinute] = useState('00');
+  const [counter, setCounter] = useState(0);
+  const [hint, setHint] = useState("The bookshelf has many items, see if there is anything useful there.");
 
 
   useEffect(() => {
     let intervalId;
-
     if (submitted) {
       intervalId = setInterval(() => {
-
-
         const secondCounter = counter % 60;
         const minuteCounter = Math.floor(counter / 60);
-
         const computedSecond = String(secondCounter).length === 1 ? `0${secondCounter}` : secondCounter;
         const computedMinute = String(minuteCounter).length === 1 ? `0${minuteCounter}` : minuteCounter;
-
         setSecond(computedSecond);
         setMinute(computedMinute);
-
         setCounter(counter => counter + 1);
-
       }, 1000)
     }
     return () => clearInterval(intervalId);
+  }, [submitted, counter]);
 
-  }, [submitted, counter])
+  // Audio
+  const { Howl, Howler } = require('howler');
+  const [sound, setSound] = useState(false);
+  Howler.volume(0.25);
 
-  useEffect(() => {
-    if (inOrder) {
-      setHint("What do the arrows on the painting mean?")
-    }
-    if (solvedLights) {
-      setHint("The code to the safe is contained in a riddle.")
-    }
-  }, [solvedLights, inOrder])
-
-
-  const [sound, setSound] = useState(false)
-
-  // let audioIcon = require('./img/sound.png');
   const [audioIcon, setAudioIcon] = useState(require('./img/mute.png'))
   const onClickAudio = (e) => {
     console.log(sound)
@@ -174,16 +116,66 @@ function App() {
       setSound(newsound)
       newsound.play();
     }
-  }
+  };
+
+  // Misc Methods
+  const grabFinalKey = () => {
+    setFinalKeyVisible(false);
+    setHasKey(true)
+  };
+
+  const changeSubmitted = (tf) => {
+    setSubmitted(tf)
+  };
+
+  const changePics = (values) => {
+    setPictures(values)
+  };
+
+  const isInOrder = (tf) => {
+    setInOrder(tf)
+  };
+
+  const SolvedPuzzleLights = (s) => {
+    setSolvedLights(s);
+  };
+
+  const onClickKeyHandler = (e) => {
+    addMessage("You found a key! You added it to your inventory.");
+    setCabinetKeyVisible(false);
+  };
+
+  useEffect(() => {
+    localStorage.setItem('sidebar', sidebar)
+  }, [sidebar]);
+
+  useEffect(() => {
+    localStorage.setItem('name', name)
+  }, [name]);
+
+  useEffect(() => {
+    localStorage.setItem('submitted', submitted)
+  }, [submitted]);
+
+  useEffect(() => {
+    if (inOrder) {
+      setHint("What do the arrows on the painting mean?")
+    }
+    if (solvedLights) {
+      setHint("The code to the safe is contained in a riddle.")
+    }
+  }, [solvedLights, inOrder]);
 
   return (
-    <>
-
       <div className={submitted ? "backgroundColor" : null} >
         <Navbar name={name} submitted={submitted} />
+
         <Route exact path="/">
           <Home changeName={changeName} name={name} setSubmitted={changeSubmitted} showSidebar={showSidebar} />
         </Route>
+
+        <AudioButton audioIcon={audioIcon} onClickAudio={onClickAudio} />
+
         <div style={{ display: "flex", justifyContent: 'space-evenly', marginTop: "5%" }}>
 
           {submitted &&
@@ -196,8 +188,9 @@ function App() {
           <Route exact path="/lights">
             <LightsView finalKeyVisible={finalKeyVisible} grabFinalKey={grabFinalKey} cabinetKeyVisible={cabinetKeyVisible} inOrder={inOrder} addMessage={addMessage} SolvedPuzzleLights={SolvedPuzzleLights} text={text} solvedLights={solvedLights} sidebar={sidebar} name={name} submitted={submitted} />
           </Route>
-          <Route exact path="/success">
-            <Success haskey={hasKey} name={name} second={second} minute={minute} changeSubmitted={changeSubmitted} showSidebar={showSidebar} />
+
+          <Route exact path="/keypad">
+            <Keypad />
           </Route>
 
           <Route exact path="/bookshelf">
@@ -210,17 +203,18 @@ function App() {
               addMessage={addMessage} />
           </Route>
 
-          <Route exact path="/cheater">
-
+          <Route exact path="/success">
+            <Success haskey={hasKey} name={name} second={second} minute={minute} changeSubmitted={changeSubmitted} showSidebar={showSidebar} />
           </Route>
 
-          <Route exact path="/keypad">
-            <Keypad />
-          </Route>
-          
-          <Route exact path="/test">
+          {/* <Route exact path="/cheater">
+
+          </Route> */}
+
+
+          {/* <Route exact path="/test">
             <TestMap />
-          </Route>
+          </Route> */}
 
           {submitted &&
             <div className='card' style={{ width: "18rem", height: "10rem" }}>
@@ -231,17 +225,12 @@ function App() {
               </div>
             </div>
           }
-
+          <Route exact path="/times" >
+            <BestTimes showSidebar={showSidebar} changeSubmitted={changeSubmitted} />
+          </Route>
 
         </div>
-        <AudioButton audioIcon={audioIcon} onClickAudio={onClickAudio} />
       </div>
-
-      <Route exact path="/times" >
-        <BestTimes showSidebar={showSidebar} changeSubmitted={changeSubmitted} />
-      </Route>
-
-    </>
   );
 }
 
