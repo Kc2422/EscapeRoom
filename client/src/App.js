@@ -23,7 +23,6 @@ import HTMLFlipBook from "react-pageflip";
 
 import Success from './views/Success';
 import BestTimes from './views/BestTimes';
-import TestMap from './views/TestMap';
 import Keypad from './components/Keypad';
 
 import Triller from './files/Triller.m4a';
@@ -57,7 +56,7 @@ function App() {
   const [inOrder, setInOrder] = useState(false)
 
 
-  const [hasKey, setHasKey] = useState(false)
+
 
   const [solvedLights, setSolvedLights] = useState(false);
 
@@ -66,7 +65,7 @@ function App() {
 
   const grabFinalKey = () => {
     setFinalKeyVisible(false);
-    setHasKey(true)
+    
   }
 
   const showSidebar = (tf) => {
@@ -190,14 +189,14 @@ function App() {
             <Sidebar sidebar={sidebar} text={text} audioIcon={audioIcon} onClickAudio={onClickAudio} />}
 
           <Route exact path="/door">
-            <FrontDoorView onClickKeyHandler={onClickKeyHandler} cabinetKeyVisible={cabinetKeyVisible} addMessage={addMessage} hasKey={hasKey} solvedLights={solvedLights} name={name} minute={minute} second={second} counter={counter} />
+            <FrontDoorView onClickKeyHandler={onClickKeyHandler} cabinetKeyVisible={cabinetKeyVisible} finalKeyVisible={finalKeyVisible} addMessage={addMessage} solvedLights={solvedLights} name={name} minute={minute} second={second} counter={counter} />
           </Route>
 
           <Route exact path="/lights">
             <LightsView finalKeyVisible={finalKeyVisible} grabFinalKey={grabFinalKey} cabinetKeyVisible={cabinetKeyVisible} inOrder={inOrder} addMessage={addMessage} SolvedPuzzleLights={SolvedPuzzleLights} text={text} solvedLights={solvedLights} sidebar={sidebar} name={name} submitted={submitted} />
           </Route>
           <Route exact path="/success">
-            <Success haskey={hasKey} name={name} second={second} minute={minute} changeSubmitted={changeSubmitted} showSidebar={showSidebar} />
+            <Success finalKeyVisible={finalKeyVisible} name={name} second={second} minute={minute} changeSubmitted={changeSubmitted} showSidebar={showSidebar} />
           </Route>
 
           <Route exact path="/bookshelf">
@@ -218,10 +217,7 @@ function App() {
             <Keypad />
           </Route>
           
-          <Route exact path="/test">
-            <TestMap />
-          </Route>
-
+        
           {submitted &&
             <div className='card' style={{ width: "18rem", height: "10rem" }}>
               <div className='card-body' style={{ textAlign: "center" }}>
