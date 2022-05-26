@@ -4,8 +4,6 @@ import { useMotionValue, Reorder } from "framer-motion";
 import { Howl, Howler } from 'howler';
 import Painting from '../files/pictures.wav';
 
-
-
 export const Item = (props) => {
     const {item} = props
     const { Howl, Howler } = require('howler');
@@ -16,7 +14,8 @@ export const Item = (props) => {
       volume: 20,
   });
   effect.play();
-  }
+  };
+  
   const y = useMotionValue(0);
 //   const boxShadow = useRaisedShadow(y);
 

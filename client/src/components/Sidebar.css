@@ -1,12 +1,7 @@
 .sidebar {
-    
-    
     width: 15%;
     height: 50vh;
-    /* background-color: #81969d; */
-    background-color: #0a9ed0;
     overflow: auto;
-    /* border-radius: 10px; */
   }
 
   .sidebar ul {

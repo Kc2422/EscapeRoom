@@ -26,9 +26,10 @@ const Lights = (props) => {
                 props.addMessage("Hmmm. The light switches do not look to be in the right order.");
                 return
             }
-        }
+        };
+
         setinOrderLights(true);
-        console.log("lights order" + inOrderLights)
+
         if(props.inOrder && inOrderLights){
             props.SolvedPuzzleLights(true);
             let effect = new Howl({
@@ -37,9 +38,10 @@ const Lights = (props) => {
             effect.play();
             props.addMessage("You heard something open! Take a look around to see what it was.");
             return
-        }
-        props.addMessage("Hmmm something seems off.")
-        return
+        };
+
+        props.addMessage("Hmmm something seems off.");
+        return;
     },[light1, light2, light3, light4, inOrderLights])
     
 
@@ -48,17 +50,16 @@ const Lights = (props) => {
             src: [SwitchSound],
         });
         effect.play();
-    }
+    };
 
     return(
         <div>
             <motion.div>
                 <img style={{ width:"250%", position:"absolute", marginLeft:"-180%", marginTop:"50%", borderRadius:"5px"}} src={require('../img/LightsCloseUp.png')} alt="background"/>
-                <img id="1" style={{ width:"50%", position:"absolute", marginLeft:"-170%", marginTop:"90%", borderRadius:"5px"}} src={light1 ? OnSwitch : OffSwitch} alt='light switch' onClick={()=> {setLight1(!light1); lightSound(); }}/>
-                <img id="2" style={{ width:"50%", position:"absolute", marginLeft:"-110%", marginTop:"90%", borderRadius:"5px"}} src={light2 ? OnSwitch : OffSwitch} alt='light switch' onClick={()=> {setLight2(!light2); lightSound();}}/>
-                <img id="3" style={{ width:"50%", position:"absolute", marginLeft:"-50%", marginTop:"90%", borderRadius:"5px"}} src={light3 ? OnSwitch : OffSwitch} alt='light switch' onClick={()=> {setLight3(!light3); lightSound();}}/>
-                <img id="4" 
-                style={{ width:"50%", position:"absolute", marginLeft:"10%", marginTop:"90%", borderRadius:"5px"}} src={light4 ? OnSwitch : OffSwitch} alt='light switch' onClick={()=> {setLight4(!light4); lightSound();}}/>
+                <img style={{ width:"50%", position:"absolute", marginLeft:"-170%", marginTop:"90%", borderRadius:"5px"}} src={light1 ? OnSwitch : OffSwitch} alt='light switch' onClick={()=> {setLight1(!light1); lightSound(); }}/>
+                <img style={{ width:"50%", position:"absolute", marginLeft:"-110%", marginTop:"90%", borderRadius:"5px"}} src={light2 ? OnSwitch : OffSwitch} alt='light switch' onClick={()=> {setLight2(!light2); lightSound();}}/>
+                <img style={{ width:"50%", position:"absolute", marginLeft:"-50%", marginTop:"90%", borderRadius:"5px"}} src={light3 ? OnSwitch : OffSwitch} alt='light switch' onClick={()=> {setLight3(!light3); lightSound();}}/>
+                <img style={{ width:"50%", position:"absolute", marginLeft:"10%", marginTop:"90%", borderRadius:"5px"}} src={light4 ? OnSwitch : OffSwitch} alt='light switch' onClick={()=> {setLight4(!light4); lightSound();}}/>
 
                 <AnimatePresence>
                     {props.isVisible && (
@@ -70,7 +71,6 @@ const Lights = (props) => {
                         </motion.div>
                     )}
                 </AnimatePresence>
-
             </motion.div>
         </div>
     )

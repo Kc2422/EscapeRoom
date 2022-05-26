@@ -4,23 +4,23 @@ import './Door.css';
 import { Reorder } from "framer-motion";
 import { Item } from "./Item";
 
-const BookshelfView = (props) => {
-    const { pictures, solvedPuzzle1, correctOrder, changePics, addMessage} = props
-    const [items, setItems] = useState(pictures)
-    const [correctItems, setCorrectItems ] = useState(correctOrder)
-    const history = useHistory()
+const PaintingView = (props) => {
+    const { pictures, solvedPuzzle1, correctOrder, changePics, addMessage } = props;
+    const [items, setItems] = useState(pictures);
+    const [correctItems, setCorrectItems] = useState(correctOrder);
+    const history = useHistory();
 
     useEffect(() => {
         setItems(pictures)
         setCorrectItems(correctOrder)
-    }, [props])
+    }, [props]);
 
     useEffect(() => {
-        if(items){
+        if (items) {
 
-            for(let i =0; i<items.length; i++){
-                
-                if (items[i] !== correctItems[i]){
+            for (let i = 0; i < items.length; i++) {
+
+                if (items[i] !== correctItems[i]) {
                     // console.log("incorrect")
                     props.setInOrder(false)
                     return
@@ -34,56 +34,47 @@ const BookshelfView = (props) => {
             // you can make a ternary to set the items as unclickable??
             return
         }
-    },[items])
-
+    }, [items]);
 
     const onClickRightHandler = (e) => {
-        history.push("/lights")
-    }
+        history.push("/lights");
+    };
 
     const onClickLeftHandler = (e) => {
-        history.push("/bookshelf")
-    }
+        history.push("/bookshelf");
+    };
 
     const onClickTable = (e) => {
         addMessage("Hmm. Seems like an ordinary table. You lift up the table cloth, but find nothing.");
-    }
+    };
 
     const onClickBoxes = (e) => {
-
         addMessage("These boxes have an oddly sweet smelling aroma. You look through the boxes, but you find nothing but dried flower petals.");
+    };
 
-    }
 
+    return (
+        <div className="gameWindow position-relative">
+            <img className="gameBackground" src={require('../img/Wall.jpg')} alt="Wall" />
 
-    return(
-        <div className="gameWindow position-relative">  
-            <img className="gameBackground" src={require('../img/Wall.jpg')} alt="Wall"/>
-                    
             <img className="clothTable position-absolute top-50 start-50 translate-middle clickable" src={require('../img/table.png')} alt='chest' onClick={onClickTable} />
-            
-            
             <img className="boxes position-absolute top-50 end-0 translate-middle-y clickable" src={require('../img/boxes.png')} alt='boxes' onClick={onClickBoxes} />
-            
             <img className="arrow position-absolute top-50 start-0 translate-middle-y clickable" src={require('../img/leftArrow.png')} alt='left arrow' onClick={onClickLeftHandler} />
-            <img className="arrow position-absolute top-50 end-0 translate-middle-y clickable" src={require('../img/rightArrow.png')} alt='right arrow' onClick={onClickRightHandler}/>
-
+            <img className="arrow position-absolute top-50 end-0 translate-middle-y clickable" src={require('../img/rightArrow.png')} alt='right arrow' onClick={onClickRightHandler} />
             <img className="rug position-absolute bottom-0 start-50 translate-middle-x" src={require('../img/rug.png')} alt="rug" />
 
             <div className='pushList position-absolute top-0'>
-
-            <Reorder.Group axis="x" onReorder={changePics} values={items}>
-                <div className='paintings '>
-
-                {items.map((item) => (
-                    <Item key={item} item={item} ></Item>
-                ))}
-                </div>
-
-            </Reorder.Group>
+                <Reorder.Group axis="x" onReorder={changePics} values={items}>
+                    <div className='paintings '>
+                        {items.map((item) => (
+                            <Item key={item} item={item} ></Item>
+                        ))}
+                    </div>
+                </Reorder.Group>
             </div>
+            
         </div>
     )
 }
 
-export default BookshelfView;
+export default PaintingView;

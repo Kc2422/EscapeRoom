@@ -1,4 +1,3 @@
-
 import styles from "./navbar.module.css"
 
 const Navbar = (props) => {

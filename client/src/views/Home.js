@@ -15,7 +15,6 @@ const Home = (props) => {
     const { Howl, Howler } = require('howler');
 
 
-
     const onSubmitHandler = (e) => {
         e.preventDefault();
         props.setSubmitted(true);
@@ -26,26 +25,23 @@ const Home = (props) => {
             src: [DoorSound],
         });
         effect.play();
-    }
+    };
 
     const onChangeHandler = (e) => {
         props.changeName(e.target.value)
-    }
+    };
 
     useEffect(() => {
         props.setSubmitted(false)
-    }, [])
+    }, []);
 
     useEffect(() => {
         props.showSidebar(false)
-    }, [])
+    }, []);
 
     useEffect(() => {
         props.changeName("")
-    }, [])
-
-
-
+    }, []);
 
 
     return (
