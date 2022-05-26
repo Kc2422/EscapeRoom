@@ -1,19 +1,41 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { useHistory } from 'react-router-dom';
 import './Door.css';
 import { Reorder } from "framer-motion";
 import { Item } from "./Item";
+import { Howl, Howler } from 'howler';
+import Painting from '../files/pictures.wav'
 
 const PaintingView = (props) => {
-    const { pictures, solvedPuzzle1, correctOrder, changePics, addMessage } = props;
-    const [items, setItems] = useState(pictures);
-    const [correctItems, setCorrectItems] = useState(correctOrder);
+
+    const { pictures, solvedPuzzle1, correctOrder, changePics, addMessage} = props
+    const [items, setItems] = useState(pictures)
+    const [correctItems, setCorrectItems ] = useState(correctOrder)
+    const didRender = useRef(false);
     const history = useHistory();
+
+
+    const { Howl, Howler } = require('howler');
+    useEffect(()=>{
+        if(didRender.current){sound()}
+        else didRender.current = true
+    },[items])
+
+    const sound = () => {
+        let effect = new Howl({
+          src: [Painting],
+          volume: 20,
+      });
+      effect.play();
+    }
+
 
     useEffect(() => {
         setItems(pictures)
         setCorrectItems(correctOrder)
     }, [props]);
+
+    
 
     useEffect(() => {
         if (items) {
