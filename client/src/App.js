@@ -23,7 +23,6 @@ import HTMLFlipBook from "react-pageflip";
 
 import Success from './views/Success';
 import BestTimes from './views/BestTimes';
-import TestMap from './views/TestMap';
 import Keypad from './components/Keypad';
 
 import Triller from './files/Triller.m4a';
@@ -47,6 +46,23 @@ function App() {
   const [correctOrder, setOrder] = useState([Mountain, Flower, Beach, Moon]);
   const [inOrder, setInOrder] = useState(false);
   const [hasKey, setHasKey] = useState(false);
+  const [hint, setHint] = useState("The bookshelf has many items, see if there is anything useful there.")
+  const { Howl, Howler } = require('howler');
+  Howler.volume(0.25);
+  const [name, setName] = useState(localStorage.getItem('name'))
+  const [submitted, setSubmitted] = useState(localStorage.getItem('submitted'))
+  const [text, setMessages] = useState(["As you enter the cabin, the door locks behind you with a load thud. You are trapped... This place gives you the creeps. Let's try to find a way out."])
+
+  const [second, setSecond] = useState('00');
+  const [minute, setMinute] = useState('00');
+  const [counter, setCounter] = useState(0);
+
+  const [sidebar, setSidebar] = useState(localStorage.getItem('sidebar'));
+  const [pictures, setPictures] = useState([Beach, Flower, Moon, Mountain])
+  const [correctOrder, setOrder] = useState([Mountain, Flower, Beach, Moon])
+  const [inOrder, setInOrder] = useState(false)
+
+
   const [solvedLights, setSolvedLights] = useState(false);
   const [cabinetKeyVisible, setCabinetKeyVisible] = useState(true);
   const [finalKeyVisible, setFinalKeyVisible] = useState(true);
@@ -55,6 +71,11 @@ function App() {
   // Sidebar
   const [sidebar, setSidebar] = useState(localStorage.getItem('sidebar'));
   const [text, setMessages] = useState(["As you enter the cabin, the door locks behind you with a load thud. You are trapped... This place gives you the creeps. Let's try to find a way out."]);
+
+  const grabFinalKey = () => {
+    setFinalKeyVisible(false);
+    
+  }
 
   const showSidebar = (tf) => {
     setSidebar(tf);
@@ -182,7 +203,7 @@ function App() {
             <Sidebar sidebar={sidebar} text={text} audioIcon={audioIcon} onClickAudio={onClickAudio} />}
 
           <Route exact path="/door">
-            <FrontDoorView onClickKeyHandler={onClickKeyHandler} cabinetKeyVisible={cabinetKeyVisible} addMessage={addMessage} hasKey={hasKey} solvedLights={solvedLights} name={name} minute={minute} second={second} counter={counter} />
+            <FrontDoorView onClickKeyHandler={onClickKeyHandler} cabinetKeyVisible={cabinetKeyVisible} finalKeyVisible={finalKeyVisible} addMessage={addMessage} solvedLights={solvedLights} name={name} minute={minute} second={second} counter={counter} />
           </Route>
 
           <Route exact path="/lights">
@@ -191,6 +212,10 @@ function App() {
 
           <Route exact path="/keypad">
             <Keypad />
+
+          <Route exact path="/success">
+            <Success finalKeyVisible={finalKeyVisible} name={name} second={second} minute={minute} changeSubmitted={changeSubmitted} showSidebar={showSidebar} />
+
           </Route>
 
           <Route exact path="/bookshelf">
@@ -207,6 +232,7 @@ function App() {
             <Success haskey={hasKey} name={name} second={second} minute={minute} changeSubmitted={changeSubmitted} showSidebar={showSidebar} />
           </Route>
 
+
           {/* <Route exact path="/cheater">
 
           </Route> */}
@@ -215,6 +241,7 @@ function App() {
           {/* <Route exact path="/test">
             <TestMap />
           </Route> */}
+          
 
           {submitted &&
             <div className='card' style={{ width: "18rem", height: "10rem" }}>

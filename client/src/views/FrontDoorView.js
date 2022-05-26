@@ -8,7 +8,7 @@ import Tada from "../files/tada.wav";
 import KeySound from "../files/keySound.aiff";
 
 const FrontDoorView = (props) => {
-    const {addMessage, hasKey, solvedLights, name, minute, second, counter} = props
+    const {addMessage, solvedLights, name, minute, second, counter, finalKeyVisible, cabinetKeyVisible} = props
     const history = useHistory()
     const { Howl, Howler } = require('howler');
     
@@ -23,7 +23,7 @@ const FrontDoorView = (props) => {
 
     const clickLock = (e) => {
         console.log(counter)
-        if(hasKey){
+        if(!finalKeyVisible){
             axios.post('http://localhost:8000/api/user', {name: `${name}`, timeTaken: `${minute} minutes ${second} seconds`, seconds: counter})
             .then(res => console.log(res))
             .catch(err => console.log(err))
@@ -39,10 +39,12 @@ const FrontDoorView = (props) => {
             });
             effect.play();
 
-        }else{
-            addMessage("The door is locked, you need a key")
-        }
-    };
+        }else if(!cabinetKeyVisible){
+            addMessage("The key doesn't fit!")
+        }else addMessage("The door is locked, you need a key.")
+        
+    }
+
 
     const keySound = () => {
         let effect = new Howl({
