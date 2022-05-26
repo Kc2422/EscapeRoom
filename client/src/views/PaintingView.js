@@ -1,32 +1,32 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { useHistory } from 'react-router-dom';
-import './Door.css';
+import '../CSS/PaintingView.css';
 import { Reorder } from "framer-motion";
-import { Item } from "./Item";
+import { Item } from "../components/Item";
 import { Howl, Howler } from 'howler';
 import Painting from '../files/pictures.wav'
 
 const PaintingView = (props) => {
 
-    const { pictures, solvedPuzzle1, correctOrder, changePics, addMessage} = props
+    const { pictures, solvedPuzzle1, correctOrder, changePics, addMessage } = props
     const [items, setItems] = useState(pictures)
-    const [correctItems, setCorrectItems ] = useState(correctOrder)
+    const [correctItems, setCorrectItems] = useState(correctOrder)
     const didRender = useRef(false);
     const history = useHistory();
 
 
     const { Howl, Howler } = require('howler');
-    useEffect(()=>{
-        if(didRender.current){sound()}
+    useEffect(() => {
+        if (didRender.current) { sound() }
         else didRender.current = true
-    },[items])
+    }, [items])
 
     const sound = () => {
         let effect = new Howl({
-          src: [Painting],
-          volume: 20,
-      });
-      effect.play();
+            src: [Painting],
+            volume: 20,
+        });
+        effect.play();
     }
 
 
@@ -35,7 +35,7 @@ const PaintingView = (props) => {
         setCorrectItems(correctOrder)
     }, [props]);
 
-    
+
 
     useEffect(() => {
         if (items) {
@@ -94,7 +94,7 @@ const PaintingView = (props) => {
                     </div>
                 </Reorder.Group>
             </div>
-            
+
         </div>
     )
 }

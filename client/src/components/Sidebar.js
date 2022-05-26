@@ -12,8 +12,8 @@ function Sidebar(props) {
 
   return (
     <nav className="card" style={{ width: "18em", height: "90vh", fontSize: "1.5em", overflow: "scroll" }} id="sideb">
-    
-     <ul className="m-3">
+
+      <ul className="m-3">
         {text.map((item, i) => <li className="m-3" key={i}>{item}</li>)}
       </ul>
 

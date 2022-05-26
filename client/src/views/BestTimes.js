@@ -29,7 +29,7 @@ const BestTimes = (props) => {
             <h1 className='best'>Best times</h1>
 
             <span className='padding'>
-                <a href="/" className='btn btn-success'>Play again</a>
+                <a href="/" className='btn btn-success m-3'>Play again</a>
             </span>
 
             <table className='table table-bordered w-auto backgroundTable'>

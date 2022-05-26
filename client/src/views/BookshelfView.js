@@ -1,10 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { useHistory } from 'react-router-dom';
 import Book from '../components/Book';
-import './Door.css';
+import '../CSS/BookshelfView.css';
 import { motion, AnimatePresence } from "framer-motion";
-
-
 
 
 const BookshelfView = (props) => {

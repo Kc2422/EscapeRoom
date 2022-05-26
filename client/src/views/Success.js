@@ -4,18 +4,15 @@ import bgImage from '../files/movingwoods.mp4';
 
 const Success = (props) => {
 
-    const {  name, second, minute, changeSubmitted, showSidebar } = props
-    const history = useHistory()
+    const {  name, second, minute, changeSubmitted, showSidebar, haskey } = props;
+    const history = useHistory();
 
     useEffect(() => {
         changeSubmitted(false)
         showSidebar(false)
-        // if(!haskey){
-        //     history.push("/cheater")
-        // }else{
-
-        // }
-
+        if(haskey){
+            history.push("/cheater");
+        }
     }, []);
 
     return (
