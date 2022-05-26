@@ -2,7 +2,7 @@
   text-align: center;
 }
 
-.App-logo {
+/* .App-logo {
   height: 40vmin;
   pointer-events: none;
 }
@@ -11,12 +11,7 @@
   .App-logo {
     animation: App-logo-spin infinite 20s linear;
   }
-} 
-
-.homeBackground{
-  background-image: url("https://media.blenderartists.org/uploads/default/optimized/4X/a/a/d/aade7a3f924a85d4339c347c801e3edfabf47f2f_2_1380x776.jpeg");
-  background-size:cover;
-}
+}  */
 
 .App-header {
   background-color: #282c34;
@@ -33,280 +28,24 @@
   color: #61dafb;
 } 
 
-@keyframes App-logo-spin {
+/* @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);
   }
   to {
     transform: rotate(360deg);
   }
+} */
+
+/* Global Classes */
+.homeBackground{
+  background-image: url("https://media.blenderartists.org/uploads/default/optimized/4X/a/a/d/aade7a3f924a85d4339c347c801e3edfabf47f2f_2_1380x776.jpeg");
+  background-size:cover;
 }
 
-
-/* GAME WINDOW CSS */
-.gameWindow {
-  border: 5px solid black;
-  display: block;
-  
-  /* margin-left: auto;
-  margin-right:5%;
-  margin-top:5%;  */
-  width: 50%;
-  height: fit-content;
-}
-
-.finalKey{
-  width: 10%;
-  display: block;
-  margin-top: 2%;
-  margin-right: 11%;
-}
-.gameBackground {
-  width:100%;
-}
-
-.arrow{
-  width: 10%;
-}
-
-.rug {
-  width:75%;
-}
-
-.rug2{
-  position: relative;
-  bottom: 5%;
-  left: 20%;
-}
-
-.lock {
-  width:10%;
-  display: block;
-  margin-left: 8%;
-  margin-right:auto;
-  margin-top:35%;
-}
-
-.armChair {
-  width:50%;
-  display: block;
-  margin-left: auto;
-  margin-right:5%;
-  margin-top:50px;
-}
-
-.clothTable {
-  width: 40%; 
-  display: block;
-  margin-left: auto;
-  margin-right:5%;
-  margin-top:50px;
-} 
-
-.coffeeTable{
-  width: 70%;
-  display: block;
-  margin-top: 5%;
-  margin-left: -15%;
-}
-
-.window{
-  width: 30%;
-  /* display: block; */
-  margin-top: 15%;
-  margin-left: 10%;
-}
-
-.mirror {
-  width: 45%;
-  /* display: block; */
-  margin-top: 32%;
-  margin-left: 20%;
-}
-
-.boxes{
-  width: 30%;
-  display: block;
-  margin-left: 7%;
-  margin-top:50px;
-}
-
-.chest{
-  width: 30%;
-  display: block;
-  margin-left: 6%;
-  margin-top:20%;
-  z-index: 1; 
-}
-
-.lamp {
-  width:60%;
-  display: block;
-  margin-left: auto;
-  margin-left:20%;
-  margin-top:38%;
-}
-
-.tree {
-  width:28%;
-  display: block;
-  margin-left: auto;
-  margin-left:30%;
-  margin-top:30%;
-}
-
-.drawer {
-  width: 20%;
-  margin-left: 2%;
-}
-
-.drawer1 {
-  width: 20%;
-  display: block;
-  margin-top:-8%;
-  margin-left: auto;
-}
-
-.riddle {
-  background-size:100%;
-  width: 80%;
-}
-
-.lights {
-  background-image: url('./img/lightSwitches.png');
-  background-size:100%;
-  height: 10%;
-  width: 29%;
-  display: block;
-  margin-left: auto;
-  margin-right:5%;
-  margin-top:15%;
-}
-
-.safe {
-  width: 15%;
-  display: block;
-  margin-left: auto;
-  margin-right: 9%;
-  margin-top:2%;
-
-}
-
-.keypad {
-  background-size:100%;
-  width: 60%;
-}
-
-.word {
-  display: block;
-  margin-left: auto;
-  margin-right:9%;
-  margin-top:20%;
-}
-
-.book{
-  background-image: url('./img/book.png');
-  background-size:100%;
-  width: 13%;
-  display: block;
-  margin-left: 23%;
-  margin-top: -5%;
-  z-index: 1;
-}
-
-.font {
-  font-family: 'Grape Nuts', cursive;
-  font-size: 1vw;
-}
-
-.BookClues {
-  width:100%;
-  height:90%;
-  position: absolute;
-  display: block;
-  margin-left: auto;
-  margin-top:-80%;
-  z-index: 1;
-  /* margin-top: ; */
-}
-
-.bookPage{
-  width: 100%;
-}
-
-.rightPage{
-  background-image: url('./img/RightPage.png');
-  background-size:100%;
-  width: 100%;
-  height: 100%;
-  position: "absolute";
-  margin-left: "5%"; 
-  margin-top: "-80%";
-  
-}
-
-
-.leftPage{
-  background-image: url('./img/LeftPage.png');
-  background-size:100%;
-  width: 100%;
-  height: 100%;
-  position: absolute;
-  margin-left: "5%"; 
-  margin-top: "-80%"; 
-  
-}
-
-.letter{
-  background-image: url('./img/oldPaper.png');
-  background-size:100%;
-  width: 13%;
-  display: block;
-  margin-left: auto;
-  margin-top:11%;
-  
-}
-
-.clickable{
-  cursor: pointer;
-}
-
-.paintings{
-  display: flex;
-  justify-content: space-between;
-
-  
-}
-
-.painting{
-  height: 104%;
-  width: 84%;
-  margin: 10%;
-  cursor: pointer;
-}
-
-li{
-  
-  list-style: none;
-}
-
-.pushList{
-  
-  width: 100%;
-  height: 30%;
-  
-  
-}
-
-.success{
-  height: 100%;
-  width: 100%;
-  color:rgb(252, 252, 252);
-  text-align: center;
-  font-size: large;
-  padding-top: 10%;
-  background-size: cover;
-  z-index: 2;
+.muteButton {
+  width:3%;
+  margin: 1%;
 }
 
 .bgVideo{
@@ -319,8 +58,16 @@ li{
 }
 
 .backgroundTable{
- background-color: rgb(27, 56, 36, .8); 
- color: aliceblue;
+  background-color: rgb(27, 56, 36, .8); 
+  color: aliceblue;
+}
+
+.form{
+  position: absolute;
+  top: 0%;
+  left: 11%;
+  height: 20%;
+  width: 95%;
 }
 
 th, td{
@@ -343,39 +90,204 @@ th, td{
   box-shadow: 10px 5px 5px rgb(18, 17, 17);
 }
 
+/* GAME WINDOW */
+.gameWindow {
+  border: 5px solid black;
+  display: block;
+  width: 50%;
+  height: fit-content;
+}
+
+.gameBackground {
+  width:100%;
+}
+
+/* Objects */
+
+.arrow{
+  width: 10%;
+}
+
+.rug {
+  width:75%;
+}
+
+.clickable{
+  cursor: pointer;
+}
 
 
-
-
-.best{
-  
-  color: rgb(30, 207, 110);
+.head{
   text-align: center;
+  color: red;
 }
 
-.form{
-  position: absolute;
-  top: 0%;
-  left: 11%;
-  height: 20%;
-  width: 95%;
-}
-
-
-
-.timesPage{
+.hint{
+  top: 20%;
+  left: 80%;
+  width: 10%;
+  height: 30%;
+  padding: 10px;
+  font-size: 1.5vw;
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  
+  justify-content: space-evenly;
 }
 
-.padding{
-  margin: 0px auto;
+/* Front Door View */
+
+.finalKey {
+  width: 10%;
+  display: block;
+  margin-top: 2%;
+  margin-right: 11%;
 }
 
-.btnwidth{
+.lock {
+  width:10%;
+  display: block;
+  margin-left: 8%;
+  margin-right:auto;
+  margin-top:35%;
+}
+
+/* Bookshelf View */
+.armChair {
+  width:50%;
+  display: block;
+  margin-left: auto;
+  margin-right:5%;
+  margin-top:50px;
+}
+
+.lamp {
+  width:60%;
+  margin-left: auto;
+  margin-left:20%;
+  margin-top:38%;
+}
+
+.word {
+  margin-left: auto;
+  margin-right:9%;
+  margin-top:20%;
+}
+
+.book{
+  background-image: url('./img/book.png');
+  background-size:100%;
+  width: 13%;
+  margin-right: -2%;
+  margin-top: 20%;
+  z-index: 1;
+}
+
+.font {
+  font-family: 'Grape Nuts', cursive;
+  font-size: 1vw;
+}
+
+.BookClues {
   width:100%;
+  height:90%;
+  position: absolute;
+  margin-left: auto;
+  margin-top:-80%;
+  z-index: 1;
+}
+
+.bookPage{
+  width: 100%;
+}
+
+.rightPage{
+  background-image: url('./img/RightPage.png');
+  background-size:100%;
+  width: 100%;
+  height: 100%;
+  position: "absolute";
+  margin-left: "5%"; 
+  margin-top: "-80%";
+
+}
+
+.leftPage{
+  background-image: url('./img/LeftPage.png');
+  background-size:100%;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  margin-left: "5%"; 
+  margin-top: "-80%"; 
+
+}
+
+/* Paintings View */
+.clothTable {
+  width: 40%; 
+  display: block;
+  margin-left: auto;
+  margin-right:5%;
+  margin-top:50px;
+} 
+
+.boxes{
+  width: 30%;
+  margin-left: 7%;
+  margin-top:50px;
+}
+
+.paintings{
+  display: flex;
+  justify-content: space-between;
+}
+
+.painting{
+  height: 104%;
+  width: 84%;
+  margin: 10%;
+  cursor: pointer;
+}
+
+/* Lights View */
+.mirror {
+  width: 45%;
+  margin-top: 32%;
+  margin-left: 20%;
+}
+
+.drawer1 {
+  width: 20%;
+  margin-top:-8%;
+  margin-left: auto;
+}
+
+.riddle {
+  background-size:100%;
+  width: 80%;
+}
+
+.lights {
+  background-image: url('./img/lightSwitches.png');
+  background-size:100%;
+  height: 10%;
+  width: 29%;
+  margin-left: auto;
+  margin-right:5%;
+  margin-top:15%;
+}
+
+.safe {
+  width: 15%;
+  margin-left: auto;
+  margin-right: 9%;
+  margin-top:2%;
+}
+
+/* Safe KeyPad */
+.keypad {
+  background-size:100%;
+  width: 60%;
 }
 
 .codeInput{
@@ -392,10 +304,6 @@ th, td{
   top: 5%;
   left: 18%;
   
-}
-.muteButton {
-  width:3%;
-  margin: 1%;
 }
 
 .keypadimg{
@@ -507,26 +415,57 @@ th, td{
   left: 56%;
   width: 25%;
   height: 81%;
-  
+
 }
 
-.head{
-  text-align: center;
-  color: red;
+li{
+  
+  list-style: none;
 }
 
-
-
-.hint{
+.pushList{
   
-  top: 20%;
-  left: 80%;
-  width: 10%;
+  width: 100%;
   height: 30%;
-  padding: 10px;
-  font-size: 1.5vw;
+  
+  
+}
+
+
+/* Success Page */
+.success{
+  height: 100%;
+  width: 100%;
+  color:rgb(252, 252, 252);
+  text-align: center;
+  font-size: large;
+  padding-top: 10%;
+  background-size: cover;
+  z-index: 2;
+}
+
+
+/* Best Times Page */
+
+.best{
+  
+  color: rgb(30, 207, 110);
+  text-align: center;
+}
+
+.timesPage{
   display: flex;
   flex-direction: column;
-  justify-content: space-evenly;
-  
+  justify-content: center;
+  width: 100%;
+  height: 100vh;
 }
+
+.padding{
+  margin: 0px auto;
+}
+
+.btnwidth{
+  width:100%;
+}
+
