@@ -39,12 +39,14 @@ const Mountain = require("./img/ArrFrameMountain.png")
 
 function App() {
   // Dependancies
+
   const [name, setName] = useState(localStorage.getItem('name'));
   const [submitted, setSubmitted] = useState(localStorage.getItem('submitted'));
   const [pictures, setPictures] = useState([Beach, Flower, Moon, Mountain]);
   const [correctOrder, setOrder] = useState([Mountain, Flower, Beach, Moon]);
   const [inOrder, setInOrder] = useState(false);
   // const [hasKey, setHasKey] = useState(false);
+
 
 
   const [solvedLights, setSolvedLights] = useState(false);
@@ -181,21 +183,20 @@ function App() {
         {submitted &&
           <Sidebar sidebar={sidebar} text={text} audioIcon={audioIcon} onClickAudio={onClickAudio} />}
 
-        <Route exact path="/door">
-          <FrontDoorView onClickKeyHandler={onClickKeyHandler} cabinetKeyVisible={cabinetKeyVisible} finalKeyVisible={finalKeyVisible} addMessage={addMessage} solvedLights={solvedLights} name={name} minute={minute} second={second} counter={counter} />
-        </Route>
+          <Route exact path="/door">
+            <FrontDoorView onClickKeyHandler={onClickKeyHandler} cabinetKeyVisible={cabinetKeyVisible} finalKeyVisible={finalKeyVisible} addMessage={addMessage} solvedLights={solvedLights} name={name} minute={minute} second={second} counter={counter} />
+          </Route>
 
-        <Route exact path="/lights">
-          <LightsView finalKeyVisible={finalKeyVisible} grabFinalKey={grabFinalKey} cabinetKeyVisible={cabinetKeyVisible} inOrder={inOrder} addMessage={addMessage} SolvedPuzzleLights={SolvedPuzzleLights} text={text} solvedLights={solvedLights} sidebar={sidebar} name={name} submitted={submitted} />
-        </Route>
+          <Route exact path="/lights">
+            <LightsView finalKeyVisible={finalKeyVisible} grabFinalKey={grabFinalKey} cabinetKeyVisible={cabinetKeyVisible} inOrder={inOrder} addMessage={addMessage} SolvedPuzzleLights={SolvedPuzzleLights} text={text} solvedLights={solvedLights} sidebar={sidebar} name={name} submitted={submitted} />
+          </Route>
 
-        <Route exact path="/keypad">
-          <Keypad />
-        </Route>
+          <Route exact path="/keypad">
+            <Keypad />
+            </Route>
 
-        <Route exact path="/success">
-          <Success finalKeyVisible={finalKeyVisible} name={name} second={second} minute={minute} changeSubmitted={changeSubmitted} showSidebar={showSidebar} />
-
+          <Route exact path="/success">
+            <Success finalKeyVisible={finalKeyVisible} name={name} second={second} minute={minute} changeSubmitted={changeSubmitted} showSidebar={showSidebar} />
         </Route>
 
         <Route exact path="/bookshelf">
@@ -232,6 +233,7 @@ function App() {
         <Cheater haskey={finalKeyVisible} changeSubmitted={changeSubmitted} />
       </Route>
     </div>
+
   );
 }
 

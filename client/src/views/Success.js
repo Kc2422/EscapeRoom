@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useHistory, Link } from 'react-router-dom';
 import bgImage from '../files/movingwoods.mp4';
+import styles from "./Success.module.css"
 
 const Success = (props) => {
 
@@ -16,7 +17,7 @@ const Success = (props) => {
     }, []);
 
     return (
-        <div className='success'>
+        <div  className={styles.success}>
             <video className="bgVideo" autoPlay loop muted>
                 <source src={bgImage} type="video/mp4" />
             </video>

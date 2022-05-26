@@ -1,9 +1,8 @@
 import React, { useState, useEffect } from 'react';
+
 import '../CSS/LightsView.css';
 
-
 const keypadImage = require('../img/KeyPadCloseUp.png');
-
 const Keypad = (props) => {
 
     const [width, setWidth] = useState(window.screen.width)
@@ -121,8 +120,8 @@ const Keypad = (props) => {
 
     return (
         <>
-            <div className='keypad'>
-                <img className='keypadimg' src={keypadImage} alt="background" useMap='#workmap' id='keyp' />
+            <div className={styles.keypad}>
+                <img className={styles.keypadimg} src={keypadImage} alt="background" useMap='#workmap' id='keyp' />
                 {/* <map id = "workmap" name="workmap">
                 <area shape="rect" coords="48 210 180 280" alt="test" href={keypadImage} onClick={handleOnClick1}/>
                 <area shape="rect" coords="200 205 320 287" alt="test" href={keypadImage} onClick={handleOnClick2}/>
@@ -140,19 +139,19 @@ const Keypad = (props) => {
              */}
 
                 <div onSubmit={handleOnClickEnter} className="form ">
-                    <div className='codeInput'>{code}</div>
-                    <div className='abc clickable' onClick={handleOnClick1}></div>
-                    <div className='def clickable' onClick={handleOnClick2}></div>
-                    <div className='ghi clickable' onClick={handleOnClick3}></div>
-                    <div className='jkl clickable' onClick={handleOnClick4}></div>
-                    <div className='mno clickable' onClick={handleOnClick5}></div>
-                    <div className='pqr clickable' onClick={handleOnClick6}></div>
-                    <div className='stu clickable' onClick={handleOnClick7}></div>
-                    <div className='vwx clickable' onClick={handleOnClick8}></div>
-                    <div className='yz clickable' onClick={handleOnClick9}></div>
-                    <div className='delete clickable' onClick={handleOnClickDelete}></div>
-                    <div className='zero clickable' onClick={handleOnClick0}></div>
-                    <div className='enter clickable' onClick={handleOnClickEnter}></div>
+                    <div className={styles.codeInput} >{code}</div>
+                    <div className= {`${styles.abc} clickable`} clickable onClick={handleOnClick1}></div>
+                    <div className={`${styles.def} clickable`} onClick={handleOnClick2}></div>
+                    <div className={`${styles.ghi} clickable`} onClick={handleOnClick3}></div>
+                    <div className={`${styles.jkl} clickable`} onClick={handleOnClick4}></div>
+                    <div className={`${styles.mno} clickable`} onClick={handleOnClick5}></div>
+                    <div className={`${styles.pqr} clickable`} onClick={handleOnClick6}></div>
+                    <div className={`${styles.stu} clickable`} onClick={handleOnClick7}></div>
+                    <div className={`${styles.vwx} clickable`} onClick={handleOnClick8}></div>
+                    <div className={`${styles.yz} clickable`} onClick={handleOnClick9}></div>
+                    <div className={`${styles.delete} clickable`} onClick={handleOnClickDelete}></div>
+                    <div className={`${styles.zero} clickable`} onClick={handleOnClick0}></div>
+                    <div className={`${styles.enter} clickable`} onClick={handleOnClickEnter}></div>
                 </div>
             </div>
         </>

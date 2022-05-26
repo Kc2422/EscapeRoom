@@ -12,6 +12,7 @@ module.exports.makeUser = (req, res) => {
 }
 
 module.exports.findAllUsers = (req, res) => {
+
     User.find().sort('seconds').limit(10)
         .then(users => res.json(users))
         .catch(err => response.json(err))

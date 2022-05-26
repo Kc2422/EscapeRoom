@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from "axios";
+import styles from "./BestTimes.module.css"
 // import { useHistory, Link } from 'react-router-dom';
 
 const BestTimes = (props) => {
@@ -24,12 +25,12 @@ const BestTimes = (props) => {
 
     return (
 
-        <div className='timesPage'>
+        <div className={styles.timesPage}>
 
-            <h1 className='best'>Best times</h1>
+            <h1 className={styles.best}>Best times</h1>
 
-            <span className='padding'>
-                <a href="/" className='btn btn-success m-3'>Play again</a>
+            <span className={styles.centerButton}>
+                <a href="/" className='btn btn-success'>Play again</a>
             </span>
 
             <table className='table table-bordered w-auto backgroundTable'>

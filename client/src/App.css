@@ -7,9 +7,8 @@
   background-color: #282c34;
   min-height: 100vh;
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
+  
+  
   font-size: calc(10px + 2vmin);
   color: white;
 }
@@ -115,7 +114,7 @@ th, td{
   padding-top: 10%;
   background-size: cover;
   z-index: 2;
-}
+} 
 
 
 /* Best Times Page */
@@ -123,7 +122,7 @@ th, td{
 .best{
   color: rgb(30, 207, 110);
   text-align: center;
-}
+} 
 
 .timesPage{
   display: flex;
@@ -138,7 +137,8 @@ th, td{
 
 .btnwidth{
   width:100%;
-}
+} 
+
 
 .backgroundTable{
   background-color: rgb(27, 56, 36, .8); 
