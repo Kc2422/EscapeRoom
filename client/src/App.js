@@ -178,7 +178,7 @@ function App() {
 
       <AudioButton audioIcon={audioIcon} onClickAudio={onClickAudio} />
 
-      <div style={{ display: "flex", justifyContent: 'space-evenly', marginTop: "5%" }}>
+      <div style={{ display: "flex", justifyContent: 'space-evenly', marginTop: "2%" }}>
         
 
           <div style={{width: "70%"}}>
