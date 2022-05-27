@@ -1,7 +1,8 @@
 .NavBar{
     width: 100%;
-    height: 90px;
+    height: 12vw;
     background-color: #173d4b;
     text-align: center;
     color: white;
+    font-size: 2.5vw;
 }

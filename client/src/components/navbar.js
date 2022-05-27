@@ -4,7 +4,7 @@ const Navbar = (props) => {
 
     return (
         <div className={styles.NavBar} >
-            <h1>Abandoned Cabin Escape Room</h1>
+            <p>Abandoned Cabin Escape Room</p>
             {props.submitted && <p>Welcome {props.name}</p>}
         </div>
     )
