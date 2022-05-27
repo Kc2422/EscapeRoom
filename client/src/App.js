@@ -209,7 +209,7 @@ function App() {
             addMessage={addMessage} />
         </Route>
           </div>
-        
+        {submitted &&
           <div className='' style={{ width: "10%", height: "20%", margin: "0 5% 0 5%", fontSize: "1vw", backgroundColor: "white", padding: "2%", borderRadius: "5px"}}>
             <div className='' style={{ textAlign: "center" }}>
               <p className="">Time Spent in Cabin</p>
@@ -217,7 +217,7 @@ function App() {
               <button className='' onClick={() => { addMessage(hint) }}>Get Hint</button>
           </div>
 
-            </div>
+            </div>}
       </div>
         {submitted &&
         <>
