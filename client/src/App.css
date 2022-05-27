@@ -64,7 +64,8 @@ th, td{
 .gameWindow {
   border: 5px solid black;
   display: block;
-  width: 50%;
+  margin-left: 35%;
+  width: 60%;
   height: fit-content;
 }
 
