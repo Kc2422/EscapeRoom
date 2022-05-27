@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import "./Sidebar.css";
+import "../CSS/Sidebar.css";
 
 function Sidebar(props) {
   const { sidebar, text } = props

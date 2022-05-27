@@ -1,9 +1,9 @@
-import styles from "./navbar.module.css"
+import "../CSS/Navbar.css"
 
 const Navbar = (props) => {
 
     return (
-        <div className={styles.NavBar} >
+        <div className="NavBar" >
             <p>Abandoned Cabin Escape Room</p>
             {props.submitted && <p>Welcome {props.name}</p>}
         </div>
