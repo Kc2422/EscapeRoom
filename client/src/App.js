@@ -179,9 +179,9 @@ function App() {
       <AudioButton audioIcon={audioIcon} onClickAudio={onClickAudio} />
 
       <div style={{ display: "flex", justifyContent: 'space-evenly', marginTop: "5%" }}>
+        
 
-        {submitted &&
-          <Sidebar sidebar={sidebar} text={text} audioIcon={audioIcon} onClickAudio={onClickAudio} />}
+          <div style={{width: "70%"}}>
 
           <Route exact path="/door">
             <FrontDoorView onClickKeyHandler={onClickKeyHandler} cabinetKeyVisible={cabinetKeyVisible} finalKeyVisible={finalKeyVisible} addMessage={addMessage} solvedLights={solvedLights} name={name} minute={minute} second={second} counter={counter} />
@@ -208,18 +208,25 @@ function App() {
             changePics={changePics} setInOrder={isInOrder}
             addMessage={addMessage} />
         </Route>
-
-        {submitted &&
-          <div className='card' style={{ width: "18rem", height: "10rem" }}>
-            <div className='card-body' style={{ textAlign: "center" }}>
-              <h5 className="card-title">Time Spent in Cabin</h5>
-              <p className="card-text">{minute}:{second}</p>
-              <button className='btn btn-secondary' onClick={() => { addMessage(hint) }}>Get Hint</button>
-            </div>
           </div>
-        }
+        
+          <div className='' style={{ width: "10%", height: "20%", margin: "0 5% 0 5%", fontSize: "1vw", backgroundColor: "white", padding: "2%", borderRadius: "5px"}}>
+            <div className='' style={{ textAlign: "center" }}>
+              <p className="">Time Spent in Cabin</p>
+              <p className="t">{minute}:{second}</p>
+              <button className='' onClick={() => { addMessage(hint) }}>Get Hint</button>
+          </div>
 
+            </div>
       </div>
+        {submitted &&
+        <>
+        <div style={{display:"flex", justifyContent: "center"}}>
+          <Sidebar sidebar={sidebar} text={text} audioIcon={audioIcon} onClickAudio={onClickAudio} />
+        
+          </div>
+        </>
+        }
 
       <Route exact path="/times" >
         <BestTimes showSidebar={showSidebar} changeSubmitted={changeSubmitted} />
