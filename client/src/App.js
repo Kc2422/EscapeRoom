@@ -38,8 +38,9 @@ const Mountain = require("./img/ArrFrameMountain.png")
 
 
 function App() {
-  // Dependancies
+  // Dependencies
 
+  
   const [name, setName] = useState(localStorage.getItem('name'));
   const [submitted, setSubmitted] = useState(localStorage.getItem('submitted'));
   const [pictures, setPictures] = useState([Beach, Flower, Moon, Mountain]);
@@ -56,7 +57,7 @@ function App() {
 
   // Sidebar
   const [sidebar, setSidebar] = useState(localStorage.getItem('sidebar'));
-  const [text, setMessages] = useState(["As you enter the cabin, the door locks behind you with a load thud. You are trapped... This place gives you the creeps. Let's try to find a way out."]);
+  const [text, setMessages] = useState(["As you enter the cabin, the door locks behind you with a loud thud. You are trapped... This place gives you the creeps. Let's try to find a way out."]);
 
   const showSidebar = (tf) => {
     setSidebar(tf);
