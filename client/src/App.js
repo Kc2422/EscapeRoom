@@ -169,6 +169,8 @@ function App() {
     }
   }, [solvedLights, inOrder]);
 
+  
+
   return (
     <div>
       <Navbar name={name} submitted={submitted} />
@@ -196,9 +198,7 @@ function App() {
             <Keypad />
             </Route>
 
-          <Route exact path="/success">
-            <Success finalKeyVisible={finalKeyVisible} name={name} second={second} minute={minute} changeSubmitted={changeSubmitted} showSidebar={showSidebar} />
-        </Route>
+     
 
         <Route exact path="/bookshelf">
           <BookshelfView addMessage={addMessage} SolvedPuzzleLights={SolvedPuzzleLights} text={text} solvedLights={solvedLights} sidebar={sidebar} name={name} submitted={submitted} />

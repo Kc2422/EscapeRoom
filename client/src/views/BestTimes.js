@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from "axios";
 import "../CSS/BestTimes.css"
+import bgImage from '../files/movingwoods.mp4';
 // import { useHistory, Link } from 'react-router-dom';
 
 const BestTimes = (props) => {
@@ -24,7 +25,11 @@ const BestTimes = (props) => {
     }, []);
 
     return (
-
+        <>
+        
+<video className="bgVideo" autoPlay loop muted>
+                <source src={bgImage} type="video/mp4" />
+            </video>
         <div className="timesPage">
 
             <h1 className="best">Best times</h1>
@@ -52,6 +57,7 @@ const BestTimes = (props) => {
             </table>
 
         </div>
+        </>
     )
 }
 

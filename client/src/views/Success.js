@@ -16,11 +16,17 @@ const Success = (props) => {
         }
     }, []);
 
+    useEffect(() => {
+        document.getElementById('root').classList.remove("homeBackground")
+        
+    },[])
+
     return (
-        <div  className="success">
-            <video className="bgVideo" autoPlay loop muted>
+        <>
+        <video className="bgVideo" autoPlay loop muted>
                 <source src={bgImage} type="video/mp4" />
             </video>
+                <div  className="success">
 
             <div className='greenbox'>
                 <h1>
@@ -35,6 +41,7 @@ const Success = (props) => {
                 <a href="/" className='btn btn-primary'>Play again</a>
             </div>
         </div>
+        </>
     )
 }
 
